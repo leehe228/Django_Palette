@@ -4306,3 +4306,490 @@ November 17, 2020 - 11:56:39
 Django version 2.0.13, using settings 'project.settings'
 Starting development server at http://141.164.40.63:8000/
 Quit the server with CONTROL-C.
+[17/Nov/2020 16:05:49] "GET /media/test/database.json HTTP/1.1" 200 7031
+[17/Nov/2020 16:05:50] "GET /media/database/10000001/1.jpg HTTP/1.1" 200 214749
+[17/Nov/2020 16:05:50] "GET /media/database/10000002/1.jpg HTTP/1.1" 200 163878
+[17/Nov/2020 16:05:50] "GET /media/database/10000003/1.jpg HTTP/1.1" 200 127559
+[17/Nov/2020 16:05:51] "GET /media/database/10000004/1.jpg HTTP/1.1" 200 51393
+[17/Nov/2020 16:05:51] "GET /media/database/10000005/1.jpg HTTP/1.1" 200 72769
+[17/Nov/2020 16:05:51] "GET /media/database/10000006/1.jpg HTTP/1.1" 200 196394
+[17/Nov/2020 16:05:52] "GET /media/database/10000007/1.jpg HTTP/1.1" 200 64977
+[17/Nov/2020 16:05:52] "GET /media/database/10000008/1.jpg HTTP/1.1" 200 47297
+[17/Nov/2020 16:05:52] "GET /media/database/10000009/1.jpg HTTP/1.1" 200 60691
+[17/Nov/2020 16:05:52] "GET /media/database/10000010/1.jpg HTTP/1.1" 200 38623
+[17/Nov/2020 16:05:52] "GET /media/database/10000011/1.jpg HTTP/1.1" 200 59781
+[17/Nov/2020 16:05:52] "GET /media/database/10000012/1.jpg HTTP/1.1" 200 8732
+[17/Nov/2020 16:05:52] "GET /media/database/10000013/1.jpg HTTP/1.1" 200 8809
+Not Found: /
+[17/Nov/2020 16:28:59] "GET / HTTP/1.1" 404 2261
+----------------------------------------
+Exception happened during processing of request from ('74.120.14.53', 40828)
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 139, in handle
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+Not Found: /
+[17/Nov/2020 18:01:36] "GET / HTTP/1.1" 404 2268
+Not Found: /
+[17/Nov/2020 18:01:36] "GET / HTTP/1.1" 404 2268
+[17/Nov/2020 19:01:16] "GET /media/test/database.json HTTP/1.1" 200 7031
+[17/Nov/2020 19:01:16] "GET /media/database/10000001/1.jpg HTTP/1.1" 200 214749
+[17/Nov/2020 19:01:16] "GET /media/database/10000002/1.jpg HTTP/1.1" 200 163878
+[17/Nov/2020 19:01:16] "GET /media/database/10000003/1.jpg HTTP/1.1" 200 127559
+[17/Nov/2020 19:01:16] "GET /media/database/10000004/1.jpg HTTP/1.1" 200 51393
+[17/Nov/2020 19:01:16] "GET /media/database/10000005/1.jpg HTTP/1.1" 200 72769
+[17/Nov/2020 19:01:16] "GET /media/database/10000006/1.jpg HTTP/1.1" 200 196394
+[17/Nov/2020 19:01:16] "GET /media/database/10000007/1.jpg HTTP/1.1" 200 64977
+[17/Nov/2020 19:01:16] "GET /media/database/10000008/1.jpg HTTP/1.1" 200 47297
+[17/Nov/2020 19:01:16] "GET /media/database/10000009/1.jpg HTTP/1.1" 200 60691
+[17/Nov/2020 19:01:16] "GET /media/database/10000010/1.jpg HTTP/1.1" 200 38623
+[17/Nov/2020 19:01:16] "GET /media/database/10000011/1.jpg HTTP/1.1" 200 59781
+[17/Nov/2020 19:01:16] "GET /media/database/10000012/1.jpg HTTP/1.1" 200 8732
+[17/Nov/2020 19:01:16] "GET /media/database/10000013/1.jpg HTTP/1.1" 200 8809
+[17/Nov/2020 19:02:38] "POST /account/getInfo/ HTTP/1.1" 200 22
+[17/Nov/2020 19:02:41] "POST /account/getInfo/ HTTP/1.1" 200 22
+----------------------------------------
+Exception happened during processing of request from ('162.142.125.40', 41278)
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 139, in handle
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+Not Found: /
+[17/Nov/2020 19:14:27] "GET / HTTP/1.1" 404 2268
+Not Found: /
+[17/Nov/2020 19:14:27] "GET / HTTP/1.1" 404 2268
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 17, 2020 - 15:31:28
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7f0dc1d890d0>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 24, in <module>
+    path('gallery/', include('gallery.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/gallery/urls.py", line 2, in <module>
+    from . import views
+SyntaxError: invalid syntax (views.py, line 220)
+Performing system checks...
+
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7ff0a95220d0>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 24, in <module>
+    path('gallery/', include('gallery.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/gallery/urls.py", line 2, in <module>
+    from . import views
+SyntaxError: invalid syntax (views.py, line 216)
+Performing system checks...
+
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7f84f49ab0d0>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 24, in <module>
+    path('gallery/', include('gallery.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/gallery/urls.py", line 2, in <module>
+    from . import views
+  File "/home/palette/gallery/views.py", line 13, in <module>
+    from home.palette.account.models import User 
+ModuleNotFoundError: No module named 'home'
+Performing system checks...
+
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7f83da1dd0d0>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 24, in <module>
+    path('gallery/', include('gallery.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/gallery/urls.py", line 2, in <module>
+    from . import views
+  File "/home/palette/gallery/views.py", line 15, in <module>
+    from .models import User
+ImportError: cannot import name 'User' from 'gallery.models' (/home/palette/gallery/models.py)
+Performing system checks...
+
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7fd558cd00d0>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 24, in <module>
+    path('gallery/', include('gallery.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/gallery/urls.py", line 2, in <module>
+    from . import views
+  File "/home/palette/gallery/views.py", line 15, in <module>
+    from models import User
+  File "/home/palette/account/models.py", line 8, in <module>
+    class User(models.Model):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/db/models/base.py", line 105, in __new__
+    raise RuntimeError(
+RuntimeError: Model class models.User doesn't declare an explicit app_label and isn't in an application in INSTALLED_APPS.
+Performing system checks...
+
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7f923953d0d0>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 24, in <module>
+    path('gallery/', include('gallery.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/gallery/urls.py", line 2, in <module>
+    from . import views
+  File "/home/palette/gallery/views.py", line 15, in <module>
+    from home.palette.account.models import User
+ModuleNotFoundError: No module named 'home'
+Performing system checks...
+
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7f836feec0d0>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 24, in <module>
+    path('gallery/', include('gallery.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/gallery/urls.py", line 2, in <module>
+    from . import views
+  File "/home/palette/gallery/views.py", line 15, in <module>
+    from palette.account.models import User
+ModuleNotFoundError: No module named 'palette'
+Performing system checks...
+
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7f4a332c60d0>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 24, in <module>
+    path('gallery/', include('gallery.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/gallery/urls.py", line 2, in <module>
+    from . import views
+  File "/home/palette/gallery/views.py", line 15, in <module>
+    from models import User
+  File "/home/palette/account/models.py", line 8, in <module>
+    class User(models.Model):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/db/models/base.py", line 105, in __new__
+    raise RuntimeError(
+RuntimeError: Model class models.User doesn't declare an explicit app_label and isn't in an application in INSTALLED_APPS.

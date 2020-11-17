@@ -10,6 +10,9 @@ from PIL import Image
 from datetime import datetime
 from .models import Images
 from django.shortcuts import render
+##import sys
+#3sys.path.insert(1, "/home/palette/account")
+##from models import User
 
 FILE_PATH = "/home/palette/media/test/"
 IMAGE_PATH = "/home/palette/media/temp/"    
@@ -183,4 +186,35 @@ def test(request):
     for i in l:
         print(i.category)
 
-    
+'''@csrf_exempt
+def suggestion(request):
+
+    email = request.POST.get('userEmail')
+    try:
+        bp = User.objects.get(userEmail = email) 
+        category = bp.userInterest 
+        num_cat = len(str(category))
+        dic = {}
+
+        l = Exhibition.objects.all()
+
+        for i in l:
+            print(i.category)
+            compare = i.category
+            gallerycode = i.galleryCode
+
+            a = '0b' + category
+            b = '0b' + compare
+            result= bin(a^b)
+            result= result[2:]
+            simScore = result.count('0') / len(result) 
+
+            dic[gallerycode] = simScore
+
+        newDic = sorted(dic.items(), reverse=True, key=lambda item: item[1])
+        newList = newDic.keys()
+        strToSend = "-".join(newList) 
+        return HttpResponse(strToSend)
+    except Exception as e:
+        print(e)
+        return HttpResponse('-1') '''
