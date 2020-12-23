@@ -1,0 +1,132 @@
+{% load static %}
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>palette</title>
+        <!-- mobile -->
+	<link rel="stylesheet" href="{% static 'css/main_mobile.css' %}" media="(max-width:1200px)">
+        <!-- web -->
+	<link rel="stylesheet" href="{% static 'css/main.css' %}" media="(min-width:1200px)">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+
+	<link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
+
+    </head>
+    <body>
+        <div id="page">
+            <header>
+                <div id="logo">
+                    <body>
+                        <a href="#">palette</a>
+                    </body>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="#">홈</a></li>
+                        <li><a href="#">사업</a></li>
+                        <li><a href="#">투자</a></li>
+                        <li><a href="http://softcon.ga/admin/">관리자</a></li>
+                    </ul>
+                </nav>
+            </header>
+            
+            <style>
+                .fit_img1 {
+                    max-width:100%;
+                    margin-top:60px;
+                    min-height:340px;
+                    object-fit:cover;
+                }
+                .fit_img2 {
+                    max-width:100%;
+                }
+            </style>
+
+            <article id="contents">
+                <section id="title">
+                    <img class='fit_img1' src="http://141.164.40.63:8000/media/websrc/appimage.jpg">
+                </section>
+            </article>
+
+            <style>
+                .title{
+                    width:100%;
+                }
+                .a_title {
+                    font-size: 30px;
+                    font-style: bold;
+                    font-family: 'Noto Sans KR', sans-serif;
+                    width:100%;
+                    text-align:center;
+                    margin-top:40px;
+                }
+                .a_semi-title {
+                    font-size: 16px;
+                    font-family: 'Noto Sans KR', sans-serif;
+                    width:100%;
+                    text-align:center;
+                }
+                .funding{
+                    text-align:center;
+                }
+                .wadiz_logo{
+                    width:140px;
+                    margin-top:10px;
+                    margin-bottom:10px;
+                }
+                .f_button{
+                    width:100%;
+                    text-align:center;
+                    margin-bottom:40px;
+                }
+                .ff_button{
+                    width:160px;
+                    height:40px;
+                    border:1px solid black;
+                    background-color:white;
+                }
+            </style>
+
+            <article>
+                <section id="title">
+                    <p class='a_title'>저희에게 투자하세요</p>
+                    <p class='a_semi-title'>크라우드 펀딩 (2020.12.28. ~)</p>
+                </section>
+                <section class="funding">
+                    <img class='wadiz_logo' src="http://141.164.40.63:8000/media/websrc/wadizlogo.jpg">
+                </section>
+                <section class='f_button'>
+                    <button class='ff_button'>진행 전</button>
+                </section>
+            </article>
+
+            <footer id="footer">
+                <body>
+                    <img src="http://141.164.40.63:8000/media/websrc/comlogo.jpg">
+                    <section>
+                        <a>사업자 등록번호 631-48-00688</a>
+                        <a>대표 이호은 | 공동대표 박민석 박하민</a>
+                    </section>
+                    <section>
+                        <a>고객 문의</a>
+                        <a>이메일 paletteservice20@gmail.com</a>
+                    </section>
+                    <section>
+                        <a>투자 문의</a>
+                        <a>이메일 paletteservice20@gmail.com</a>
+                    </section>
+                    <section>
+                        <a>palette ⓒ 2020. All Right Reserved.</a>
+                    </section>
+
+                </body>
+            </footer>
+
+        </div>
+    </body>
+</html>

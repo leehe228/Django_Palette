@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>palette</title>
+        <!-- mobile -->
+	<link rel="stylesheet" href="{% static 'css/star_mobile.css' %}" media="(max-width:1200px)">
+        <!-- web -->
+	<link rel="stylesheet" href="{% static 'css/star.css' %}" media="(min-width:1200px)">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+
+        <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
+    </head>
+    <body>
+        <div id="page">
+            <header>
+                <div id="logo">
+                    <body>
+                        <a href="http://softcon.ga/web/star/">palette</a>
+                    </body>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="http://softcon.ga/web/home/">홈</a></li>
+                        <li><a href="http://softcon.ga/web/star/">인기</a></li>
+                        <li><a href="http://softcon.ga/web/saved/">저장</a></li>
+                        <li><a href="http://softcon.ga/web/search/">검색</a></li>
+                        <li><a href="#">로그인</a></li>
+                    </ul>
+                </nav>
+            </header>
+            
+            <style>
+                .top-space{
+                    height:60px;
+                }
+            </style>
+
+            <article>
+                <section>
+                    <p class='top-space'></p>
+                </section>
+
+                <section>
+                    <input type="text" id="email" name="email_field">
+                    <input type="password" id="password" name="password_field">
+                    <label for="check-1"><input type="checkbox" name="autoLogin" id="check-1" /> 자동 로그인</label>
+                    <button class='ff_button' onclick="input()">로그인</button>
+                </section>
+            </article>  
+        </div>
+
+	<script type="text/javascript">
+		var userEmail;
+		var userPassword;
+
+		function input(){
+			userEmail = document.getElementById("email").value;
+			userPassword = document.getElementById("password").value;
+
+			window.location.href = 'http://softcon.ga/web/redirect?to=login&email='+userEmail+'&password='+userPassword;
+
+		}
+	</script>
+    </body>
+</html>

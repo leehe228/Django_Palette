@@ -13,6 +13,16 @@ import random
 FILE_PATH = "/home/palette/media/test/"
 
 @csrf_exempt
+def home(request):
+    return render(request, '/home/palette/page/templates/page/home.html', {})
+
+
+@csrf_exempt
+def star(request):
+    return render(request, '/home/palette/page/templates/page/star.html', {})
+
+
+@csrf_exempt
 def mkUserCode():
     f = open(FILE_PATH + "userCode.txt", 'r')
     line = f.read()
@@ -229,5 +239,6 @@ def changeInfo(request):
         return HttpResponse('-1')
 
 
-
-# Create your views here.
+@csrf_exempt
+def web_main(request):
+    return HttpResponse('1')

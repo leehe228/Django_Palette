@@ -9,14 +9,14 @@ import json
 from PIL import Image
 from datetime import datetime
 from .models import Images
+from .models import Auction
 from django.shortcuts import render
-##import sys
-#3sys.path.insert(1, "/home/palette/account")
-##from models import User
+import random
 
 FILE_PATH = "/home/palette/media/test/"
 IMAGE_PATH = "/home/palette/media/temp/"    
 DATA_PATH = "/home/palette/media/database/"
+
 
 # 삭제
 @csrf_exempt
@@ -55,20 +55,34 @@ def update(request):
 
     return HttpResponse("Updated Successfully")
 
+
 # 전시회 정보 반환
 @csrf_exempt
 def getExhibition(request):
     code = request.POST.get("code")
-    bp = Exhibition.objects.get(galleryCode = code)
-    data = bp.galleryTitle + "&" + bp.galleryCreator+"&" + bp.galleryInfo + "&" +str(bp.galleryAmount) + "&" + bp.titles +"&"+ bp.contents + "&"+ bp.dueDate + "&"+ bp.category
-    bp.save()
+
+    try:
+        bp = Exhibition.objects.get(galleryCode = code)
+        data = bp.galleryTitle + "&" + bp.galleryCreator+"&" + bp.galleryInfo + "&" +str(bp.galleryAmount) + "&" + bp.titles +"&"+ bp.contents + "&"+ bp.dueDate + "&"+ bp.category
     
-    try :
         return HttpResponse(data)
     except Exceptions as e:
         print(e)
         return HttpResponse('-1')
     
+
+@csrf_exempt
+def getSimpleInfo(request):
+    code = request.POST.get("code")
+
+    try:
+        bp = Exhibition.objects.get(galleryCode=code)
+        data = bp.galleryTitle + "&" + bp.galleryCreator
+
+        return HttpResponse(data)
+    except Exception as e:
+        print(e)
+        return HttpResponse('-1')
 
 
 # 전시회 정보 저장
@@ -180,19 +194,10 @@ def createDir(code):
 
 
 @csrf_exempt
-def test(request):
-    l = Exhibition.objects.all()
-
-    for i in l:
-        print(i.category)
-
-'''@csrf_exempt
 def suggestion(request):
-
-    email = request.POST.get('userEmail')
+    interest  = request.POST.get('interest')
     try:
-        bp = User.objects.get(userEmail = email) 
-        category = bp.userInterest 
+        category = interest
         num_cat = len(str(category))
         dic = {}
 
@@ -203,18 +208,189 @@ def suggestion(request):
             compare = i.category
             gallerycode = i.galleryCode
 
-            a = '0b' + category
-            b = '0b' + compare
-            result= bin(a^b)
+            a = '0b' + str(category)
+            b = '0b' + str(compare)
+            a = int(a, 2)
+            b = int(b, 2)
+
+            result= str(bin(a^b))
+
             result= result[2:]
-            simScore = result.count('0') / len(result) 
+            simScore = result.count('0') / len(result)
 
             dic[gallerycode] = simScore
 
         newDic = sorted(dic.items(), reverse=True, key=lambda item: item[1])
-        newList = newDic.keys()
+        print(newDic)
+        
+        newList = list()
+        for j in newDic:
+            newList.append(str(j[0]))
+       ## newList = newDic.keys()
+        # dict(map(reversed, enumerate(newDic)))
+        # newList = newDic.keys()
         strToSend = "-".join(newList) 
         return HttpResponse(strToSend)
     except Exception as e:
         print(e)
-        return HttpResponse('-1') '''
+        return HttpResponse('-1')
+
+@csrf_exempt
+def popular(request):
+    try:
+        l = Exhibition.objects.all()
+        dic={}
+        for i in l:
+            popularity = i.galleryLikes
+            gCode = i.galleryCode
+            dic[gCode]=popularity
+
+        listTuple = sorted(dic.items(), reverse=True, key=lambda item: item[1])
+        print(listTuple)
+        
+        newList = list()
+        for j in listTuple:
+            newList.append(str(j[0]))
+        strToSend = "-".join(newList)
+        return HttpResponse(strToSend)
+    except Exepction as e:
+        print(e)
+        return HttpResponse('-1')
+    
+@csrf_exempt
+def addLike(request):
+    code = request.POST.get('code')
+    try:
+        bp = Exhibition.objects.get(galleryCode=code)
+        bp.galleryLikes = str(int(bp.galleryLikes) + 1)
+        bp.save()
+        return HttpResponse('1')
+    except Exception as e:
+        print(e)
+        return HttpResponse('-1')
+
+@csrf_exempt
+def cancelLike(request):
+    code = request.POST.get('code')
+    try:
+        bp = Exhibition.objects.get(galleryCode=code)
+        bp.galleryLikes = str(int(bp.galleryLikes) -  1)
+        bp.save()
+        return HttpResponse('1')
+    except Exception as e:
+        print(e)
+        return HttpResponse('-1')
+
+@csrf_exempt
+def addView(request):
+    code = request.POST.get('code')
+    try:
+        bp = Exhibition.objects.get(galleryCode=code)
+        bp.galleryViews = str(int(bp.galleryViews) + 1)
+        print(bp.galleryViews)
+        bp.save()
+        return HttpResponse('1')
+    except Exception as e:
+        print(e)
+        return HttpResponse('-1')
+
+@csrf_exempt
+def registerAuction(request):    
+    artistEmail = request.POST.get('artistEmail')
+    startPrice = request.POST.get('startPrice')
+    startDate = request.POST.get('startDate')
+    endDate = request.POST.get('endDate')
+    galleryCode = request.POST.get('code')
+    temp = request.POST.get('temp')
+    
+    auctionCode = galleryCode + temp
+
+    newAuction = Auction(artistEmail=ArtistEmail, startPrice=startPrice, startDate=startDate, endDate=endDate, auctionCode=auctionCode)
+
+    try:
+        bp = Exhibition.objects.get(galleryCode=galleryCode)
+
+        newAuction.save(force_insert=True)
+        return HttpResponse ('1')
+    except Exception as e:
+        print(e)
+        return HttpResponse ('-1')
+
+
+@csrf_exempt
+def getAuction(request):
+    auctionCode = request.POST.get('auctionCode')
+    
+    try:
+        bp = Auction.objects.get(auctionCode=auctionCode)
+        data = bp.artistEmail + "&" + str(bp.startPrice) + "&" + str(bp.newPrice) + "&" + str(bp.startDate) + "&"+str(bp.endDate) + "&" + bp.buyerEmail
+        return HttpResponse(data)
+    except Exception as e:
+        print(e)
+        return HttpResponce('-1')
+
+
+@csrf_exempt
+def auctionProcess(request):
+    auctionCode = request.POST.get('auctionCode')
+    newPrice = request.POST.get('newPrice')
+    buyerEmail = request.POST.get('buyerEmail')
+    
+    try:
+        bp = Auction.objects.get(auctionCode=auctionCode)
+        if (buyerEmail == bp.buyerEmail):
+            return HttpResponse('0')
+    
+        bp.newPrice = newPrice
+        bp.buyerEmail = buyerEmail
+        bp.save()
+        return HttpResponse('1')
+    except Exception as e:
+        print(e)
+        return HttpResponse('-1')
+
+@csrf_exempt
+def getDate(request):
+    code = request.POST.get('auctionCode')
+    try:
+        bp = Auction.objects.get(auctionCode=code)
+        d = str(bp.startDate) + "- "+ str(bp.endDate)
+        return HttpResponse(d)
+    except Exception as e:
+        print(e)
+        return HttpResponse('-1')
+
+@csrf_exempt
+def deleteAuction(request):
+    code = request.POST.get('auctionCode')
+    try:
+        bp = Auction.objects.get(auctionCode=code)
+        bp.delete()
+        return HttpResponse('1')
+    except Exception as e:
+        print(e)
+        return HttpResponse('-1')
+
+@csrf_exempt
+def auctionState(request):
+    code = request.POST.get('code')
+    try:
+        bp = Auction.objects.get(auctionCode=code)
+        state = bp.auctionState
+        return HttpResponse(state)
+    except Exception as e:
+        print(e)
+        return HttpResponse('-1')
+
+@csrf_exempt
+def auctionStates(request):
+    code = request.POST.get('code')
+    try:
+        bp = Exhibition.objects.get(galleryCode=code)
+        states = bp.auctionStates
+        return HttpResponse(states)
+    except Exception as e:
+        print(e)
+        return HttpResponse('-1')
+    
+

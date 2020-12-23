@@ -15,7 +15,7 @@ class User(models.Model):
     userCreated = models.TextField(default='')
     userCode = models.CharField(max_length=20, default ='')
     userSex = models.CharField(null = True, default = '', max_length=10)
-
+    userPaid = models.IntegerField(default=0)
 
     def __str__(self):
         return self.userEmail

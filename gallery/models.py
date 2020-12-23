@@ -9,7 +9,7 @@ class Exhibition(models.Model):
     # 전시회 작가
     galleryCreator = models.CharField(max_length=30, default='')
     # 전시회 설명
-    galleryInfo = models.CharField(max_length=300, default='')
+    galleryInfo = models.TextField(default='')
     # 전시회 고유 코드, 검색 시 사용
     galleryCode = models.IntegerField(primary_key=True, default=-1, null=False, unique=True, db_index=True)
     # 전시회 개수 
@@ -23,10 +23,16 @@ class Exhibition(models.Model):
     # 전시회 카테고리
     category = models.CharField(max_length=20, default='000000000')
 
+    galleryLikes = models.IntegerField(default=0)
+    galleryViews = models.IntegerField(default=0)
+    
+    auctionStates = models.TextField(default='')
+    shortInfo = models.CharField(max_length=300, default='', null=True)
 
     # 파일 관련
     def __str__(self):
         return str(self.galleryCode)
+
 
 class Images(models.Model):
     photo = ProcessedImageField(
@@ -35,8 +41,24 @@ class Images(models.Model):
             options = {'quality':60},
             null=True)
 
+
 class Auction(models.Model):
     #경매 시작가
     startPrice = models.IntegerField(default=0)
     #새로운 입찰가
     newPrice = models.IntegerField(default=0)
+    artistEmail = models.CharField(max_length=20, default="")
+    buyerEmail = models.CharField(max_length=20, default="")
+    
+    startDate = models.CharField(max_length=8, default="00000000")
+    endDate = models.CharField(max_length=8, default="00000000")
+    
+    auctionState = models.IntegerField(default=0)
+    
+    auctionCode = models.IntegerField(primary_key=True, default=-1, null=False,
+    unique=True, db_index=True)
+
+    def __str__(self):
+        return str(self.auctionCode)
+        
+
