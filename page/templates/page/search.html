@@ -47,10 +47,24 @@
                 </section>
 
                 <section>
-                    <input type="text" name="email_field">
-                    <button class='ff_button'>검색</button>
+                    <input type="text" id="search_field">
+                    <button class='ff_button' onclick="search()">검색</button>
                 </section>
+
+		<section>
+			{% for data in datas %}
+			<p>{{ data.galleryTitle }}, {{ data.galleryCreator }}, {{ data.galleryCode }}</p>
+			{% endfor %}
+		</section>
             </article>  
+
+	    <script type="text/javascript">
+		var keyword
+		function search(){
+		    keyword = document.getElementById("search_field").value;
+		    window.location.href="http://softcon.ga/web/search?key=" + keyword;
+		}
+	    </script>
 
         </div>
     </body>

@@ -17,9 +17,11 @@ from gallery.models import Exhibition
 @csrf_exempt
 def home(request):
     loginedURL = "http://softcon.ga/web/login/"
+    loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
 
     if request.COOKIES.get('userEmail') is not None:
         print(request.COOKIES.get('userEmail'))
+        loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
         loginedURL = "http://softcon.ga/web/setting/"
     
     l = Exhibition.objects.all()
@@ -35,11 +37,19 @@ def home(request):
     for j in listTuple:
         #datas.append("http://141.164.40.63:8000/media/database/" + str(j[0]) + "/" + str(random.randrange(1, 4)) + ".jpg")
         datas.append(j[0])
-    return render(request, '/home/palette/page/templates/page/home.html', {'datas': datas, 'loginedURL':loginedURL})
+    return render(request, '/home/palette/page/templates/page/home.html', {'datas': datas, 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
 
 
 @csrf_exempt
 def star(request):
+    loginedURL = "http://softcon.ga/web/login/"
+    loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
+
+    if request.COOKIES.get('userEmail') is not None:
+        print(request.COOKIES.get('userEmail'))
+        loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
+        loginedURL = "http://softcon.ga/web/setting/"
+
     l = Exhibition.objects.all()
     dic={}
     for i in l:
@@ -52,7 +62,7 @@ def star(request):
     datas = list()
     for j in listTuple:
         datas.append(j[0])
-    return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas})
+    return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas, 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
 
 
 @csrf_exempt
@@ -67,9 +77,19 @@ def saved(request):
 
 @csrf_exempt
 def search(request):
-    keyword = request.GET['key']
-    
-    return render(request, '/home/palette/page/templates/page/search.html', {})
+    keyword = request.GET['key'].strip()
+
+    datas = list()
+
+    if not keyword is '':
+        l = Exhibition.objects.all()
+
+        # galleryTitle, galleryCreator
+        for i in l:
+            if i.galleryTitle.strip() in keyword or keyword in i.galleryTitle.strip() or i.galleryCreator.strip() in keyword or keyword in i.galleryCreator.strip():
+                datas.append(i)
+
+    return render(request, '/home/palette/page/templates/page/search.html', {'datas':datas})
 
 
 @csrf_exempt
@@ -104,6 +124,9 @@ def d_redirect(request):
     elif t == 'register':
         return signup_process(request)
 
+    elif t == 'logout':
+        return logout_process(request)
+
     # redirect page not found
     else:
         return HttpResponse("404 Page Not Found")
@@ -131,6 +154,16 @@ def login_process(request):
     else:
         # return redirect('login')
         return HttpResponse(str("login failed! : emailAddress : " + email + ", password : " + passwd))
+
+
+@csrf_exempt
+def login_process(request):
+    email = request.COOKIES.get('userEmail')
+
+    response = redirect('home')
+    response.delete_cookie('userEmail')
+
+    return response
 
 @csrf_exempt
 def setting(request):
