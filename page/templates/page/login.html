@@ -5,35 +5,53 @@
         <meta charset="UTF-8">
         <title>palette</title>
         <!-- mobile -->
-	<link rel="stylesheet" href="{% static 'css/star_mobile.css' %}" media="(max-width:1200px)">
+	    <link rel="stylesheet" href="{% static 'css/home_mobile.css' %}" media="(max-width:1200px)">
         <!-- web -->
-	<link rel="stylesheet" href="{% static 'css/star.css' %}" media="(min-width:1200px)">
+	    <link rel="stylesheet" href="{% static 'css/home.css' %}" media="(min-width:1200px)">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
 
+	    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+
         <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
     </head>
-    <body>
+    <body oncontextmenu='return false' onselectstart='return false' ondragstart='return false' style="overflow-x:hidden; overflow-y:auto;">
         <div id="page">
             <header>
                 <div id="logo">
                     <body>
-                        <a href="http://softcon.ga/web/star/">palette</a>
+                        <a href="http://softcon.ga/web/home/">palette</a>
                     </body>
                 </div>
+            </header>
 
+            <style>
+                .header_buttonimg{
+                    width:20px;
+                    height:20px;
+                    object-fit:contain;
+                }
+                .header_button{
+                    border:0;
+                    outline:0;
+                    box-shadow:none;
+                    background-color:white;
+                }
+            </style>
+
+            <div id="tab">
                 <nav>
                     <ul>
-                        <li><a href="http://softcon.ga/web/home/">홈</a></li>
-                        <li><a href="http://softcon.ga/web/star/">인기</a></li>
-                        <li><a href="http://softcon.ga/web/saved/">저장</a></li>
-                        <li><a href="http://softcon.ga/web/search/">검색</a></li>
-                        <li><a href="#">로그인</a></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/home/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_icon.jpg" style="cursor:pointer;"></button></li>
+			            <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/login/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/user_icon.jpg" style="cursor:pointer;"></button></li>
                     </ul>
                 </nav>
-            </header>
+            </div>
             
             <style>
                 .top-space{
@@ -49,23 +67,23 @@
                 <section>
                     <input type="text" id="email" name="email_field">
                     <input type="password" id="password" name="password_field">
-                    <label for="check-1"><input type="checkbox" name="autoLogin" id="check-1" /> 자동 로그인</label>
                     <button class='ff_button' onclick="input()">로그인</button>
                 </section>
             </article>  
+
         </div>
 
-	<script type="text/javascript">
-		var userEmail;
-		var userPassword;
+        <script type="text/javascript">
+            var userEmail;
+            var userPassword;
+    
+            function input(){
+                userEmail = document.getElementById("email").value;
+                userPassword = document.getElementById("password").value;
+    
+                window.location.href = 'http://softcon.ga/web/redirect?to=login&email='+userEmail+'&password='+userPassword;
+            }
+        </script>
 
-		function input(){
-			userEmail = document.getElementById("email").value;
-			userPassword = document.getElementById("password").value;
-
-			window.location.href = 'http://softcon.ga/web/redirect?to=login&email='+userEmail+'&password='+userPassword;
-
-		}
-	</script>
     </body>
 </html>

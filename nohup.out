@@ -63091,3 +63091,19 @@ Not Found: /
 [24/Dec/2020 16:30:18] "GET /web/home/ HTTP/1.0" 200 8894
 [24/Dec/2020 16:30:19] "GET /web/search?key= HTTP/1.0" 301 0
 [24/Dec/2020 16:30:19] "GET /web/search/?key= HTTP/1.0" 200 2282
+[24/Dec/2020 16:43:46] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 16:43:46] "GET /static/css/home.css HTTP/1.0" 304 0
+[24/Dec/2020 16:43:46] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 16:43:48] "GET /web/login/ HTTP/1.0" 200 4066
+[24/Dec/2020 16:43:55] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 16:43:57] "GET /web/login/ HTTP/1.0" 200 4066
+[24/Dec/2020 16:45:48] "GET /web/redirect/?to=login&email=test&password=00000000 HTTP/1.0" 302 0
+[24/Dec/2020 16:45:48] "GET /web/home/ HTTP/1.0" 200 8899
+[24/Dec/2020 16:45:48] "GET /media/websrc/setting_icon.jpg HTTP/1.1" 304 0
+Not Found: /
+[24/Dec/2020 16:45:49] "GET / HTTP/1.0" 404 2372
+Not Found: /
+[24/Dec/2020 16:45:49] "GET / HTTP/1.0" 404 2372
+[24/Dec/2020 16:45:51] "GET /web/setting/ HTTP/1.0" 200 4
+[24/Dec/2020 16:46:03] "GET /web/redirect/?to=logout HTTP/1.0" 302 0
+[24/Dec/2020 16:46:03] "GET /web/home/ HTTP/1.0" 200 8894
