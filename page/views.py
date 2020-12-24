@@ -157,7 +157,7 @@ def login_process(request):
 
 
 @csrf_exempt
-def login_process(request):
+def logout_process(request):
     email = request.COOKIES.get('userEmail')
 
     response = redirect('home')

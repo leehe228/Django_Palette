@@ -62717,3 +62717,377 @@ Starting development server at http://141.164.40.63:8000/
 Quit the server with CONTROL-C.
 /home/palette/page/views.py:84: SyntaxWarning: "is not" with a literal. Did you mean "!="?
   if not keyword is '':
+[24/Dec/2020 03:12:32] "GET /web/redirect?to=logout HTTP/1.0" 301 0
+Internal Server Error: /web/redirect/
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/palette/page/views.py", line 128, in d_redirect
+    return logout_process(request)
+NameError: name 'logout_process' is not defined
+[24/Dec/2020 03:12:32] "GET /web/redirect/?to=logout HTTP/1.0" 500 68958
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 24, 2020 - 03:08:59
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+/home/palette/page/views.py:84: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  if not keyword is '':
+[24/Dec/2020 03:13:34] "GET /web/home/ HTTP/1.0" 200 8730
+[24/Dec/2020 03:13:46] "GET /web/saved/ HTTP/1.0" 200 1905
+[24/Dec/2020 03:17:07] "GET /web/home/ HTTP/1.0" 200 8730
+[24/Dec/2020 03:17:07] "GET /static/css/home_mobile.css HTTP/1.0" 304 0
+[24/Dec/2020 03:17:07] "GET /static/css/home.css HTTP/1.0" 304 0
+[24/Dec/2020 03:17:07] "GET /media/websrc/star_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:17:07] "GET /media/websrc/home_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:17:07] "GET /media/websrc/search_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:17:07] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:17:07] "GET /media/websrc/comlogo.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:17:07] "GET /media/websrc/user_icon.jpg HTTP/1.1" 304 0
+Not Found: /
+[24/Dec/2020 03:17:11] "GET / HTTP/1.0" 404 2372
+[24/Dec/2020 03:17:15] "GET /web/home/ HTTP/1.0" 200 8730
+[24/Dec/2020 03:17:34] "GET /web/info?n=10000007 HTTP/1.0" 301 0
+[24/Dec/2020 03:17:34] "GET /web/info/?n=10000007 HTTP/1.0" 200 55
+Not Found: /favicon.ico
+[24/Dec/2020 03:17:34] "GET /favicon.ico HTTP/1.0" 404 2423
+[24/Dec/2020 03:17:37] "GET /web/info?n=10000001 HTTP/1.0" 301 0
+[24/Dec/2020 03:17:37] "GET /web/info/?n=10000001 HTTP/1.0" 200 55
+Not Found: /favicon.ico
+[24/Dec/2020 03:17:37] "GET /favicon.ico HTTP/1.0" 404 2423
+[24/Dec/2020 03:17:40] "GET /web/login/ HTTP/1.0" 200 2549
+[24/Dec/2020 03:17:40] "GET /static/css/star_mobile.css HTTP/1.0" 200 1062
+[24/Dec/2020 03:17:40] "GET /static/css/star.css HTTP/1.0" 200 851
+[24/Dec/2020 03:17:42] "GET /web/search?key= HTTP/1.0" 301 0
+[24/Dec/2020 03:17:42] "GET /web/search/?key= HTTP/1.0" 200 2282
+[24/Dec/2020 03:17:42] "GET /static/css/basic.css HTTP/1.0" 200 617
+[24/Dec/2020 03:17:42] "GET /static/css/basic_mobile.css HTTP/1.0" 200 664
+[24/Dec/2020 03:17:45] "GET /web/saved/ HTTP/1.0" 200 1905
+[24/Dec/2020 03:17:46] "GET /web/star/ HTTP/1.0" 200 9230
+[24/Dec/2020 03:17:53] "GET /web/home/ HTTP/1.0" 200 8730
+[24/Dec/2020 03:19:42] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+Not Found: /apple-touch-icon.png
+Not Found: /favicon.ico
+[24/Dec/2020 03:19:42] "GET /apple-touch-icon.png HTTP/1.0" 404 2450
+Not Found: /apple-touch-icon-precomposed.png
+[24/Dec/2020 03:19:42] "GET /favicon.ico HTTP/1.0" 404 2423
+[24/Dec/2020 03:19:42] "GET /apple-touch-icon-precomposed.png HTTP/1.0" 404 2486
+[24/Dec/2020 03:21:35] "GET /web/home/ HTTP/1.0" 200 8730
+[24/Dec/2020 03:21:49] "GET /web/home/ HTTP/1.0" 200 8730
+[24/Dec/2020 03:21:50] "GET /web/login/ HTTP/1.0" 200 2549
+Not Found: /web/
+[24/Dec/2020 03:21:50] "GET /web/ HTTP/1.0" 404 3841
+Not Found: /favicon.ico
+[24/Dec/2020 03:21:50] "GET /favicon.ico HTTP/1.0" 404 2423
+Not Found: /web/sta
+[24/Dec/2020 03:25:57] "GET /web/sta HTTP/1.0" 404 3850
+[24/Dec/2020 03:26:00] "GET /web/saved/ HTTP/1.0" 200 1905
+[24/Dec/2020 03:26:00] "GET /web/login/ HTTP/1.0" 200 2549
+[24/Dec/2020 03:26:01] "GET /web/login/ HTTP/1.0" 200 2549
+[24/Dec/2020 03:26:02] "GET /web/saved/ HTTP/1.0" 200 1905
+[24/Dec/2020 03:26:04] "GET /web/star/ HTTP/1.0" 200 9230
+[24/Dec/2020 03:26:07] "GET /web/star/ HTTP/1.0" 200 9230
+[24/Dec/2020 03:26:07] "GET /web/login/ HTTP/1.0" 200 2549
+Not Found: /web/admin/
+[24/Dec/2020 03:26:10] "GET /web/admin/ HTTP/1.0" 404 3859
+Not Found: /favicon.ico
+[24/Dec/2020 03:26:10] "GET /favicon.ico HTTP/1.0" 404 2423
+[24/Dec/2020 03:26:18] "GET /admin/ HTTP/1.0" 302 0
+[24/Dec/2020 03:26:19] "GET /admin/login/?next=/admin/ HTTP/1.0" 200 1872
+[24/Dec/2020 03:26:19] "GET /static/admin/css/base.css HTTP/1.0" 200 16106
+[24/Dec/2020 03:26:19] "GET /static/admin/css/responsive.css HTTP/1.0" 200 17894
+[24/Dec/2020 03:26:19] "GET /static/admin/css/login.css HTTP/1.0" 200 1203
+[24/Dec/2020 03:26:19] "GET /static/admin/css/fonts.css HTTP/1.0" 200 423
+[24/Dec/2020 03:26:19] "GET /admin/ HTTP/1.0" 302 0
+[24/Dec/2020 03:26:19] "GET /admin/login/?next=/admin/ HTTP/1.0" 200 1872
+[24/Dec/2020 03:26:19] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.0" 200 80304
+[24/Dec/2020 03:26:19] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.0" 200 81348
+[24/Dec/2020 03:26:19] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.0" 200 82564
+[24/Dec/2020 03:26:28] "GET /web/home/ HTTP/1.0" 200 8730
+[24/Dec/2020 03:26:28] "GET /static/css/home.css HTTP/1.0" 200 846
+[24/Dec/2020 03:26:28] "GET /media/websrc/home_icon.jpg HTTP/1.1" 200 1698
+[24/Dec/2020 03:26:28] "GET /media/websrc/star_icon.jpg HTTP/1.1" 200 1690
+[24/Dec/2020 03:26:28] "GET /media/websrc/search_icon.jpg HTTP/1.1" 200 1598
+[24/Dec/2020 03:26:28] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 200 1785
+[24/Dec/2020 03:26:28] "GET /static/css/home_mobile.css HTTP/1.0" 200 1047
+[24/Dec/2020 03:26:28] "GET /media/websrc/user_icon.jpg HTTP/1.1" 200 1661
+[24/Dec/2020 03:26:28] "GET /media/database/10000017/1.jpg HTTP/1.1" 200 108202
+[24/Dec/2020 03:26:28] "GET /media/websrc/home/banner1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:29] "GET /media/websrc/comlogo.jpg HTTP/1.1" 200 3386
+[24/Dec/2020 03:26:29] "GET /media/database/10000002/1.jpg HTTP/1.1" 200 445075
+[24/Dec/2020 03:26:49] "GET /web/star/ HTTP/1.0" 200 9230
+[24/Dec/2020 03:26:57] "GET /web/star/ HTTP/1.0" 200 9230
+[24/Dec/2020 03:26:57] "GET /static/css/home.css HTTP/1.0" 304 0
+[24/Dec/2020 03:26:57] "GET /media/websrc/star_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /static/css/home_mobile.css HTTP/1.0" 304 0
+[24/Dec/2020 03:26:57] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/websrc/search_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/websrc/home_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/websrc/user_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000007/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000017/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000008/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000013/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000002/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000005/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000006/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000003/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000018/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/websrc/comlogo.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000015/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000011/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000014/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000012/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000001/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000004/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000016/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000009/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:26:57] "GET /media/database/10000010/1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:29:24] "GET /web/home/ HTTP/1.0" 200 8730
+Not Found: /apple-touch-icon-120x120-precomposed.png
+[24/Dec/2020 03:29:24] "GET /apple-touch-icon-120x120-precomposed.png HTTP/1.0" 404 2510
+Not Found: /apple-touch-icon-120x120.png
+[24/Dec/2020 03:29:24] "GET /apple-touch-icon-120x120.png HTTP/1.0" 404 2474
+Not Found: /apple-touch-icon-precomposed.png
+[24/Dec/2020 03:29:24] "GET /apple-touch-icon-precomposed.png HTTP/1.0" 404 2486
+Not Found: /apple-touch-icon.png
+[24/Dec/2020 03:29:24] "GET /apple-touch-icon.png HTTP/1.0" 404 2450
+[24/Dec/2020 03:29:24] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 03:33:05] "GET /web/info?n=10000010 HTTP/1.0" 301 0
+[24/Dec/2020 03:33:06] "GET /web/info/?n=10000010 HTTP/1.0" 200 55
+Not Found: /favicon.ico
+[24/Dec/2020 03:33:06] "GET /favicon.ico HTTP/1.0" 404 2423
+[24/Dec/2020 03:33:09] "GET /web/home/ HTTP/1.0" 200 8730
+[24/Dec/2020 03:33:13] "GET /web/search/?key= HTTP/1.0" 200 2282
+Not Found: /
+[24/Dec/2020 03:55:15] "GET / HTTP/1.0" 404 2372
+[24/Dec/2020 03:57:51] "GET /media/websrc/star_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:57:51] "GET /media/websrc/home_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:57:51] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:57:51] "GET /media/websrc/search_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:57:51] "GET /media/websrc/user_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:57:51] "GET /media/websrc/comlogo.jpg HTTP/1.1" 304 0
+[24/Dec/2020 03:57:51] "GET /web/home/ HTTP/1.0" 200 8730
+[24/Dec/2020 03:57:51] "GET /static/css/home.css HTTP/1.0" 304 0
+[24/Dec/2020 03:57:51] "GET /static/css/home_mobile.css HTTP/1.0" 304 0
+Not Found: /apple-touch-icon-120x120-precomposed.png
+[24/Dec/2020 03:57:51] "GET /apple-touch-icon-120x120-precomposed.png HTTP/1.0" 404 2510
+Not Found: /apple-touch-icon-120x120.png
+[24/Dec/2020 03:57:51] "GET /apple-touch-icon-120x120.png HTTP/1.0" 404 2474
+Not Found: /apple-touch-icon-precomposed.png
+[24/Dec/2020 03:57:51] "GET /apple-touch-icon-precomposed.png HTTP/1.0" 404 2486
+Not Found: /apple-touch-icon.png
+[24/Dec/2020 03:57:51] "GET /apple-touch-icon.png HTTP/1.0" 404 2450
+[24/Dec/2020 03:57:51] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 04:18:39] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[24/Dec/2020 04:18:39] "  /*à     Cookie: mstshash=Administr" 400 -
+[24/Dec/2020 04:48:49] "GET /web/home/ HTTP/1.0" 200 8730
+[24/Dec/2020 04:48:49] "GET /static/css/home.css HTTP/1.0" 304 0
+[24/Dec/2020 04:48:49] "GET /media/database/10000014/1.jpg HTTP/1.1" 200 27511
+[24/Dec/2020 04:48:49] "GET /media/database/10000008/1.jpg HTTP/1.1" 200 59781
+[24/Dec/2020 04:48:49] "GET /media/database/10000011/1.jpg HTTP/1.1" 200 51393
+[24/Dec/2020 04:48:49] "GET /static/css/home_mobile.css HTTP/1.0" 304 0
+[24/Dec/2020 04:48:50] "GET /media/database/10000013/1.jpg HTTP/1.1" 200 1907212
+Not Found: /
+[24/Dec/2020 05:58:56] "GET / HTTP/1.0" 404 2372
+Not Found: /
+[24/Dec/2020 06:07:15] "GET / HTTP/1.0" 404 2372
+----------------------------------------
+Exception happened during processing of request from ('74.120.14.37', 50142)
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 139, in handle
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+Not Found: /
+[24/Dec/2020 07:12:13] "GET / HTTP/1.1" 404 2372
+Not Found: /
+[24/Dec/2020 07:12:13] "GET / HTTP/1.1" 404 2372
+Not Found: /
+[24/Dec/2020 07:13:27] "GET / HTTP/1.0" 404 2372
+Not Found: /
+[24/Dec/2020 07:40:26] "GET / HTTP/1.0" 404 2372
+Not Found: /portal/redlion
+[24/Dec/2020 07:46:30] "GET /portal/redlion HTTP/1.0" 404 2432
+Not Found: /
+[24/Dec/2020 08:42:49] "GET / HTTP/1.0" 404 2372
+Not Found: /boaform/admin/formLogin
+[24/Dec/2020 09:43:53] "POST /boaform/admin/formLogin HTTP/1.0" 404 2460
+[24/Dec/2020 10:00:42] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.0" 200 81348
+Not Found: /is_test
+[24/Dec/2020 10:06:31] "GET /is_test HTTP/1.0" 404 2411
+[24/Dec/2020 10:28:59] "GET /web/redirect/?to=logout HTTP/1.0" 302 0
+Not Found: /
+[24/Dec/2020 10:38:27] "GET / HTTP/1.0" 404 2367
+Not Found: /
+[24/Dec/2020 10:50:41] "GET / HTTP/1.0" 404 2372
+Not Found: /web/sta
+[24/Dec/2020 10:54:51] "GET /web/sta HTTP/1.0" 404 3850
+Not Found: /actuator/health
+[24/Dec/2020 11:33:28] "GET /actuator/health HTTP/1.0" 404 2435
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+Not Found: /api/jsonws/invoke
+[24/Dec/2020 12:04:27] "POST /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.0" 404 2541
+[24/Dec/2020 12:04:27] "POST /api/jsonws/invoke HTTP/1.0" 404 2442
+Not Found: /index.php
+[24/Dec/2020 12:04:27] "GET /index.php?s=/Index/\think\app/invokefunction&function=call_user_func_array&vars[0]=md5&vars[1][]=HelloThinkPHP21 HTTP/1.0" 404 2536
+Not Found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php
+[24/Dec/2020 12:04:28] "GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.0" 404 2540
+Not Found: /solr/admin/info/system
+[24/Dec/2020 12:04:29] "GET /solr/admin/info/system?wt=json HTTP/1.0" 404 2464
+Not Found: /
+[24/Dec/2020 12:04:29] "GET /?a=fetch&content=<php>die(@md5(HelloThinkCMF))</php> HTTP/1.0" 404 2436
+Not Found: /
+[24/Dec/2020 12:04:29] "GET /?XDEBUG_SESSION_START=phpstorm HTTP/1.0" 404 2402
+Not Found: /wp-content/plugins/wp-file-manager/readme.txt
+[24/Dec/2020 12:04:30] "GET /wp-content/plugins/wp-file-manager/readme.txt HTTP/1.0" 404 2525
+Not Found: /console/
+[24/Dec/2020 12:04:31] "GET /console/ HTTP/1.0" 404 2414
+Not Found: /Autodiscover/Autodiscover.xml
+[24/Dec/2020 12:04:31] "POST /Autodiscover/Autodiscover.xml HTTP/1.0" 404 2478
+Not Found: /
+[24/Dec/2020 13:02:39] "GET / HTTP/1.0" 404 2372
+Not Found: /
+[24/Dec/2020 14:04:03] "GET / HTTP/1.0" 404 2372
+[24/Dec/2020 14:21:55] "GET /web/home/ HTTP/1.0" 200 8730
+[24/Dec/2020 14:21:55] "GET /static/css/home_mobile.css HTTP/1.0" 304 0
+[24/Dec/2020 14:21:55] "GET /static/css/home.css HTTP/1.0" 304 0
+[24/Dec/2020 14:21:55] "GET /media/websrc/home_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:21:55] "GET /media/websrc/star_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:21:55] "GET /media/websrc/search_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:21:55] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:21:55] "GET /media/websrc/user_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:21:55] "GET /media/websrc/home/banner1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:21:55] "GET /media/websrc/comlogo.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:30:59] "GET /web/home/ HTTP/1.0" 200 9496
+[24/Dec/2020 14:31:00] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 14:31:31] "GET /web/home/ HTTP/1.0" 200 9496
+[24/Dec/2020 14:31:32] "GET /static/css/home.css HTTP/1.0" 200 846
+[24/Dec/2020 14:31:32] "GET /media/websrc/home_icon.jpg HTTP/1.1" 200 1698
+[24/Dec/2020 14:31:32] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 200 1785
+[24/Dec/2020 14:31:32] "GET /static/css/home_mobile.css HTTP/1.0" 200 1047
+[24/Dec/2020 14:31:32] "GET /media/websrc/search_icon.jpg HTTP/1.1" 200 1598
+[24/Dec/2020 14:31:32] "GET /media/websrc/user_icon.jpg HTTP/1.1" 200 1661
+[24/Dec/2020 14:31:32] "GET /media/websrc/home/banner1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:31:32] "GET /media/database/10000017/1.jpg HTTP/1.1" 200 108202
+[24/Dec/2020 14:31:32] "GET /media/websrc/comlogo.jpg HTTP/1.1" 200 3386
+[24/Dec/2020 14:31:32] "GET /media/database/10000018/1.jpg HTTP/1.1" 200 25629
+[24/Dec/2020 14:31:32] "GET /media/websrc/star_icon.jpg HTTP/1.1" 200 1690
+[24/Dec/2020 14:44:48] "GET /web/info/?n=10000009 HTTP/1.0" 200 55
+Not Found: /favicon.ico
+[24/Dec/2020 14:44:48] "GET /favicon.ico HTTP/1.0" 404 2423
+[24/Dec/2020 14:51:54] "GET /web/home/ HTTP/1.0" 200 8808
+[24/Dec/2020 14:51:55] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 14:53:24] "GET /web/home/ HTTP/1.0" 200 8850
+[24/Dec/2020 14:53:25] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 14:54:00] "GET /web/home/ HTTP/1.0" 200 8850
+[24/Dec/2020 14:54:01] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+Not Found: /boaform/admin/formLogin
+[24/Dec/2020 14:54:05] "POST /boaform/admin/formLogin HTTP/1.0" 404 2460
+[24/Dec/2020 14:55:01] "GET /web/home/ HTTP/1.0" 200 8850
+[24/Dec/2020 14:55:01] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 14:55:34] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 14:55:34] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 14:55:40] "GET /web/star/ HTTP/1.0" 200 9230
+[24/Dec/2020 14:56:17] "GET /web/star/ HTTP/1.0" 200 9360
+[24/Dec/2020 14:56:18] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 14:56:24] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 14:56:50] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 14:56:50] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 14:56:52] "GET /web/saved/ HTTP/1.0" 200 1905
+[24/Dec/2020 14:56:52] "GET /static/css/basic.css HTTP/1.0" 304 0
+[24/Dec/2020 14:56:52] "GET /static/css/basic_mobile.css HTTP/1.0" 304 0
+Internal Server Error: /web/search/
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'key'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/palette/page/views.py", line 80, in search
+    keyword = request.GET['key'].strip()
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'key'
+[24/Dec/2020 14:56:56] "GET /web/search/ HTTP/1.0" 500 76347
+[24/Dec/2020 14:57:09] "GET /web/search/?key= HTTP/1.0" 200 2282
+[24/Dec/2020 14:57:12] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 14:57:23] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 14:57:23] "GET /static/css/home.css HTTP/1.0" 200 825
+[24/Dec/2020 14:57:24] "GET /static/css/home_mobile.css HTTP/1.0" 304 0
+[24/Dec/2020 14:57:24] "GET /media/websrc/home_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:57:24] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:57:24] "GET /media/websrc/user_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:57:24] "GET /media/websrc/star_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:57:24] "GET /media/websrc/search_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:57:24] "GET /media/websrc/comlogo.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:57:24] "GET /media/websrc/home/banner1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 14:57:32] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 14:57:32] "GET /static/css/home.css HTTP/1.0" 304 0
+Not Found: /
+[24/Dec/2020 14:57:53] "GET / HTTP/1.0" 404 2372
+[24/Dec/2020 14:57:56] "GET /web/login/ HTTP/1.0" 200 2549
+[24/Dec/2020 14:57:56] "GET /static/css/star_mobile.css HTTP/1.0" 304 0
+[24/Dec/2020 14:57:56] "GET /static/css/star.css HTTP/1.0" 304 0
+[24/Dec/2020 14:58:00] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 14:58:00] "GET /static/css/home.css HTTP/1.0" 304 0
+[24/Dec/2020 14:59:50] code 400, message Bad request version ('À\x14À')
+[24/Dec/2020 14:59:50] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[24/Dec/2020 15:57:53] "GET / HTTP/1.0" 404 2372
+[24/Dec/2020 16:29:07] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 16:29:07] "GET /static/css/home.css HTTP/1.0" 200 825
+[24/Dec/2020 16:29:07] "GET /static/css/home_mobile.css HTTP/1.0" 304 0
+[24/Dec/2020 16:29:07] "GET /media/websrc/home_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:29:07] "GET /media/websrc/star_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:29:07] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:29:07] "GET /media/websrc/search_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:29:07] "GET /media/websrc/user_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:29:07] "GET /media/websrc/comlogo.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:29:07] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 16:30:01] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 16:30:01] "GET /static/css/home_mobile.css HTTP/1.0" 304 0
+[24/Dec/2020 16:30:01] "GET /static/css/home.css HTTP/1.0" 200 825
+[24/Dec/2020 16:30:01] "GET /media/websrc/home_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:30:01] "GET /media/websrc/star_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:30:01] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:30:01] "GET /media/websrc/search_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:30:01] "GET /media/websrc/home/banner1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:30:01] "GET /media/websrc/user_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:30:01] "GET /media/websrc/comlogo.jpg HTTP/1.1" 304 0
+[24/Dec/2020 16:30:10] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 16:30:12] "GET /web/star/ HTTP/1.0" 200 9360
+[24/Dec/2020 16:30:13] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 16:30:15] "GET /web/saved/ HTTP/1.0" 200 1905
+[24/Dec/2020 16:30:15] "GET /static/css/basic.css HTTP/1.0" 200 617
+[24/Dec/2020 16:30:15] "GET /static/css/basic_mobile.css HTTP/1.0" 200 664
+[24/Dec/2020 16:30:18] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 16:30:19] "GET /web/search?key= HTTP/1.0" 301 0
+[24/Dec/2020 16:30:19] "GET /web/search/?key= HTTP/1.0" 200 2282
