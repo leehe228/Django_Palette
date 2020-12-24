@@ -84,15 +84,13 @@ def saved(request):
         datas = list()
         try:
             user_bp = User.objects.get(userEmail=email)
-            E = Exhibition.objects.all()
         
             if user_bp.userLike != None:
                 userLikeList = user_bp.userLike.split('-')
 
                 for i in userLikeList:
-                    for j in E:
-                        if i == str(j.galleryCode):
-                            datas.append(j)
+                    j = Exhibition.objects.get(galleryCode=i)
+                    datas.append(j)
 
             return render(request, '/home/palette/page/templates/page/saved.html', {'datas':datas})
 
@@ -141,9 +139,10 @@ def no_page(request):
 @csrf_exempt
 def info(request):
     code = int(request.GET['n'])
-    title = "title"
-    content = "content"
-    return render(request, '/home/palette/page/templates/page/info.html', {'code':code, 'title':title, 'content':content})
+    
+    E = Exhibition.objects.get(galleryCode=code)
+
+    return render(request, '/home/palette/page/templates/page/info.html', {'code':code, 'exhibition':E})
 
 
 @csrf_exempt
@@ -170,8 +169,12 @@ def d_redirect(request):
 
 
 @csrf_exempt
+def register(request):
+    return render(request, '/home/palette/page/templates/page/register.html', {})
+
+@csrf_exempt
 def signup_process(request):
-    return HttpResponse('not found')
+    return redirect('home')
 
 
 @csrf_exempt
@@ -235,6 +238,16 @@ def getPaid(userEmailString):
 @csrf_exempt
 def gallery(request):
     userEmail = request.COOKIES.get('userEmail')
+    
+    try:
+        to = request.GET['to']
+    except Exception as e:
+        to = None
+
+    if to == 'c':
+        cancelLike(request)
+    elif to == 's':
+        setLike(request)
 
     if userEmail == None:
         return redirect('login')
@@ -245,14 +258,87 @@ def gallery(request):
     else:
         code = request.GET['n']
         page = request.GET['p']
+        
+        E = Exhibition.objects.get(galleryCode=code)
 
         min_page = 1
-        max_page = 10
+        max_page = E.galleryAmount
         
-        return render(request, '/home/palette/page/templates/page/gallery.html', {'code':code, 'page':page})
+        t = E.titles.split('-')[int(page) - 1]
+        c = E.contents.split('-')[int(page) - 1]
+
+        if checkLike(userEmail, code):
+            likeIMG = "http://141.164.40.63:8000/media/websrc/r_check_icon.jpg"
+            likeURL = "http://softcon.ga/web/gallery?to=c&n=" + code + "&p=" + page
+        else:
+            likeIMG = "http://141.164.40.63:8000/media/websrc/r_plus_icon.jpg"
+            likeURL = "http://softcon.ga/web/gallery?to=s&n=" + code + "&p=" + page
+
+        return render(request, '/home/palette/page/templates/page/gallery.html', {'code':code, 'page':page, 'max_page':max_page, 't':t, 'c':c, 'likeIMG':likeIMG, 'likeURL':likeURL})
 
 
 @csrf_exempt
 def payment(request):
 
     return HttpResponse("결제를 해야 합니다.")
+
+
+@csrf_exempt
+def setLike(request):
+    email = request.COOKIES.get('userEmail')
+    code = request.GET['n']
+    
+    user_bp = User.objects.get(userEmail=email)
+    user_bp.userLike = user_bp.userLike + '-' + code
+    user_bp.save()
+
+
+@csrf_exempt
+def cancelLike(request):
+    email = request.COOKIES.get('userEmail')
+    code = request.GET['n']
+
+    user_bp = User.objects.get(userEmail=email)
+    likeList = user_bp.userLike.split('-')
+    
+    try:
+        likeList.remove(code)
+    except Exception as e:
+        print(e)
+
+    user_bp.userLike = '-'.join(likeList)
+    user_bp.save()
+
+
+@csrf_exempt
+def checkLike(email, code):
+    user_bp = User.objects.get(userEmail=email)
+    likes = user_bp.userLike
+    
+    if code in likes:
+        return True
+    else:
+        return False
+
+
+@csrf_exempt
+def func(request):
+    n = request.GET['to']
+    
+    print(n)
+
+    if n == 'setLike':
+        setLike(request)
+    
+    elif n == 'cancelLike':
+        cancelLike(request)
+
+    elif n == 'email':
+        pass
+
+    return redirect('close')
+    
+
+@csrf_exempt
+def close(request):
+    return render(request, '/home/palette/page/templates/page/close.html', {})

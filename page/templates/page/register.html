@@ -5,9 +5,9 @@
         <meta charset="UTF-8">
         <title>palette</title>
         <!-- mobile -->
-	<link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
+	    <link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
         <!-- web -->
-	<link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
+	    <link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
@@ -57,34 +57,6 @@
                 .top-space{
                     height:60px;
                 }
-                .back-image{
-                    width:100%;
-                    height:100%;
-                    position: fixed; 
-                    top: 0; 
-                    left: 0; 
-                    right: 0; 
-                    bottom: 0; 
-                    background-size: cover; 
-                    -webkit-filter: blur(50px); 
-                    -moz-filter: blur(50px); 
-                    -o-filter: blur(50px); 
-                    -ms-filter: blur(50px); 
-                    filter: blur(50px); 
-                    transform: scale(1.5); 
-                    z-index: -1; 
-                    content: "";
-                    overflow:hidden;
-                }
-                .top-image{
-                    position:absolute;
-                    margin-left:200px;
-                    margin-top:200px;
-                    width:200px;
-                    height:200px;
-                    z-index:1;
-		    object-fit:cover;
-                }
             </style>
 
             <article>
@@ -93,21 +65,36 @@
                 </section>
 
                 <section>
-                    <img class='back-image' src="http://141.164.40.63:8000/media/database/{{ code }}/1.jpg">
-                    <img class='top-image' src="http://141.164.40.63:8000/media/database/{{ code }}/1.jpg">
-		    <p>Code : {{ exhibition.galleryCode }}</p>
-		    <p>Title : {{ exhibition.galleryTitle }}</p>
-		    <p>Creator : {{ exhibition.galleryCreator }}</p>
-		    <p>Information : {{ exhibition.galleryInfo }}</p>
-                    <button class='ff_button' onclick="logout()">입장</button>
+                    <p>이메일</p>
+                    <input type="text" id="email" name="email_field">
+                    <button class='ff_button' onclick="emailB()">이메일 인증</button>
+                    
+                    <p>비밀번호</p>
+                    <input type="password" id="password" name="password_field">
+
+                    <p>비밀번호 재입력</p>
+                    <input type="password" id="password" name="password_field">
+		    <button class='ff_button' onclick="input()">회원가입</button>
                 </section>
             </article>  
 
         </div>
 
         <script type="text/javascript">
-            function logout(){
-		window.location.href = "http://softcon.ga/web/redirect?to=gallery&n={{ code }}&p=1";
+            var userEmail;
+            var userPassword;
+    
+            function input(){
+                userEmail = document.getElementById("email").value;
+                userPassword = document.getElementById("password").value;
+    
+                window.location.href = 'http://softcon.ga/web/redirect?to=signup&email='+userEmail+'&password='+userPassword;
+            }
+
+            function emailB(){
+                userEmail = document.getElementById("email").value;
+
+                window.open('http://softcon.ga/web/f?to=email&email='+userEmail)
             }
         </script>
 

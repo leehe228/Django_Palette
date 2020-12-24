@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>palette</title>
+        <!-- mobile -->
+	<link rel="stylesheet" href="{% static 'css/gallery_mobile.css' %}" media="(max-width:1200px)">
+        <!-- web -->
+	<link rel="stylesheet" href="{% static 'css/gallery.css' %}" media="(min-width:1200px)">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+
+	    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+
+        <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
+    </head>
+
+    <body class='black-back' oncontextmenu='return false' onselectstart='return false' ondragstart='return false' style="overflow-x:hidden; overflow-y:auto;">
+        <div id="page">
+            <header>
+                <div id="logo">
+                    <body>
+                        <a href="http://softcon.ga/web/home/">palette</a>
+                    </body>
+                </div>
+            </header>
+
+            <style>
+                .header_buttonimg{
+                    width:20px;
+                    height:20px;
+                    object-fit:contain;
+                }
+                .header_button{
+                    border:0;
+                    outline:0;
+                    box-shadow:none;
+                    background-color:black;
+                }
+                .rem_button_img{
+                    width:24px;
+                    height:24px;
+                    object-fit:contain;
+                }
+                .rem_button{
+                    border:0;
+                    outline:0;
+                    margin-left:10px;
+                    margin-right:10px;
+                    box-shadow:none;
+                    background-color: #2E2E2E;
+                }
+            </style>
+
+            <div id="tab">
+                <nav>
+                    <ul>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/home/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_black_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_black_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_black_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_black_icon.jpg" style="cursor:pointer;"></button></li>
+			            <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/setting/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/setting_black_icon.jpg" style="cursor:pointer;"></button></li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <style>
+                .top-space{
+                    height:60px;
+                }
+            </style>
+
+            <div>
+                <section>
+                    <p class='top-space'></p>
+                </section>
+                
+            </div>  
+            
+            <div>
+            
+		    <div><img id='main-image' class='main-image' src="http://141.164.40.63:8000/media/database/{{ code }}/{{ page }}.jpg"></div>
+		    <div>
+			<p>title : {{ t }}, content : {{ c }}</p>
+		    </div>
+                    
+                    <div class='remote-controller'>
+                        <button type="button" class="rem_button" onclick="left();"><img class="rem_button_img" src="http://141.164.40.63:8000/media/websrc/r_left_icon.jpg" style="cursor:pointer;"></button>
+			<button type="button" class="rem_button" onclick="add_like();"><img class="rem_button_img" src="{{ likeIMG }}" style="cursor:pointer;"></button>
+                        <button type="button" class="rem_button" onclick="info();"><img class="rem_button_img" src="http://141.164.40.63:8000/media/websrc/r_info_icon.jpg" style="cursor:pointer;"></button>
+                        <button type="button" class="rem_button" onclick="close_page();"><img class="rem_button_img" src="http://141.164.40.63:8000/media/websrc/r_close_icon.jpg" style="cursor:pointer;"></button>
+                        <button type="button" class="rem_button" onclick="right();"><img class="rem_button_img" src="http://141.164.40.63:8000/media/websrc/r_right_icon.jpg" style="cursor:pointer;"></button>
+                    </div>
+            
+            </div>
+
+        </div>
+
+        <script type="text/javascript">
+	    var p = Number({{page}});
+
+	    const min_page = 1;
+            const max_page = Number({{max_page}});
+
+            function left(){
+		    if (p > min_page){
+			window.location.href = "http://softcon.ga/web/gallery?n={{ code }}&p=" + String(p - 1);
+		    }
+            }
+            function right(){
+		    if (p < max_page){
+			window.location.href = "http://softcon.ga/web/gallery?n={{ code }}&p=" + String(p + 1);
+		    }
+            }
+            function add_like(){
+		    window.location.href = "{{ likeURL }}";
+            }
+            function info(){
+
+            }
+            function close_page(){
+		window.location.href = "http://softcon.ga/web/info?n={{ code }}";
+            }
+        </script>
+        
+    </body>
+</html>

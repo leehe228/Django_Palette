@@ -13,4 +13,7 @@ urlpatterns = [
     path('setting/', views.setting, name='setting'),
     path('gallery/', views.gallery, name='gallery'),
     path('payment/', views.payment, name='payment'),
+    path('f/', views.func, name='func'),
+    path('close/', views.close, name='close'),
+    path('register/', views.register, name='register'),
 ]

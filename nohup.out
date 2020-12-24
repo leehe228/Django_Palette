@@ -63571,3 +63571,130 @@ Traceback (most recent call last):
   File "/home/palette/page/urls.py", line 2, in <module>
     from . import views
 IndentationError: unexpected unindent (views.py, line 96)
+[25/Dec/2020 01:51:42] "GET /admin/ HTTP/1.1" 200 7901
+[25/Dec/2020 01:51:55] "GET /admin/gallery/images/ HTTP/1.1" 200 3273
+[25/Dec/2020 01:51:55] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:51:57] "GET /admin/gallery/images/add/ HTTP/1.1" 200 4041
+[25/Dec/2020 01:51:57] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:18] "POST /admin/gallery/images/add/ HTTP/1.1" 302 0
+[25/Dec/2020 01:52:18] "GET /admin/gallery/images/ HTTP/1.1" 200 4701
+[25/Dec/2020 01:52:18] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:20] "GET /admin/gallery/images/add/ HTTP/1.1" 200 4041
+[25/Dec/2020 01:52:20] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:25] "POST /admin/gallery/images/add/ HTTP/1.1" 302 0
+[25/Dec/2020 01:52:25] "GET /admin/gallery/images/ HTTP/1.1" 200 4941
+[25/Dec/2020 01:52:25] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:26] "GET /admin/gallery/images/add/ HTTP/1.1" 200 4041
+[25/Dec/2020 01:52:26] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:31] "POST /admin/gallery/images/add/ HTTP/1.1" 302 0
+[25/Dec/2020 01:52:31] "GET /admin/gallery/images/ HTTP/1.1" 200 5180
+[25/Dec/2020 01:52:31] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:32] "GET /admin/gallery/images/add/ HTTP/1.1" 200 4041
+[25/Dec/2020 01:52:32] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:38] "POST /admin/gallery/images/add/ HTTP/1.1" 302 0
+[25/Dec/2020 01:52:38] "GET /admin/gallery/images/ HTTP/1.1" 200 5419
+[25/Dec/2020 01:52:38] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:40] "GET /admin/gallery/images/add/ HTTP/1.1" 200 4041
+[25/Dec/2020 01:52:40] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:44] "POST /admin/gallery/images/add/ HTTP/1.1" 302 0
+[25/Dec/2020 01:52:44] "GET /admin/gallery/images/ HTTP/1.1" 200 5658
+[25/Dec/2020 01:52:44] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:45] "GET /admin/gallery/images/add/ HTTP/1.1" 200 4041
+[25/Dec/2020 01:52:45] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:49] "POST /admin/gallery/images/add/ HTTP/1.1" 302 0
+[25/Dec/2020 01:52:50] "GET /admin/gallery/images/ HTTP/1.1" 200 5897
+[25/Dec/2020 01:52:50] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:51] "GET /admin/gallery/images/add/ HTTP/1.1" 200 4041
+[25/Dec/2020 01:52:51] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:55] "POST /admin/gallery/images/add/ HTTP/1.1" 302 0
+[25/Dec/2020 01:52:55] "GET /admin/gallery/images/207/change/ HTTP/1.1" 200 4640
+[25/Dec/2020 01:52:56] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:52:58] "POST /admin/gallery/images/207/change/ HTTP/1.1" 302 0
+[25/Dec/2020 01:52:58] "GET /admin/gallery/images/ HTTP/1.1" 200 6136
+[25/Dec/2020 01:52:58] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:53:00] "GET /admin/gallery/images/add/ HTTP/1.1" 200 4041
+[25/Dec/2020 01:53:00] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:53:04] "POST /admin/gallery/images/add/ HTTP/1.1" 302 0
+[25/Dec/2020 01:53:05] "GET /admin/gallery/images/ HTTP/1.1" 200 6375
+[25/Dec/2020 01:53:05] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:53:06] "GET /admin/gallery/images/add/ HTTP/1.1" 200 4041
+[25/Dec/2020 01:53:06] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:53:11] "POST /admin/gallery/images/add/ HTTP/1.1" 302 0
+[25/Dec/2020 01:53:11] "GET /admin/gallery/images/ HTTP/1.1" 200 6614
+[25/Dec/2020 01:53:11] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:53:13] "GET /admin/gallery/images/add/ HTTP/1.1" 200 4041
+[25/Dec/2020 01:53:13] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:53:17] "POST /admin/gallery/images/add/ HTTP/1.1" 302 0
+[25/Dec/2020 01:53:17] "GET /admin/gallery/images/ HTTP/1.1" 200 6856
+[25/Dec/2020 01:53:17] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:53:19] "GET /admin/gallery/images/add/ HTTP/1.1" 200 4041
+[25/Dec/2020 01:53:19] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:53:24] "POST /admin/gallery/images/add/ HTTP/1.1" 302 0
+[25/Dec/2020 01:53:25] "GET /admin/gallery/images/ HTTP/1.1" 200 7095
+[25/Dec/2020 01:53:25] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:53:26] "GET /admin/gallery/images/210/change/ HTTP/1.1" 200 4394
+[25/Dec/2020 01:53:26] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:53:28] "GET /admin/gallery/images/ HTTP/1.1" 200 6885
+[25/Dec/2020 01:53:29] "GET /admin/gallery/images/add/ HTTP/1.1" 200 4041
+[25/Dec/2020 01:53:29] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:53:36] "POST /admin/gallery/images/add/ HTTP/1.1" 302 0
+[25/Dec/2020 01:53:36] "GET /admin/gallery/images/ HTTP/1.1" 200 7334
+[25/Dec/2020 01:53:36] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:53:38] "POST /admin/gallery/images/ HTTP/1.1" 200 5137
+[25/Dec/2020 01:53:40] "POST /admin/gallery/images/ HTTP/1.1" 302 0
+[25/Dec/2020 01:53:40] "GET /admin/gallery/images/ HTTP/1.1" 200 3428
+[25/Dec/2020 01:53:40] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[25/Dec/2020 01:57:31] "GET /media/websrc/home_black_icon.jpg HTTP/1.1" 200 1941
+[25/Dec/2020 01:57:31] "GET /media/websrc/star_black_icon.jpg HTTP/1.1" 200 2144
+[25/Dec/2020 01:57:32] "GET /media/websrc/saved_black_icon.jpg HTTP/1.1" 200 2265
+[25/Dec/2020 01:57:32] "GET /media/websrc/r_plus_icon.jpg HTTP/1.1" 200 789
+[25/Dec/2020 01:57:32] "GET /media/websrc/r_info_icon.jpg HTTP/1.1" 200 1485
+[25/Dec/2020 01:57:32] "GET /media/websrc/r_close_icon.jpg HTTP/1.1" 200 1313
+[25/Dec/2020 01:57:32] "GET /media/websrc/search_black_icon.jpg HTTP/1.1" 200 1996
+[25/Dec/2020 01:57:32] "GET /media/websrc/setting_black_icon.jpg HTTP/1.1" 200 2715
+[25/Dec/2020 01:57:32] "GET /media/websrc/r_right_icon.jpg HTTP/1.1" 200 1374
+[25/Dec/2020 01:57:32] "GET /media/websrc/r_left_icon.jpg HTTP/1.1" 200 1362
+[25/Dec/2020 01:58:40] "GET /media/websrc/home_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:58:40] "GET /media/websrc/star_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:58:40] "GET /media/websrc/search_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:58:40] "GET /media/websrc/setting_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:58:40] "GET /media/websrc/saved_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:58:40] "GET /media/websrc/r_left_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:58:40] "GET /media/websrc/r_plus_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:58:40] "GET /media/websrc/r_close_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:58:40] "GET /media/websrc/r_info_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:58:40] "GET /media/websrc/r_right_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:59:14] "GET /media/websrc/star_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:59:14] "GET /media/websrc/saved_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:59:14] "GET /media/websrc/search_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:59:14] "GET /media/websrc/setting_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:59:37] "GET /media/websrc/home_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:59:37] "GET /media/websrc/r_left_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:59:37] "GET /media/websrc/r_info_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:59:37] "GET /media/websrc/r_plus_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:59:37] "GET /media/websrc/r_close_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 01:59:37] "GET /media/websrc/r_right_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 02:00:01] "GET /media/websrc/star_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 02:00:01] "GET /media/websrc/saved_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 02:00:01] "GET /media/websrc/search_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 02:00:01] "GET /media/websrc/setting_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 02:00:22] "GET /media/websrc/home_black_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 02:00:22] "GET /media/websrc/r_left_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 02:00:22] "GET /media/websrc/r_plus_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 02:00:22] "GET /media/websrc/r_info_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 02:00:22] "GET /media/websrc/r_close_icon.jpg HTTP/1.1" 304 0
+[25/Dec/2020 02:00:22] "GET /media/websrc/r_right_icon.jpg HTTP/1.1" 304 0
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 25, 2020 - 01:51:39
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 25, 2020 - 02:10:37
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
