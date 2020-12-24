@@ -19,7 +19,7 @@ def home(request):
     loginedURL = "http://softcon.ga/web/login/"
     loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
 
-    if request.COOKIES.get('userEmail') is not None:
+    if request.COOKIES.get('userEmail') != None:
         print(request.COOKIES.get('userEmail'))
         loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
         loginedURL = "http://softcon.ga/web/setting/"
@@ -45,7 +45,7 @@ def star(request):
     loginedURL = "http://softcon.ga/web/login/"
     loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
 
-    if request.COOKIES.get('userEmail') is not None:
+    if request.COOKIES.get('userEmail') != None:
         print(request.COOKIES.get('userEmail'))
         loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
         loginedURL = "http://softcon.ga/web/setting/"
@@ -65,16 +65,19 @@ def star(request):
     return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas, 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
 
 
+''' /web/business/ '''
 @csrf_exempt
-def main(request):
+def business(request):
     return render(request, '/home/palette/page/templates/page/main.html', {})
 
 
+''' /web/saved/ '''
 @csrf_exempt
 def saved(request):
     return render(request, '/home/palette/page/templates/page/saved.html', {})
 
 
+''' /web/search?key= '''
 @csrf_exempt
 def search(request):
     keyword = request.GET['key'].strip()
@@ -92,6 +95,7 @@ def search(request):
     return render(request, '/home/palette/page/templates/page/search.html', {'datas':datas})
 
 
+''' /web/login/ '''
 @csrf_exempt
 def login(request):
     return render(request, '/home/palette/page/templates/page/login.html', {})
@@ -167,4 +171,27 @@ def logout_process(request):
 
 @csrf_exempt
 def setting(request):
-    return HttpResponse(request.COOKIES.get('userEmail'))
+    username = request.COOKIES.get('userEmail')
+    userpaid = getPaid(username)
+
+    if userpaid == False:
+        userpaidStr = "구독 결제 전"
+    else:
+        userpaidStr = "구독 결제 중"
+
+    return render(request, '/home/palette/page/templates/page/setting.html', {'username':username, 'paid':userpaidStr})
+
+@csrf_exempt
+def getPaid(userEmailString):
+    try:
+        user_bp = User.objects.get(userEmail=userEmailString)
+        result = str(user_bp.userPaid)
+
+        if result == '0':
+            return False
+        else:
+            return True
+    
+    except Exception as e:
+        print(e)
+        return False

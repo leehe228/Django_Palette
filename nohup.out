@@ -63107,3 +63107,228 @@ Not Found: /
 [24/Dec/2020 16:45:51] "GET /web/setting/ HTTP/1.0" 200 4
 [24/Dec/2020 16:46:03] "GET /web/redirect/?to=logout HTTP/1.0" 302 0
 [24/Dec/2020 16:46:03] "GET /web/home/ HTTP/1.0" 200 8894
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 24, 2020 - 14:39:41
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+test
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7fa778eb3310>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 25, in <module>
+    path('web/', include('page.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/page/urls.py", line 2, in <module>
+    from . import views
+SyntaxError: invalid syntax (views.py, line 173)
+/home/palette/page/views.py:84: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  if not keyword is '':
+[24/Dec/2020 17:02:21] "GET /web/setting/ HTTP/1.0" 200 3741
+[24/Dec/2020 17:02:22] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 17:02:24] "GET /web/home/ HTTP/1.0" 200 8899
+[24/Dec/2020 17:02:26] "GET /web/setting/ HTTP/1.0" 200 3741
+[24/Dec/2020 17:03:17] "GET /web/setting/ HTTP/1.0" 200 3746
+[24/Dec/2020 17:03:18] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 17:03:20] "GET /web/setting/ HTTP/1.0" 200 3746
+[24/Dec/2020 17:03:20] "GET /web/home/ HTTP/1.0" 200 8899
+[24/Dec/2020 17:18:08] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[24/Dec/2020 17:18:08] "  /*à     Cookie: mstshash=Administr" 400 -
+[24/Dec/2020 17:19:51] "GET /media/websrc/star_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 17:19:51] "GET /media/websrc/search_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 17:19:51] "GET /media/websrc/home_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 17:19:51] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 17:19:51] "GET /media/websrc/comlogo.jpg HTTP/1.1" 304 0
+[24/Dec/2020 17:19:51] "GET /media/websrc/user_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 17:19:52] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 17:19:52] "GET /static/css/home_mobile.css HTTP/1.0" 304 0
+[24/Dec/2020 17:19:52] "GET /static/css/home.css HTTP/1.0" 304 0
+Not Found: /apple-touch-icon-120x120-precomposed.png
+[24/Dec/2020 17:19:52] "GET /apple-touch-icon-120x120-precomposed.png HTTP/1.0" 404 2510
+Not Found: /apple-touch-icon-120x120.png
+[24/Dec/2020 17:19:52] "GET /apple-touch-icon-120x120.png HTTP/1.0" 404 2474
+Not Found: /apple-touch-icon-precomposed.png
+[24/Dec/2020 17:19:52] "GET /apple-touch-icon-precomposed.png HTTP/1.0" 404 2486
+Not Found: /apple-touch-icon.png
+[24/Dec/2020 17:19:52] "GET /apple-touch-icon.png HTTP/1.0" 404 2450
+[24/Dec/2020 17:19:52] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 18:28:37] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 18:28:37] "GET /media/websrc/home_icon.jpg HTTP/1.1" 200 1698
+[24/Dec/2020 18:28:41] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 18:28:41] "GET /static/css/home_mobile.css HTTP/1.0" 200 1047
+[24/Dec/2020 18:28:41] "GET /static/css/home.css HTTP/1.0" 200 825
+[24/Dec/2020 18:28:41] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 200 1785
+[24/Dec/2020 18:28:41] "GET /media/websrc/star_icon.jpg HTTP/1.1" 200 1690
+[24/Dec/2020 18:28:41] "GET /media/websrc/search_icon.jpg HTTP/1.1" 200 1598
+[24/Dec/2020 18:28:41] "GET /media/websrc/home_icon.jpg HTTP/1.1" 200 1698
+[24/Dec/2020 18:28:41] "GET /media/database/10000007/1.jpg HTTP/1.1" 200 38623
+[24/Dec/2020 18:28:41] "GET /media/websrc/user_icon.jpg HTTP/1.1" 200 1661
+[24/Dec/2020 18:28:41] "GET /media/database/10000004/1.jpg HTTP/1.1" 200 64977
+[24/Dec/2020 18:28:41] "GET /media/websrc/home/banner1.jpg HTTP/1.1" 200 111648
+[24/Dec/2020 18:28:41] "GET /media/database/10000008/1.jpg HTTP/1.1" 200 59781
+[24/Dec/2020 18:28:41] "GET /media/database/10000011/1.jpg HTTP/1.1" 200 51393
+[24/Dec/2020 18:28:41] "GET /media/database/10000014/1.jpg HTTP/1.1" 200 27511
+[24/Dec/2020 18:28:41] "GET /media/database/10000017/1.jpg HTTP/1.1" 200 108202
+[24/Dec/2020 18:28:41] "GET /media/database/10000001/1.jpg HTTP/1.1" 200 50207
+[24/Dec/2020 18:28:42] "GET /media/database/10000003/1.jpg HTTP/1.1" 200 39612
+[24/Dec/2020 18:28:42] "GET /media/database/10000013/1.jpg HTTP/1.1" 200 1907212
+[24/Dec/2020 18:28:42] "GET /media/database/10000005/1.jpg HTTP/1.1" 200 47297
+[24/Dec/2020 18:28:42] "GET /media/database/10000002/1.jpg HTTP/1.1" 200 445075
+[24/Dec/2020 18:28:42] "GET /media/database/10000009/1.jpg HTTP/1.1" 200 8732
+[24/Dec/2020 18:28:42] "GET /media/database/10000012/1.jpg HTTP/1.1" 200 72769
+[24/Dec/2020 18:28:42] "GET /media/database/10000016/1.jpg HTTP/1.1" 200 36723
+[24/Dec/2020 18:28:42] "GET /media/database/10000018/1.jpg HTTP/1.1" 200 25629
+[24/Dec/2020 18:28:42] "GET /media/database/10000015/1.jpg HTTP/1.1" 200 27661
+[24/Dec/2020 18:28:42] "GET /media/database/10000006/1.jpg HTTP/1.1" 200 60691
+[24/Dec/2020 18:28:42] "GET /media/websrc/comlogo.jpg HTTP/1.1" 200 3386
+[24/Dec/2020 18:28:42] "GET /media/database/10000010/1.jpg HTTP/1.1" 200 196394
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 24, 2020 - 17:03:15
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+test
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7fc921afa310>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 13, in check_url_config
+    return check_resolver(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 23, in check_resolver
+    return check_method()
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 399, in check
+    for pattern in self.url_patterns:
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 25, in <module>
+    path('web/', include('page.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/page/urls.py", line 5, in <module>
+    path('business/', views.business, name='business'),     
+AttributeError: module 'page.views' has no attribute 'business'
+Performing system checks...
+
+/home/palette/page/views.py:84: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  if not keyword is '':
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7fdb63c48310>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 13, in check_url_config
+    return check_resolver(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 23, in check_resolver
+    return check_method()
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 399, in check
+    for pattern in self.url_patterns:
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 25, in <module>
+    path('web/', include('page.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/page/urls.py", line 6, in <module>
+    path('home/', views.home, name='home'),
+AttributeError: module 'page.views' has no attribute 'home'

@@ -48,7 +48,7 @@
                         <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_icon.jpg" style="cursor:pointer;"></button></li>
                         <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg" style="cursor:pointer;"></button></li>
                         <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_icon.jpg" style="cursor:pointer;"></button></li>
-			            <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/login/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/user_icon.jpg" style="cursor:pointer;"></button></li>
+			            <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/setting/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/setting_icon.jpg" style="cursor:pointer;"></button></li>
                     </ul>
                 </nav>
             </div>
@@ -65,23 +65,17 @@
                 </section>
 
                 <section>
-                    <input type="text" id="email" name="email_field">
-                    <input type="password" id="password" name="password_field">
-                    <button class='ff_button' onclick="input()">로그인</button>
+                    <p>{{ username }}</p>
+                    <p>{{ paid }}</p>
+                    <button class='ff_button' onclick="logout()">로그아웃</button>
                 </section>
             </article>  
 
         </div>
 
         <script type="text/javascript">
-            var userEmail;
-            var userPassword;
-    
-            function input(){
-                userEmail = document.getElementById("email").value;
-                userPassword = document.getElementById("password").value;
-    
-                window.location.href = 'http://softcon.ga/web/redirect?to=login&email='+userEmail+'&password='+userPassword;
+            function logout(){
+                window.location.href = 'http://softcon.ga/web/redirect?to=logout';
             }
         </script>
 

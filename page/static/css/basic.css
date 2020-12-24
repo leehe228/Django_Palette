@@ -25,7 +25,7 @@ header{
 }
 
 nav{
-    position:absolute;
+    position:fixed;
     top:20px;
     right:360px;
     color:black;
@@ -38,10 +38,6 @@ nav li{
     margin-left: 30px;
 }
 
-nav li a{
-    color:black;
-}
-
 #page{
-    margin:0px auto;
+    margin:0px;
 }
