@@ -1,56 +1,105 @@
 {% load static %}
 
 <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <title>palette</title>
-        <!-- mobile -->
-	<link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
-        <!-- web -->
-	<link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
 
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>palette</title>
+    <!-- mobile -->
+    <link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
+    <!-- web -->
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
 
-        <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
-    </head>
-    <body>
-        <div id="page">
-            <header>
-                <div id="logo">
-                    <body>
-                        <a href="http://softcon.ga/web/star/">palette</a>
-                    </body>
-                </div>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap"
+        rel="stylesheet">
 
-                <nav>
-                    <ul>
-                        <li><a href="http://softcon.ga/web/home/">홈</a></li>
-                        <li><a href="http://softcon.ga/web/star/">인기</a></li>
-                        <li><a href="http://softcon.ga/web/saved/">저장</a></li>
-                        <li><a href="http://softcon.ga/web/search/">검색</a></li>
-                        <li><a href="http://softcon.ga/web/login/">계정</a></li>
-                    </ul>
-                </nav>
-            </header>
-            
-            <style>
-                .top-space{
-                    height:60px;
-                }
-            </style>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
-            <article>
-                <section>
-                    <p class='top-space'></p>
-                </section>
+    <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
+</head>
 
-                <section>
-                    
-                </section>
-            </article>  
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'
+    style="overflow-x:hidden; overflow-y:auto;">
+    <div id="page">
+        <header>
+            <div id="logo">
 
+                <body>
+                    <a href="http://softcon.ga/web/home/">palette</a>
+                </body>
+            </div>
+        </header>
+
+        <style>
+            .header_buttonimg {
+                width: 20px;
+                height: 20px;
+                object-fit: contain;
+            }
+
+            .header_button {
+                border: 0;
+                outline: 0;
+                box-shadow: none;
+                background-color: white;
+            }
+        </style>
+
+        <div id="tab">
+            <nav>
+                <ul>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/web/home/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/home_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/web/star/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/star_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/web/saved/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/web/search?key='"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/search_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/web/setting/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                </ul>
+            </nav>
         </div>
-    </body>
+
+        <style>
+            .top-space {
+                height: 60px;
+            }
+	    .square_view{
+                width:100px;
+                height:100px;
+                object-fit:cover;
+                border-radius: 10px;
+            }
+        </style>
+
+        <article>
+            <section>
+                <p class='top-space'></p>
+            </section>
+
+            <section>
+                {% for data in datas %}
+                <img onclick="location.href='http://softcon.ga/web/info?n={{ data.galleryCode }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data.galleryCode }}/1.jpg">
+                <p>전시회 제목 : {{ data.galleryTitle }}, 전시회 작가 : {{ data.galleryCreator }}, 전시회 코드 : {{ data.galleryCode }}</p>
+                {% endfor %}
+            </section>
+        </article>
+
+    </div>
+</body>
+
 </html>

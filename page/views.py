@@ -74,12 +74,44 @@ def business(request):
 ''' /web/saved/ '''
 @csrf_exempt
 def saved(request):
-    return render(request, '/home/palette/page/templates/page/saved.html', {})
+    email = request.COOKIES.get('userEmail')
+    
+    if email is None:
+        return redirect('login')
+    else:
+        
+        userLikeList = list()
+        datas = list()
+        try:
+            user_bp = User.objects.get(userEmail=email)
+            E = Exhibition.objects.all()
+        
+            if user_bp.userLike != None:
+                userLikeList = user_bp.userLike.split('-')
+
+                for i in userLikeList:
+                    for j in E:
+                        if i == str(j.galleryCode):
+                            datas.append(j)
+
+            return render(request, '/home/palette/page/templates/page/saved.html', {'datas':datas})
+
+        except Exception as e:
+            print(e)
+            return HttpResponse("Page Load Fault")
 
 
 ''' /web/search?key= '''
 @csrf_exempt
 def search(request):
+
+    loginedURL = "http://softcon.ga/web/login/"
+    loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
+
+    if request.COOKIES.get('userEmail') != None:
+        loginedURL = "http://softcon.ga/web/setting/"
+        loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
+
     keyword = request.GET['key'].strip()
 
     datas = list()
@@ -92,7 +124,7 @@ def search(request):
             if i.galleryTitle.strip() in keyword or keyword in i.galleryTitle.strip() or i.galleryCreator.strip() in keyword or keyword in i.galleryCreator.strip():
                 datas.append(i)
 
-    return render(request, '/home/palette/page/templates/page/search.html', {'datas':datas})
+    return render(request, '/home/palette/page/templates/page/search.html', {'datas':datas, 'keyword':keyword, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG})
 
 
 ''' /web/login/ '''

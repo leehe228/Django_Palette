@@ -63365,3 +63365,209 @@ Not Found: /
 [24/Dec/2020 19:53:43] "GET /web/search/?key= HTTP/1.0" 200 2525
 [24/Dec/2020 19:53:44] "GET /web/star/ HTTP/1.0" 200 9365
 [24/Dec/2020 19:53:46] "GET /web/setting/ HTTP/1.0" 200 3746
+[24/Dec/2020 19:54:35] "GET /web/redirect/?to=logout HTTP/1.0" 302 0
+[24/Dec/2020 19:54:36] "GET /web/home/ HTTP/1.0" 200 8894
+[24/Dec/2020 19:54:37] "GET /web/info/?n=10000013 HTTP/1.0" 200 4847
+[24/Dec/2020 19:54:39] "GET /web/redirect?to=gallery&n=10000013&p=1 HTTP/1.0" 301 0
+[24/Dec/2020 19:54:39] "GET /web/redirect/?to=gallery&n=10000013&p=1 HTTP/1.0" 302 0
+[24/Dec/2020 19:54:39] "GET /web/login/ HTTP/1.0" 200 4196
+[24/Dec/2020 19:54:42] "GET /web/redirect/?to=gallery&n=10000013&p=1 HTTP/1.0" 302 0
+[24/Dec/2020 19:54:42] "GET /web/login/ HTTP/1.0" 200 4196
+[24/Dec/2020 19:55:03] "GET /web/gallery/?n=10000001&p=1 HTTP/1.0" 302 0
+[24/Dec/2020 19:55:03] "GET /web/login/ HTTP/1.0" 200 4196
+[24/Dec/2020 19:55:10] "GET /web/redirect/?to=login&email=test&password=00000000 HTTP/1.0" 302 0
+[24/Dec/2020 19:55:10] "GET /web/home/ HTTP/1.0" 200 8899
+[24/Dec/2020 19:55:12] "GET /web/info/?n=10000014 HTTP/1.0" 200 4847
+[24/Dec/2020 19:55:14] "GET /web/redirect?to=gallery&n=10000014&p=1 HTTP/1.0" 301 0
+[24/Dec/2020 19:55:14] "GET /web/redirect/?to=gallery&n=10000014&p=1 HTTP/1.0" 302 0
+[24/Dec/2020 19:55:14] "GET /web/payment/ HTTP/1.0" 200 27
+----------------------------------------
+Exception happened during processing of request from ('94.102.50.155', 60000)
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 139, in handle
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+Not Found: /phpmyadmin/
+[24/Dec/2020 20:46:33] "GET /phpmyadmin/ HTTP/1.0" 404 2423
+Not Found: /
+[24/Dec/2020 20:56:06] "GET / HTTP/1.1" 404 2372
+Not Found: /
+[24/Dec/2020 21:27:38] "GET / HTTP/1.0" 404 2372
+[24/Dec/2020 21:51:53] "GET /web/redirect/?to=login&email=test&password=00000000 HTTP/1.0" 302 0
+Not Found: /
+[24/Dec/2020 22:41:17] "GET / HTTP/1.0" 404 2367
+[24/Dec/2020 23:26:16] "POST /account/login/ HTTP/1.1" 200 2
+[24/Dec/2020 23:27:36] "GET /web/home/ HTTP/1.0" 200 8899
+[24/Dec/2020 23:27:36] "GET /static/css/home.css HTTP/1.0" 304 0
+[24/Dec/2020 23:27:36] "GET /media/websrc/home_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 23:27:36] "GET /static/css/home_mobile.css HTTP/1.0" 304 0
+[24/Dec/2020 23:27:36] "GET /media/websrc/star_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 23:27:36] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 23:27:36] "GET /media/websrc/search_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 23:27:36] "GET /media/websrc/home/banner1.jpg HTTP/1.1" 304 0
+[24/Dec/2020 23:27:36] "GET /media/websrc/setting_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 23:27:36] "GET /media/websrc/comlogo.jpg HTTP/1.1" 304 0
+[24/Dec/2020 23:27:38] "GET /web/search/?key= HTTP/1.0" 200 4596
+[24/Dec/2020 23:27:39] "GET /static/css/basic.css HTTP/1.0" 304 0
+[24/Dec/2020 23:27:39] "GET /static/css/basic_mobile.css HTTP/1.0" 304 0
+[24/Dec/2020 23:27:39] "GET /media/websrc/user_icon.jpg HTTP/1.1" 304 0
+[24/Dec/2020 23:27:43] "GET /web/search/?key=%EA%B4%91 HTTP/1.0" 200 5224
+[24/Dec/2020 23:27:47] "GET /web/info/?n=10000001 HTTP/1.0" 200 4847
+[24/Dec/2020 23:28:41] "GET /web/search/?key=%EA%B4%91 HTTP/1.0" 200 5272
+[24/Dec/2020 23:28:41] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 24, 2020 - 19:53:03
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+test
+test
+test
+test
+test
+test
+[24/Dec/2020 23:30:50] "GET /web/search/?key=%EA%B4%91 HTTP/1.0" 200 5274
+[24/Dec/2020 23:30:50] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[24/Dec/2020 23:30:56] "GET /web/search?key=%EA%B4%80%EA%B4%91 HTTP/1.0" 301 0
+[24/Dec/2020 23:30:56] "GET /web/search/?key=%EA%B4%80%EA%B4%91 HTTP/1.0" 200 4943
+[24/Dec/2020 23:31:02] "GET /web/info/?n=10000003 HTTP/1.0" 200 4847
+[24/Dec/2020 23:31:05] "GET /web/home/ HTTP/1.0" 200 8899
+[24/Dec/2020 23:31:07] "GET /web/saved/ HTTP/1.0" 200 1905
+[24/Dec/2020 23:34:30] "GET /admin/ HTTP/1.1" 302 0
+[24/Dec/2020 23:34:30] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1872
+[24/Dec/2020 23:34:30] "GET /static/admin/css/login.css HTTP/1.1" 200 1203
+Not Found: /favicon.ico
+[24/Dec/2020 23:34:30] "GET /favicon.ico HTTP/1.1" 404 2423
+[24/Dec/2020 23:34:36] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[24/Dec/2020 23:34:36] "GET /admin/ HTTP/1.1" 200 7851
+[24/Dec/2020 23:34:38] "GET /admin/account/user/ HTTP/1.1" 200 4980
+[24/Dec/2020 23:34:38] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[24/Dec/2020 23:34:39] "GET /admin/account/user/test/change/ HTTP/1.1" 200 8891
+[24/Dec/2020 23:34:39] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[24/Dec/2020 23:34:42] "GET /admin/account/user/ HTTP/1.1" 200 4980
+[24/Dec/2020 23:34:44] "GET /admin/account/user/test_40test.com/change/ HTTP/1.1" 200 9040
+[24/Dec/2020 23:34:44] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[24/Dec/2020 23:35:22] "POST /admin/account/user/test_40test.com/change/ HTTP/1.1" 302 0
+[24/Dec/2020 23:35:22] "GET /admin/account/user/ HTTP/1.1" 200 5192
+[24/Dec/2020 23:35:22] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[24/Dec/2020 23:35:24] "GET /admin/account/user/hmpaak20_40gmail.com/change/ HTTP/1.1" 200 8979
+[24/Dec/2020 23:35:24] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[24/Dec/2020 23:35:27] "GET /admin/account/user/ HTTP/1.1" 200 4980
+[24/Dec/2020 23:35:28] "GET /admin/account/user/test_40test.com/change/ HTTP/1.1" 200 9040
+[24/Dec/2020 23:35:28] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[24/Dec/2020 23:35:30] "GET /admin/account/user/ HTTP/1.1" 200 4980
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 24, 2020 - 23:30:49
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+test
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7f03945e2310>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 25, in <module>
+    path('web/', include('page.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/page/urls.py", line 2, in <module>
+    from . import views
+SyntaxError: invalid syntax (views.py, line 86)
+Performing system checks...
+
+Exception ignored in thread started by: <function check_errors.<locals>.wrapper at 0x7f8403cb4310>
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/autoreload.py", line 225, in wrapper
+    fn(*args, **kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 120, in inner_run
+    self.check(display_num_errors=True)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 361, in check
+    all_issues = self._run_checks(
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/management/base.py", line 351, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/registry.py", line 73, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 40, in check_url_namespaces_unique
+    all_namespaces = _load_all_namespaces(resolver)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/checks/urls.py", line 57, in _load_all_namespaces
+    url_patterns = getattr(resolver, 'url_patterns', [])
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 540, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/functional.py", line 36, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/resolvers.py", line 533, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/project/urls.py", line 25, in <module>
+    path('web/', include('page.urls')),
+  File "/home/palette/venv/lib/python3.8/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/palette/page/urls.py", line 2, in <module>
+    from . import views
+IndentationError: unexpected unindent (views.py, line 96)
