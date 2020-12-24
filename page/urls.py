@@ -11,4 +11,6 @@ urlpatterns = [
     path('redirect/', views.d_redirect, name='redirect'),
     path('info/', views.info, name='info'),
     path('setting/', views.setting, name='setting'),
+    path('gallery/', views.gallery, name='gallery'),
+    path('payment/', views.payment, name='payment'),
 ]

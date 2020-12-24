@@ -84,7 +84,7 @@ def search(request):
 
     datas = list()
 
-    if not keyword is '':
+    if keyword != '':
         l = Exhibition.objects.all()
 
         # galleryTitle, galleryCreator
@@ -108,12 +108,10 @@ def no_page(request):
 
 @csrf_exempt
 def info(request):
-    n = request.GET['n']
-
-    imgurl = "http://141.164.40.63:8000/media/database/" + n + "/1.jpg"
-    
-    return HttpResponse(imgurl)
-    # return render(request, '/home/palette/page/templates/page/info.html', {"image":imgurl})
+    code = int(request.GET['n'])
+    title = "title"
+    content = "content"
+    return render(request, '/home/palette/page/templates/page/info.html', {'code':code, 'title':title, 'content':content})
 
 
 @csrf_exempt
@@ -130,6 +128,9 @@ def d_redirect(request):
 
     elif t == 'logout':
         return logout_process(request)
+
+    elif t == 'gallery':
+        return gallery(request)
 
     # redirect page not found
     else:
@@ -169,6 +170,7 @@ def logout_process(request):
 
     return response
 
+
 @csrf_exempt
 def setting(request):
     username = request.COOKIES.get('userEmail')
@@ -180,6 +182,7 @@ def setting(request):
         userpaidStr = "구독 결제 중"
 
     return render(request, '/home/palette/page/templates/page/setting.html', {'username':username, 'paid':userpaidStr})
+
 
 @csrf_exempt
 def getPaid(userEmailString):
@@ -195,3 +198,29 @@ def getPaid(userEmailString):
     except Exception as e:
         print(e)
         return False
+
+
+@csrf_exempt
+def gallery(request):
+    userEmail = request.COOKIES.get('userEmail')
+
+    if userEmail == None:
+        return redirect('login')
+
+    elif userEmail != None and getPaid(userEmail) == False:
+        return redirect('payment')
+    
+    else:
+        code = request.GET['n']
+        page = request.GET['p']
+
+        min_page = 1
+        max_page = 10
+        
+        return render(request, '/home/palette/page/templates/page/gallery.html', {'code':code, 'page':page})
+
+
+@csrf_exempt
+def payment(request):
+
+    return HttpResponse("결제를 해야 합니다.")

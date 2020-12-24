@@ -65,8 +65,8 @@
                 </section>
 
                 <section>
-                    <input type="text" id="email" name="email_field">
-                    <input type="password" id="password" name="password_field">
+                    <input onkeyup="enterkey();" type="text" id="email" name="email_field">
+                    <input onkeyup="enterkey();" type="password" id="password" name="password_field">
                     <button class='ff_button' onclick="input()">로그인</button>
                 </section>
             </article>  
@@ -83,6 +83,12 @@
     
                 window.location.href = 'http://softcon.ga/web/redirect?to=login&email='+userEmail+'&password='+userPassword;
             }
+
+	    function enterkey(){
+	    	if (window.event.keyCode == 13){
+		    input();
+		}
+	    }
         </script>
 
     </body>

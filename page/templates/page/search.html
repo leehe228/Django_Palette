@@ -47,7 +47,7 @@
                 </section>
 
                 <section>
-                    <input type="text" id="search_field">
+                    <input onkeyup="enterkey();" type="text" id="search_field">
                     <button class='ff_button' onclick="search()">검색</button>
                 </section>
 
@@ -63,6 +63,13 @@
 		function search(){
 		    keyword = document.getElementById("search_field").value;
 		    window.location.href="http://softcon.ga/web/search?key=" + keyword;
+		}
+
+		function enterkey(){
+		    if (window.event.keyCode == 13) {
+		        keyword = document.getElementById("search_field").value;
+		        window.location.href="http://softcon.ga/web/search?key=" + keyword;
+		    }
 		}
 	    </script>
 
