@@ -176,6 +176,9 @@ def d_redirect(request):
     elif t == 'gallery':
         return gallery(request)
 
+    elif t == 'changepw':
+        return change_password_process(request)
+
     # redirect page not found
     else:
         return HttpResponse("404 Page Not Found")
@@ -274,6 +277,18 @@ def logout_process(request):
 @csrf_exempt
 def change_password(request):
     return render(request, '/home/palette/page/templates/page/change_password.html', {})
+
+
+@csrf_exempt
+def change_password_process(request):
+    email = request.COOKIES.get('userEmail')
+    newPassword = request.GET('password')
+
+    user_bp = User.objects.get(userEmail=email)
+    user_bp.userPassword = newPassword
+    user_bp.save()
+
+    return redirect('setting')
 
 
 ''' setting page '''
