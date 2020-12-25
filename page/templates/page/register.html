@@ -67,13 +67,25 @@
                 <section>
                     <p>이메일</p>
                     <input type="text" id="email" name="email_field">
-                    <button class='ff_button' onclick="emailB()">이메일 인증</button>
                     
                     <p>비밀번호</p>
                     <input type="password" id="password" name="password_field">
 
                     <p>비밀번호 재입력</p>
-                    <input type="password" id="password" name="password_field">
+                    <input type="password" id="password2" name="password_field">
+
+		    <p>이름</p>
+                    <input type="text" id="name" name="name_field">
+
+		    <p>나이</p>
+                    <input type="number" id="age" name="age_field">
+
+		    <p>성별</p>
+		    <div>
+			<input type="radio" name="gender" value="M">남
+			<input type="radio" name="gender" value="W">여
+		    </div>
+
 		    <button class='ff_button' onclick="input()">회원가입</button>
                 </section>
             </article>  
@@ -83,19 +95,29 @@
         <script type="text/javascript">
             var userEmail;
             var userPassword;
-    
+	    var name;
+            var age;
+	    var genderButton;
+	    var gender;
+		
             function input(){
                 userEmail = document.getElementById("email").value;
                 userPassword = document.getElementById("password").value;
-    
-                window.location.href = 'http://softcon.ga/redirect?to=signup&email='+userEmail+'&password='+userPassword;
+		userPassword2 = document.getElementById("password2").value;
+    		name = document.getElementById("name").value;
+		age = document.getElementById("age").value;
+		genderButton = document.getElementsByName("gender");
+		
+		if(genderButton[0].checked == true){
+		    gender = "M"
+		}
+		else{
+		    gender = "W"
+		}
+
+                window.location.href = 'http://softcon.ga/redirect?to=signup&email='+userEmail+'&password='+userPassword+'&name='+name+'&age='+age+'&gender='+gender;
             }
 
-            function emailB(){
-                userEmail = document.getElementById("email").value;
-
-                window.open('http://softcon.ga/f?to=email&email='+userEmail)
-            }
         </script>
 
     </body>

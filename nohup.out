@@ -64369,3 +64369,80 @@ Not Found: /favicon.ico
 [25/Dec/2020 18:38:45] "GET /media/database/10000010/1.jpg HTTP/1.1" 200 196394
 [25/Dec/2020 18:38:45] "GET /media/websrc/comlogo.jpg HTTP/1.1" 200 3386
 [25/Dec/2020 18:38:46] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[25/Dec/2020 18:41:21] "GET /login/ HTTP/1.0" 200 4267
+[25/Dec/2020 18:41:21] "GET /static/css/basic.css HTTP/1.0" 200 579
+[25/Dec/2020 18:41:21] "GET /static/css/basic_mobile.css HTTP/1.0" 200 763
+[25/Dec/2020 18:41:22] "GET /register/ HTTP/1.0" 200 4532
+Not Found: /media/websrc
+[25/Dec/2020 18:42:22] "GET /media/websrc HTTP/1.0" 404 1773
+[25/Dec/2020 18:42:22] "GET /redirect?to=login&email HTTP/1.0" 301 0
+Internal Server Error: /redirect/
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 77, in __getitem__
+    list_ = super().__getitem__(key)
+KeyError: 'password'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/palette/page/views.py", line 166, in d_redirect
+    return login_process(request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/palette/page/views.py", line 199, in login_process
+    passwd = request.GET['password']
+  File "/home/palette/venv/lib/python3.8/site-packages/django/utils/datastructures.py", line 79, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'password'
+[25/Dec/2020 18:42:22] "GET /redirect/?to=login&email HTTP/1.0" 500 82862
+[25/Dec/2020 18:42:59] "GET /f?to=email&email= HTTP/1.0" 301 0
+[25/Dec/2020 18:42:59] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:42:59] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:00] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:00] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:01] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:01] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:02] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:02] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:03] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:03] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:04] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:04] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:06] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:06] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:07] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:07] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:07] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:08] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:08] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:08] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:09] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:09] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:10] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:10] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:11] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:11] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:12] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:12] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:13] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:13] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:14] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:14] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:15] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:15] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:16] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:16] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:17] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:17] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:18] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:18] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 18:43:19] "GET /f/?to=email&email= HTTP/1.0" 302 0
+[25/Dec/2020 18:43:19] "GET /close/ HTTP/1.0" 200 133

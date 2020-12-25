@@ -13,6 +13,7 @@ sys.path.append("..")
 from account.models import User
 from gallery.models import Exhibition
 
+FILE_PATH = "/home/palette/media/test/"
 
 ''' home page '''
 @csrf_exempt
@@ -166,7 +167,7 @@ def d_redirect(request):
         return login_process(request)
 
     # redirect to signup
-    elif t == 'register':
+    elif t == 'signup':
         return signup_process(request)
 
     elif t == 'logout':
@@ -189,7 +190,54 @@ def register(request):
 ''' signup processing '''
 @csrf_exempt
 def signup_process(request):
-    return redirect('home')
+    email = request.GET['email']
+    passwd = request.GET['password']
+    name = request.GET['name']
+    Age = int(request.GET['age'])
+    gender = request.GET['gender']
+
+    if gender == 'M':
+        genderValue = 0
+    else:
+        genderValue = 1
+
+    CODE = mkUserCode()
+    l = ['A','R','T','I','S','L','O','V','E']
+
+    if (int(Age) > 89):
+        Age = "89"
+    PREP = l[int(Age) // 10]
+
+    if(gender == "UNKNOWN"):
+        PREP = PREP + "U"
+    elif(gender == "MAN"):
+        PREP = PREP + "M"
+    elif(gender == "WOMAN"):
+        PREP = PREP + "W"
+    
+    #객체 인스턴스화
+    newUser = User(userEmail=email, userPassword=passwd, userName=name, userAge=Age, userCode=PREP + CODE, userSex=gender)
+    try :
+        newUser.save(force_insert=True)
+        return redirect('login')
+    except Exception as e:
+        print(e)
+        return redirect('register')
+    
+
+@csrf_exempt
+def mkUserCode():
+    f = open(FILE_PATH + "userCode.txt", 'r')
+    line = f.read()
+    if (line==''):
+        line = '0'
+    CODE = int(line) + 1
+    f.close()
+
+    f = open(FILE_PATH + "userCode.txt", "w")
+    f.write(str(CODE))
+
+    return str(CODE)
 
 
 ''' login processing '''
@@ -223,18 +271,25 @@ def logout_process(request):
     return response
 
 
+@csrf_exempt
+def change_password(request):
+    return render(request, '/home/palette/page/templates/page/change_password.html', {'user_bp':user_bp, 'paid':userpaidStr})
+
+
 ''' setting page '''
 @csrf_exempt
 def setting(request):
     username = request.COOKIES.get('userEmail')
     userpaid = getPaid(username)
+    
+    user_bp = User.objects.get(userEmail=username)
 
     if userpaid == False:
         userpaidStr = "구독 결제 전"
     else:
         userpaidStr = "구독 결제 중"
 
-    return render(request, '/home/palette/page/templates/page/setting.html', {'username':username, 'paid':userpaidStr})
+    return render(request, '/home/palette/page/templates/page/setting.html', {'user_bp':user_bp, 'paid':userpaidStr})
 
 
 ''' check paid '''
