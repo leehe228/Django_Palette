@@ -65,8 +65,13 @@
                 </section>
 
                 <section>
-                    <p>{{ username }}</p>
+                    <p>{{ username }}님</p>
                     <p>{{ paid }}</p>
+                    <p><a href="#">관심 분야 수정</a></p>
+                    <p><a href="#">비밀번호 변경</a></p>
+                    <p><a href="http://softcon.ga/payment/">구독 결제 관리</a></p>
+                    <p><a href="http://softcon.ga/redirect?to=logout">로그아웃</a></p>
+                    <button class='ff_button' onclick="payment()">구독 결제 관리</button>
                     <button class='ff_button' onclick="logout()">로그아웃</button>
                 </section>
             </article>  
@@ -74,6 +79,10 @@
         </div>
 
         <script type="text/javascript">
+            function payment(){
+                window.location.href = 'http://softcon.ga/payment/';
+            }
+            
             function logout(){
                 window.location.href = 'http://softcon.ga/redirect?to=logout';
             }
