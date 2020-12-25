@@ -98,7 +98,7 @@ def saved(request):
 
         except Exception as e:
             print(e)
-            return HttpResponse("Page Load Fault")
+            return render(request, '/home/palette/page/templates/page/saved.html', {'datas':datas})
 
 
 ''' /search?key= '''
@@ -311,7 +311,15 @@ def setLike(request):
     code = request.GET['n']
     
     user_bp = User.objects.get(userEmail=email)
-    user_bp.userLike = user_bp.userLike + '-' + code
+
+    if user_bp.userLike == None or user_bp.userLike == '':
+        user_bp.userLike = code
+    else:
+        likeList = user_bp.userLike.split('-')
+        likeList.append(code)
+        likeString = '-'.join(likeList)
+        user_bp.userLike = likeString
+    
     user_bp.save()
 
 
