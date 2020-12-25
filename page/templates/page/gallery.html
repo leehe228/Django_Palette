@@ -23,7 +23,7 @@
             <header>
                 <div id="logo">
                     <body>
-                        <a href="http://softcon.ga/web/home/">palette</a>
+                        <a href="http://softcon.ga/">palette</a>
                     </body>
                 </div>
             </header>
@@ -58,11 +58,11 @@
             <div id="tab">
                 <nav>
                     <ul>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/home/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_black_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_black_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_black_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_black_icon.jpg" style="cursor:pointer;"></button></li>
-			            <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/web/setting/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/setting_black_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_black_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_black_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_black_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_black_icon.jpg" style="cursor:pointer;"></button></li>
+			            <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/setting/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/setting_black_icon.jpg" style="cursor:pointer;"></button></li>
                     </ul>
                 </nav>
             </div>
@@ -107,12 +107,12 @@
 
             function left(){
 		    if (p > min_page){
-			window.location.href = "http://softcon.ga/web/gallery?n={{ code }}&p=" + String(p - 1);
+			window.location.href = "http://softcon.ga/gallery?n={{ code }}&p=" + String(p - 1);
 		    }
             }
             function right(){
 		    if (p < max_page){
-			window.location.href = "http://softcon.ga/web/gallery?n={{ code }}&p=" + String(p + 1);
+			window.location.href = "http://softcon.ga/gallery?n={{ code }}&p=" + String(p + 1);
 		    }
             }
             function add_like(){
@@ -122,7 +122,7 @@
 
             }
             function close_page(){
-		window.location.href = "http://softcon.ga/web/info?n={{ code }}";
+		window.location.href = "http://softcon.ga/info?n={{ code }}";
             }
         </script>
         

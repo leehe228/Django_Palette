@@ -27,7 +27,7 @@
             <div id="logo">
 
                 <body>
-                    <a href="http://softcon.ga/web/home/">palette</a>
+                    <a href="http://softcon.ga/">palette</a>
                 </body>
             </div>
         </header>
@@ -51,19 +51,19 @@
             <nav>
                 <ul>
                     <li><button type="button" class="header_button"
-                            onclick="location.href='http://softcon.ga/web/home/'"><img class="header_buttonimg"
+                            onclick="location.href='http://softcon.ga/'"><img class="header_buttonimg"
                                 src="http://141.164.40.63:8000/media/websrc/home_icon.jpg"
                                 style="cursor:pointer;"></button></li>
                     <li><button type="button" class="header_button"
-                            onclick="location.href='http://softcon.ga/web/star/'"><img class="header_buttonimg"
+                            onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg"
                                 src="http://141.164.40.63:8000/media/websrc/star_icon.jpg"
                                 style="cursor:pointer;"></button></li>
                     <li><button type="button" class="header_button"
-                            onclick="location.href='http://softcon.ga/web/saved/'"><img class="header_buttonimg"
+                            onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg"
                                 src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg"
                                 style="cursor:pointer;"></button></li>
                     <li><button type="button" class="header_button"
-                            onclick="location.href='http://softcon.ga/web/search?key='"><img class="header_buttonimg"
+                            onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg"
                                 src="http://141.164.40.63:8000/media/websrc/search_icon.jpg"
                                 style="cursor:pointer;"></button></li>
                     <li><button type="button" class="header_button"
@@ -97,7 +97,7 @@
 
             <section>
                 {% for data in datas %}
-                <img onclick="location.href='http://softcon.ga/web/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data.galleryCode }}/1.jpg" style="cursor:pointer;">
+                <img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data.galleryCode }}/1.jpg" style="cursor:pointer;">
                 <p>전시회 제목 : {{ data.galleryTitle }}, 전시회 작가 : {{ data.galleryCreator }}, 전시회 코드 : {{ data.galleryCode }}</p>
                 {% endfor %}
             </section>
@@ -107,13 +107,13 @@
             var keyword
             function search() {
                 keyword = document.getElementById("search_field").value;
-                window.location.href = "http://softcon.ga/web/search?key=" + keyword;
+                window.location.href = "http://softcon.ga/search?key=" + keyword;
             }
 
             function enterkey() {
                 if (window.event.keyCode == 13) {
                     keyword = document.getElementById("search_field").value;
-                    window.location.href = "http://softcon.ga/web/search?key=" + keyword;
+                    window.location.href = "http://softcon.ga/search?key=" + keyword;
                 }
             }
         </script>

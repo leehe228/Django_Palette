@@ -14,15 +14,16 @@ from account.models import User
 from gallery.models import Exhibition
 
 
+''' home page '''
 @csrf_exempt
 def home(request):
-    loginedURL = "http://softcon.ga/web/login/"
+    loginedURL = "http://softcon.ga/login/"
     loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
 
     if request.COOKIES.get('userEmail') != None:
         print(request.COOKIES.get('userEmail'))
         loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
-        loginedURL = "http://softcon.ga/web/setting/"
+        loginedURL = "http://softcon.ga/setting/"
     
     l = Exhibition.objects.all()
     dic={}
@@ -40,15 +41,16 @@ def home(request):
     return render(request, '/home/palette/page/templates/page/home.html', {'datas': datas, 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
 
 
+''' hot page '''
 @csrf_exempt
 def star(request):
-    loginedURL = "http://softcon.ga/web/login/"
+    loginedURL = "http://softcon.ga/login/"
     loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
 
     if request.COOKIES.get('userEmail') != None:
         print(request.COOKIES.get('userEmail'))
         loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
-        loginedURL = "http://softcon.ga/web/setting/"
+        loginedURL = "http://softcon.ga/setting/"
 
     l = Exhibition.objects.all()
     dic={}
@@ -65,13 +67,13 @@ def star(request):
     return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas, 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
 
 
-''' /web/business/ '''
+''' business page '''
 @csrf_exempt
 def business(request):
     return render(request, '/home/palette/page/templates/page/main.html', {})
 
 
-''' /web/saved/ '''
+''' saved page  '''
 @csrf_exempt
 def saved(request):
     email = request.COOKIES.get('userEmail')
@@ -99,15 +101,15 @@ def saved(request):
             return HttpResponse("Page Load Fault")
 
 
-''' /web/search?key= '''
+''' /search?key= '''
 @csrf_exempt
 def search(request):
 
-    loginedURL = "http://softcon.ga/web/login/"
+    loginedURL = "http://softcon.ga/login/"
     loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
 
     if request.COOKIES.get('userEmail') != None:
-        loginedURL = "http://softcon.ga/web/setting/"
+        loginedURL = "http://softcon.ga/setting/"
         loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
 
     keyword = request.GET['key'].strip()
@@ -125,26 +127,36 @@ def search(request):
     return render(request, '/home/palette/page/templates/page/search.html', {'datas':datas, 'keyword':keyword, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG})
 
 
-''' /web/login/ '''
+''' login page  '''
 @csrf_exempt
 def login(request):
     return render(request, '/home/palette/page/templates/page/login.html', {})
 
 
+''' 404 '''
 @csrf_exempt
 def no_page(request):
     return render(request, '', {})
 
 
+''' gallery info page '''
 @csrf_exempt
 def info(request):
     code = int(request.GET['n'])
+
+    loginedURL = "http://softcon.ga/login/"
+    loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
+
+    if request.COOKIES.get('userEmail') != None:
+        loginedURL = "http://softcon.ga/setting/"
+        loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
     
     E = Exhibition.objects.get(galleryCode=code)
 
-    return render(request, '/home/palette/page/templates/page/info.html', {'code':code, 'exhibition':E})
+    return render(request, '/home/palette/page/templates/page/info.html', {'code':code, 'exhibition':E, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG})
 
 
+''' redirect to '''
 @csrf_exempt
 def d_redirect(request):
     t = request.GET['to']
@@ -168,15 +180,19 @@ def d_redirect(request):
         return HttpResponse("404 Page Not Found")
 
 
+''' signup page '''
 @csrf_exempt
 def register(request):
     return render(request, '/home/palette/page/templates/page/register.html', {})
 
+
+''' signup processing '''
 @csrf_exempt
 def signup_process(request):
     return redirect('home')
 
 
+''' login processing '''
 @csrf_exempt
 def login_process(request):
     email = request.GET['email']
@@ -196,6 +212,7 @@ def login_process(request):
         return HttpResponse(str("login failed! : emailAddress : " + email + ", password : " + passwd))
 
 
+''' logout processing '''
 @csrf_exempt
 def logout_process(request):
     email = request.COOKIES.get('userEmail')
@@ -206,6 +223,7 @@ def logout_process(request):
     return response
 
 
+''' setting page '''
 @csrf_exempt
 def setting(request):
     username = request.COOKIES.get('userEmail')
@@ -219,6 +237,7 @@ def setting(request):
     return render(request, '/home/palette/page/templates/page/setting.html', {'username':username, 'paid':userpaidStr})
 
 
+''' check paid '''
 @csrf_exempt
 def getPaid(userEmailString):
     try:
@@ -235,6 +254,7 @@ def getPaid(userEmailString):
         return False
 
 
+''' gallery page  '''
 @csrf_exempt
 def gallery(request):
     userEmail = request.COOKIES.get('userEmail')
@@ -269,20 +289,22 @@ def gallery(request):
 
         if checkLike(userEmail, code):
             likeIMG = "http://141.164.40.63:8000/media/websrc/r_check_icon.jpg"
-            likeURL = "http://softcon.ga/web/gallery?to=c&n=" + code + "&p=" + page
+            likeURL = "http://softcon.ga/gallery?to=c&n=" + code + "&p=" + page
         else:
             likeIMG = "http://141.164.40.63:8000/media/websrc/r_plus_icon.jpg"
-            likeURL = "http://softcon.ga/web/gallery?to=s&n=" + code + "&p=" + page
+            likeURL = "http://softcon.ga/gallery?to=s&n=" + code + "&p=" + page
 
         return render(request, '/home/palette/page/templates/page/gallery.html', {'code':code, 'page':page, 'max_page':max_page, 't':t, 'c':c, 'likeIMG':likeIMG, 'likeURL':likeURL})
 
 
+''' payment page '''
 @csrf_exempt
 def payment(request):
 
     return HttpResponse("결제를 해야 합니다.")
 
 
+''' add like '''
 @csrf_exempt
 def setLike(request):
     email = request.COOKIES.get('userEmail')
@@ -293,6 +315,7 @@ def setLike(request):
     user_bp.save()
 
 
+''' cancel like '''
 @csrf_exempt
 def cancelLike(request):
     email = request.COOKIES.get('userEmail')
@@ -310,6 +333,7 @@ def cancelLike(request):
     user_bp.save()
 
 
+''' check like '''
 @csrf_exempt
 def checkLike(email, code):
     user_bp = User.objects.get(userEmail=email)
@@ -321,6 +345,7 @@ def checkLike(email, code):
         return False
 
 
+''' /f?to= '''
 @csrf_exempt
 def func(request):
     n = request.GET['to']
@@ -339,6 +364,7 @@ def func(request):
     return redirect('close')
     
 
+''' close page with JS '''
 @csrf_exempt
 def close(request):
     return render(request, '/home/palette/page/templates/page/close.html', {})
