@@ -282,7 +282,7 @@ def change_password(request):
 @csrf_exempt
 def change_password_process(request):
     email = request.COOKIES.get('userEmail')
-    newPassword = request.GET('password')
+    newPassword = request.GET['password']
 
     user_bp = User.objects.get(userEmail=email)
     user_bp.userPassword = newPassword

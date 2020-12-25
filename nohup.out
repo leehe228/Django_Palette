@@ -64446,3 +64446,16 @@ django.utils.datastructures.MultiValueDictKeyError: 'password'
 [25/Dec/2020 18:43:18] "GET /close/ HTTP/1.0" 200 133
 [25/Dec/2020 18:43:19] "GET /f/?to=email&email= HTTP/1.0" 302 0
 [25/Dec/2020 18:43:19] "GET /close/ HTTP/1.0" 200 133
+[25/Dec/2020 20:30:21] "GET /info/?n=10000011 HTTP/1.0" 200 5009
+[25/Dec/2020 20:30:50] "GET / HTTP/1.0" 200 8793
+Not Found: /phpmyadmin/
+[25/Dec/2020 20:33:30] "GET /phpmyadmin/ HTTP/1.0" 404 4860
+Not Found: /web/home/
+[25/Dec/2020 20:52:23] "GET /web/home/ HTTP/1.0" 404 4854
+[25/Dec/2020 21:33:59] "GET / HTTP/1.0" 200 8788
+[25/Dec/2020 22:02:46] "GET / HTTP/1.0" 200 8788
+[25/Dec/2020 22:10:19] "GET /info?n=10000009 HTTP/1.0" 301 0
+[25/Dec/2020 22:10:19] "GET /info/?n=10000009 HTTP/1.0" 200 4991
+[25/Dec/2020 22:10:20] "GET /static/css/basic.css HTTP/1.0" 304 0
+[25/Dec/2020 22:10:20] "GET /static/css/basic_mobile.css HTTP/1.0" 304 0
+[25/Dec/2020 22:10:49] "GET /register HTTP/1.0" 301 0
