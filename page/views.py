@@ -273,7 +273,7 @@ def logout_process(request):
 
 @csrf_exempt
 def change_password(request):
-    return render(request, '/home/palette/page/templates/page/change_password.html', {'user_bp':user_bp, 'paid':userpaidStr})
+    return render(request, '/home/palette/page/templates/page/change_password.html', {})
 
 
 ''' setting page '''
