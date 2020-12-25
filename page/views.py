@@ -179,9 +179,28 @@ def d_redirect(request):
     elif t == 'changepw':
         return change_password_process(request)
 
+    elif t == 'saveprf':
+        return save_pref(request)
+
     # redirect page not found
     else:
         return HttpResponse("404 Page Not Found")
+
+
+@csrf_exempt
+def pref(request):
+    return render(request, '/home/palette/page/templates/page/edit_pref.html', {})
+
+@csrf_exempt
+def save_pref(request):
+    email = request.COOKIES.get('userEmail')
+    v = request.GET['v']
+    
+    user_bp = User.objects.get(userEmail=email)
+    user_bp.userInterest = v
+    user_bp.save()
+
+    return redirect('home')
 
 
 ''' signup page '''
@@ -222,7 +241,11 @@ def signup_process(request):
     newUser = User(userEmail=email, userPassword=passwd, userName=name, userAge=Age, userCode=PREP + CODE, userSex=gender)
     try :
         newUser.save(force_insert=True)
-        return redirect('login')
+
+        response = redirect('pref')
+        response.set_cookie('userEmail', email)
+
+        return response
     except Exception as e:
         print(e)
         return redirect('register')
@@ -371,7 +394,14 @@ def gallery(request):
 @csrf_exempt
 def payment(request):
 
-    return HttpResponse("결제를 해야 합니다.")
+    email = request.COOKIES.get('userEmail')
+
+    if getPaid(email):
+        paid = "구독 결제중입니다."
+    else:
+        paid = "구독 결제 전입니다."
+
+    return render(request, '/home/palette/page/templates/page/payment.html', {'paid':paid})
 
 
 ''' add like '''

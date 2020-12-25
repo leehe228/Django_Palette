@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>palette</title>
+        <!-- mobile -->
+        <link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
+        <!-- web -->
+        <link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.8">
+
+        <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
+    </head>
+
+    <body oncontextmenu='return false' onselectstart='return false' ondragstart='return false' style="overflow-x:hidden; overflow-y:auto;">
+        <div id="page">
+            <header>
+                <div id="logo">
+                    <body>
+                        <a href="http://softcon.ga/">palette</a>
+                    </body>
+                </div>
+            </header>
+
+            <style>
+                .header_buttonimg{
+                    width:20px;
+                    height:20px;
+                    object-fit:contain;
+                }
+                .header_button{
+                    border:0;
+                    outline:0;
+                    box-shadow:none;
+                    background-color:white;
+                }
+            </style>
+
+            <div id="tab">
+                <nav>
+                    <ul>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/setting/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/setting_icon.jpg" style="cursor:pointer;"></button></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <style>
+                .top-space{
+                    height:60px;
+                }
+                .box-container{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    margin:20px;
+                    align-content: flex-start;
+                }
+                .box_red{
+                    margin-left:10px;
+                    margin-right:10px;
+                    margin-bottom:10px;
+                    width:200px;
+                    height:100px;
+                    border-radius: 20px;
+                    background-color: #ffb6b6;
+                    text-align:center;
+                }
+                .box_yellow{
+                    margin-left:10px;
+                    margin-right:10px;
+                    margin-bottom:10px;
+                    width:200px;
+                    height:100px;
+                    border-radius: 20px;
+                    background-color: #fffeb6;
+                    text-align:center;
+                }
+                .box_green{
+                    margin-left:10px;
+                    margin-right:10px;
+                    margin-bottom:10px;
+                    width:200px;
+                    height:100px;
+                    border-radius: 20px;
+                    background-color: #b6ffbc;
+                    text-align:center;
+                }
+                .box_blue{
+                    margin-left:10px;
+                    margin-right:10px;
+                    margin-bottom:10px;
+                    width:200px;
+                    height:100px;
+                    border-radius: 20px;
+                    background-color: #b6d6ff;
+                    text-align:center;
+                }
+                .box_mag{
+                    margin-left:10px;
+                    margin-right:10px;
+                    margin-bottom:10px;
+                    width:200px;
+                    height:100px;
+                    border-radius: 20px;
+                    background-color: #f6b6ff;
+                    text-align:center;
+                }
+            </style>
+
+            <article>
+                <p class='top-space'></p>
+
+                <div class="box-container">
+                        <div class="box_red"><input type="checkbox" name="A" value="0"><a>A</a></div>
+                        <div class="box_yellow"><input type="checkbox" name="B" value="0"><a>B</a></div>
+                        <div class="box_green"><input type="checkbox" name="C" value="0"><a>C</a></div>
+                        <div class="box_blue"><input type="checkbox" name="D" value="0"><a>D</a></div>
+                        <div class="box_mag"><input type="checkbox" name="E" value="0"><a>E</a></div>
+                        <div class="box_red"><input type="checkbox" name="F" value="0"><a>F</a></div>
+                        <div class="box_yellow"><input type="checkbox" name="G" value="0"><a>G</a></div>
+                        <div class="box_green"><input type="checkbox" name="H" value="0"><a>H</a></div>
+                        <div class="box_blue"><input type="checkbox" name="I" value="0"><a>I</a></div>
+                </div>
+
+                <div><button onclick="save();">저장</button></div>
+            </article>
+
+            <script type="text/javascript">
+                var v = "000000000";
+                function save(){
+                    location.href = 'http://softcon.ga/redirect?to=saveprf&v=' + v;
+                }
+            </script>
+
+        </div>
+    </body>
+</html>

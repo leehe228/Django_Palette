@@ -5,18 +5,19 @@
         <meta charset="UTF-8">
         <title>palette</title>
         <!-- mobile -->
-	<link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
+        <link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
         <!-- web -->
-	<link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
+        <link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
 
-	    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
         <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
     </head>
+
     <body oncontextmenu='return false' onselectstart='return false' ondragstart='return false' style="overflow-x:hidden; overflow-y:auto;">
         <div id="page">
             <header>
@@ -48,11 +49,11 @@
                         <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_icon.jpg" style="cursor:pointer;"></button></li>
                         <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg" style="cursor:pointer;"></button></li>
                         <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_icon.jpg" style="cursor:pointer;"></button></li>
-			            <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/setting/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/setting_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/setting/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/setting_icon.jpg" style="cursor:pointer;"></button></li>
                     </ul>
                 </nav>
             </div>
-            
+
             <style>
                 .top-space{
                     height:60px;
@@ -60,21 +61,11 @@
             </style>
 
             <article>
-                <section>
-                    <p class='top-space'></p>
-                </section>
-
-                <section>
-		    <p>{{ user_bp.userName }}님 ({{ user_bp.userEmail }})</p>
-                    <p>{{ paid }}</p>
-                    <p><a href="http://softcon.ga/pref/">관심 분야 수정</a></p>
-                    <p><a href="http://softcon.ga/change_password/">비밀번호 변경</a></p>
-                    <p><a href="http://softcon.ga/payment/">구독 결제 관리</a></p>
-                    <p><a href="http://softcon.ga/redirect?to=logout">로그아웃</a></p>
-                </section>
-            </article>  
+                <p class='top-space'></p>
+                <p>구독</p>
+                <p>{{ paid }}</p>
+            </article>
 
         </div>
-
     </body>
 </html>
