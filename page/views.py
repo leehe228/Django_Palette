@@ -132,11 +132,24 @@ def search(request):
 @csrf_exempt
 def login(request):
     email = request.COOKIES.get('userEmail')
-
+    error = ""
+    
     if email is None:
-        return render(request, '/home/palette/page/templates/page/login.html', {})
+        return render(request, '/home/palette/page/templates/page/login.html', {'alert':error})
     else:
         return redirect('home')
+
+@csrf_exempt
+def login_e(request):
+    email = request.COOKIES.get('userEmail')
+
+    error = "가입되지 않은 계정이거나 비밀번호가 올바르지 않습니다."
+
+    if email is None:
+        return render(request, '/home/palette/page/templates/page/login.html', {'alert':error})
+    else:
+        return redirect('home')
+
 
 ''' 404 '''
 @csrf_exempt
@@ -283,11 +296,9 @@ def login_process(request):
         response = redirect('home')
         response.set_cookie('userEmail', email)
 
-        # return HttpResponse(str("login success! : emailAddress : " + email + ", password : " + passwd))
         return response
     else:
-        # return redirect('login')
-        return HttpResponse(str("login failed! : emailAddress : " + email + ", password : " + passwd))
+        return redirect('login_e')
 
 
 ''' logout processing '''

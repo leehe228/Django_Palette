@@ -57,39 +57,83 @@
                 .top-space{
                     height:60px;
                 }
+                .container{
+                    padding-top:80px;
+                    width:100%;
+                    display:flex;
+                    flex-direction: column;
+                    text-align:center;
+                }
+                .basic-label{
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-size: 16px;
+                    margin-bottom:5px;
+                }
+                .inputbox{
+                    font-family: 'Noto Sans KR', sans-serif;
+                    width:300px;
+                    height:30px;
+                    font-size: 15px;
+                    margin-bottom:10px;
+                }
+                .basic-button{
+                    font-family: 'Noto Sans KR', sans-serif;
+                    width:300px;
+                    height:40px;
+                    background-color: #2e2e2e;
+                    border-width: 0px;
+                    font-size:16px;
+                    margin-bottom:10px;
+                    margin-top:10px;
+                    color:white;
+                }
             </style>
-
-            <article>
-                <section>
+            
+            <div>
+                <div>
                     <p class='top-space'></p>
-                </section>
 
-                <section>
-                    <p>이메일</p>
-                    <input type="text" id="email" name="email_field">
-                    
-                    <p>비밀번호</p>
-                    <input type="password" id="password" name="password_field">
+                </div>
 
-                    <p>비밀번호 재입력</p>
-                    <input type="password" id="password2" name="password_field">
+                <div class='container'>
+                    <div class='basic-label'><a>이메일</a></div>
+                    <div>
+                        <input class='inputbox' type="text" id="email" name="email_field">
+                    </div>
 
-		    <p>이름</p>
-                    <input type="text" id="name" name="name_field">
+                    <div class='basic-label'><a>비밀번호</a></div>
+                    <div>
+                        <input class='inputbox' type="password" id="password" name="password_field">
+                    </div>
 
-		    <p>나이</p>
-                    <input type="number" id="age" name="age_field">
+                    <div class='basic-label'><a>비밀번호 재입력</a></div>
+                    <div>
+                        <input class='inputbox' type="password" id="password2" name="password_field">
+                    </div>
 
-		    <p>성별</p>
-		    <div>
-			<input type="radio" name="gender" value="M">남
-			<input type="radio" name="gender" value="W">여
-		    </div>
+                    <div class='basic-label'><a>이름</a></div>
+                    <div>
+                        <input class='inputbox' type="text" id="name" name="name_field">
+                    </div>
 
-		    <button class='ff_button' onclick="input()">회원가입</button>
-                </section>
-            </article>  
+                    <div class='basic-label'><a>나이</a></div>
+                    <div>
+                        <input class='inputbox' type="number" id="age" name="age_field">
+                    </div>
 
+                    <div class='basic-label'><a>성별</a></div>
+                    <div>
+                        <input type="radio" name="gender" value="M" checked="checked">남
+                        <input type="radio" name="gender" value="W">여
+                    </div>
+
+                    <div>
+                        <button class='basic-button' onclick="input()">회원가입</button>
+                    </div>
+
+                </div>
+            </div>
+            
         </div>
 
         <script type="text/javascript">
@@ -99,6 +143,17 @@
             var age;
 	    var genderButton;
 	    var gender;
+
+	    function CheckEmail(str) {                                                 
+                var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+
+                if(!reg_email.test(str)) {      
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
 		
             function input(){
                 userEmail = document.getElementById("email").value;
@@ -115,7 +170,21 @@
 		    gender = "W"
 		}
 
-                window.location.href = 'http://softcon.ga/redirect?to=signup&email='+userEmail+'&password='+userPassword+'&name='+name+'&age='+age+'&gender='+gender;
+                if (userEmail == '' || userPassword == '' || userPassword2 == '' || name == '' || age == ''){
+		    alert("모든 정보를 입력해주세요.");
+		}
+		else{
+		    if(!CheckEmail(userEmail)){
+		        alert("올바른 이메일을 입력해주십시오.")
+		    }
+		    else{
+			if(userPassword != userPassword2){
+                            alert("비밀번호가 일치하지 않습니다.");
+                        }else{
+                            window.location.href = 'http://softcon.ga/redirect?to=signup&email='+userEmail+'&password='+userPassword+'&name='+name+'&age='+age+'&gender='+gender;
+                        }
+		    }
+		}
             }
 
         </script>

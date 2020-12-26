@@ -87,6 +87,12 @@
                     margin-bottom:10px;
                     color:white;
                 }
+		.alert{
+		    font-family: 'Noto Sans KR', sans-serif;
+		    font-size: 16px;
+		    color: red;
+		    margin-bottom:10px;
+		}
             </style>
 
             <div>
@@ -104,6 +110,10 @@
                     <div> 
                         <input class='inputbox' onkeyup="enterkey();" type="password" id="password" name="password_field">
                     </div>
+
+		    <div>
+			<p class='alert'>{{ alert }}</p>
+		    </div>
 
                     <div>
                         <button class='basic-button' style="cursor:pointer;" onclick="input()">로그인</button>
@@ -126,8 +136,13 @@
             function input(){
                 userEmail = document.getElementById("email").value;
                 userPassword = document.getElementById("password").value;
-    
-                window.location.href = 'http://softcon.ga/redirect?to=login&email='+userEmail+'&password='+userPassword;
+    		
+		if (userEmail == '' ||  userPassword == ''){
+		    alert('이메일과 비밀번호를 입력해주세요.');
+		}
+		else{
+                    window.location.href = 'http://softcon.ga/redirect?to=login&email='+userEmail+'&password='+userPassword;
+		}
             }
 
 	    function enterkey(){
