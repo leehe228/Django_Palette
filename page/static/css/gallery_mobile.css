@@ -52,10 +52,12 @@ nav li a{
 }
 
 .main-image{
+    object-fit:contain;
     z-index: -1;
     position:absolute;
+    height:85%;
     width:100%;
-    object-fit:cover;
+    transform: translate(-50%, 0%);
 }
 
 .black-back{
@@ -68,10 +70,26 @@ nav li a{
     height:fit-content;
     background-color: #2E2E2E;
     border-radius: 50px;
+    left:50%;
+    transform: translate(-50%, 0%);
     padding:10px;
     bottom: 90px;
 }
 
+.information{
+    position:absolute;
+    width:30%;
+    max-width:400px;
+    height:fit-content;
+    padding:20px;
+    background-color:white;
+    color:black;
+    left:50%;
+    transform: translate(-50%, 0%);
+    opacity:0.8;
+    bottom:170px;
+    border-radius: 20px;
+}
 
 #page{
     margin:0px auto;

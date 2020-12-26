@@ -17,7 +17,7 @@
 
         <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
     </head>
-
+    
     <body class='black-back' oncontextmenu='return false' onselectstart='return false' ondragstart='return false' style="overflow-x:hidden; overflow-y:auto;">
         <div id="page">
             <header>
@@ -71,58 +71,87 @@
                 .top-space{
                     height:60px;
                 }
+                .container{
+                    height:80%;
+                    text-align:center;
+                }
+                .title{
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-size: 20px;
+                    color:black;
+                }
+                .content{
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-size: 14px;
+                    color:black;
+		            font-style:bold;
+                }
             </style>
 
             <div>
-                <section>
+                <div>
                     <p class='top-space'></p>
-                </section>
+                </div>
                 
             </div>  
             
             <div>
             
-		    <div><img id='main-image' class='main-image' src="http://141.164.40.63:8000/media/database/{{ code }}/{{ page }}.jpg"></div>
-		    <div>
-			<p>title : {{ t }}, content : {{ c }}</p>
-		    </div>
-                    
+                <p class='container'>
+                    <img id='main-image' class='main-image' src="http://141.164.40.63:8000/media/database/{{ code }}/{{ page }}.jpg">
+
                     <div class='remote-controller'>
                         <button type="button" class="rem_button" onclick="left();"><img class="rem_button_img" src="http://141.164.40.63:8000/media/websrc/r_left_icon.jpg" style="cursor:pointer;"></button>
-			<button type="button" class="rem_button" onclick="add_like();"><img class="rem_button_img" src="{{ likeIMG }}" style="cursor:pointer;"></button>
-                        <button type="button" class="rem_button" onclick="info();"><img class="rem_button_img" src="http://141.164.40.63:8000/media/websrc/r_info_icon.jpg" style="cursor:pointer;"></button>
+                        <button type="button" class="rem_button" onclick="add_like();"><img class="rem_button_img" src="{{ likeIMG }}" style="cursor:pointer;"></button>
+                        <button type="button" class="rem_button" onclick="infoView();"><img class="rem_button_img" src="http://141.164.40.63:8000/media/websrc/r_info_icon.jpg" style="cursor:pointer;"></button>
                         <button type="button" class="rem_button" onclick="close_page();"><img class="rem_button_img" src="http://141.164.40.63:8000/media/websrc/r_close_icon.jpg" style="cursor:pointer;"></button>
                         <button type="button" class="rem_button" onclick="right();"><img class="rem_button_img" src="http://141.164.40.63:8000/media/websrc/r_right_icon.jpg" style="cursor:pointer;"></button>
                     </div>
-            
+
+                    <div id="information" class="information" style="display:none"> 
+                        <p class='title'>{{ t }}</p>
+                        <p class='content'>{{ c }}</p>
+                    </div>
+                </p>
+                
             </div>
 
         </div>
 
         <script type="text/javascript">
-	    var p = Number({{page}});
+            var p = Number({{page}});
 
-	    const min_page = 1;
+            const min_page = 1;
             const max_page = Number({{max_page}});
 
+            var infoState = false;
+
             function left(){
-		    if (p > min_page){
-			window.location.href = "http://softcon.ga/gallery?n={{ code }}&p=" + String(p - 1);
-		    }
+                if (p > min_page){
+                    window.location.href = "http://softcon.ga/gallery?n={{ code }}&p=" + String(p - 1);
+                }
             }
             function right(){
-		    if (p < max_page){
-			window.location.href = "http://softcon.ga/gallery?n={{ code }}&p=" + String(p + 1);
-		    }
+                if (p < max_page){
+                    window.location.href = "http://softcon.ga/gallery?n={{ code }}&p=" + String(p + 1);
+                }
             }
             function add_like(){
-		    window.location.href = "{{ likeURL }}";
+                window.location.href = "{{ likeURL }}";
             }
-            function info(){
 
+            function infoView(){
+                if(!infoState){
+                    document.getElementById("information").style.display = "block";
+                }
+                else{
+                    document.getElementById("information").style.display = "none"; 
+                }
+                infoState = !infoState;
             }
+
             function close_page(){
-		window.location.href = "http://softcon.ga/info?n={{ code }}";
+                window.location.href = "http://softcon.ga/info?n={{ code }}";
             }
         </script>
         
