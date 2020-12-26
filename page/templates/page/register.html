@@ -87,6 +87,13 @@
                     margin-top:10px;
                     color:white;
                 }
+		.alert{
+		    font-family: 'Noto Sans KR', sans-serif;
+		    font-size: 16px;
+		    color: red;
+		    margin-top:10px;
+		    margin-bottom:10px;
+		}
             </style>
             
             <div>
@@ -126,6 +133,10 @@
                         <input type="radio" name="gender" value="M" checked="checked">남
                         <input type="radio" name="gender" value="W">여
                     </div>
+		    
+		    <div>
+			<p class='alert'>{{ alert }}</p>
+		    </div>
 
                     <div>
                         <button class='basic-button' onclick="input()">회원가입</button>

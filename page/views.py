@@ -206,7 +206,13 @@ def d_redirect(request):
 
 @csrf_exempt
 def pref(request):
-    return render(request, '/home/palette/page/templates/page/edit_pref.html', {})
+    email = request.COOKIES.get('userEmail')
+
+    if email is None:
+        return redirect('login')
+    else:
+        return render(request, '/home/palette/page/templates/page/edit_pref.html', {})
+
 
 @csrf_exempt
 def save_pref(request):
@@ -223,7 +229,24 @@ def save_pref(request):
 ''' signup page '''
 @csrf_exempt
 def register(request):
-    return render(request, '/home/palette/page/templates/page/register.html', {})
+    email = request.COOKIES.get('userEmail')
+
+    if email is None:
+        return render(request, '/home/palette/page/templates/page/register.html', {})
+    else:
+        redirect('home')
+
+
+@csrf_exempt
+def register_e(request):
+    email = request.COOKIES.get('userEmail')
+    
+    error = "이미 가입된 계정입니다."
+
+    if email is None:
+        return render(request, '/home/palette/page/templates/page/register.html', {'alert':error})
+    else:
+        redirect('home')
 
 
 ''' signup processing '''
@@ -265,7 +288,7 @@ def signup_process(request):
         return response
     except Exception as e:
         print(e)
-        return redirect('register')
+        return redirect('register_e')
     
 
 @csrf_exempt
@@ -314,7 +337,12 @@ def logout_process(request):
 
 @csrf_exempt
 def change_password(request):
-    return render(request, '/home/palette/page/templates/page/change_password.html', {})
+    email = request.COOKIES.get('userEmail')
+
+    if email is None:
+        return redirect('login')
+    else:
+        return render(request, '/home/palette/page/templates/page/change_password.html', {})
 
 
 @csrf_exempt
@@ -412,15 +440,18 @@ def gallery(request):
 ''' payment page '''
 @csrf_exempt
 def payment(request):
-
+    
     email = request.COOKIES.get('userEmail')
-
-    if getPaid(email):
-        paid = "구독 결제중입니다."
+    
+    if email is None:
+        return redirect('login')
     else:
-        paid = "구독 결제 전입니다."
+        if getPaid(email):
+            paid = "구독 결제중입니다."
+        else:
+            paid = "구독 결제 전입니다."
 
-    return render(request, '/home/palette/page/templates/page/payment.html', {'paid':paid})
+        return render(request, '/home/palette/page/templates/page/payment.html', {'paid':paid})
 
 
 ''' add like '''
@@ -495,3 +526,7 @@ def func(request):
 @csrf_exempt
 def close(request):
     return render(request, '/home/palette/page/templates/page/close.html', {})
+
+
+
+###
