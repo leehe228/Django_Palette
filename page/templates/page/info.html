@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
 
 	    <meta name="viewport" content="width=device-width, initial-scale=0.8">
@@ -77,31 +77,86 @@
                     overflow:hidden;
                 }
                 .top-image{
-                    position:absolute;
-                    margin-left:200px;
-                    margin-top:200px;
-                    width:200px;
-                    height:200px;
+                    width:240px;
+                    height:240px;
                     z-index:1;
-		    object-fit:cover;
+                    object-fit:cover;
+                    margin-bottom:20px;
+		    border-radius: 10px;
+                }
+                .basic-title{
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-size: 24px;
+                    color:black;
+		    font-style: bold;
+                }
+                .basic-info{
+                    max-width:300px;
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-size: 14px;
+                    color:black;
+                }
+                .info-container{
+                    width:100%;
+                    margin-top:20px;
+                    padding:20px;
+                    background-color: #ffffff20;
+                }
+                .basic-button{
+                    font-family: 'Noto Sans KR', sans-serif;
+                    width:200px;
+                    height:40px;
+                    background-color:black;
+                    opacity:0.3;
+                    border-width: 0px;
+                    font-size:16px;
+                    margin-bottom:10px;
+                    color:white;
+                }
+                .info-cont{
+                    margin-bottom:20px;
+                    max-width:600px;
+                }
+                .divd1{
+                    margin-bottom:20px;
+                }
+                .divd2{
+                    margin-bottom:4px;
                 }
             </style>
 
-            <article>
-                <section>
+            <div>
+                <div>
                     <p class='top-space'></p>
-                </section>
+                </div>
 
-                <section>
-                    <img class='back-image' src="http://141.164.40.63:8000/media/database/{{ code }}/1.jpg">
-                    <img class='top-image' src="http://141.164.40.63:8000/media/database/{{ code }}/1.jpg">
-		    <p>Code : {{ exhibition.galleryCode }}</p>
-		    <p>Title : {{ exhibition.galleryTitle }}</p>
-		    <p>Creator : {{ exhibition.galleryCreator }}</p>
-		    <p>Information : {{ exhibition.galleryInfo }}</p>
-                    <button class='ff_button' onclick="logout()">입장</button>
-                </section>
-            </article>  
+                <div class='info-container'>
+                    <div>
+                        <img class='back-image' src="http://141.164.40.63:8000/media/database/{{ code }}/1.jpg">
+                    </div>
+    
+                    <div>
+                        <img class='top-image' src="http://141.164.40.63:8000/media/database/{{ code }}/1.jpg">
+                    </div>
+
+                    <div class='divd2'>
+                        <a class='basic-title'>{{ exhibition.galleryTitle }}</a>
+                    </div>
+
+                    <div class='divd1'>
+                        <a class='basic-info'>by {{ exhibition.galleryCreator }}</a>
+                    </div>
+
+                    <div class='info-cont'>
+                        <a class='basic-info'>{{ exhibition.galleryInfo }}</a>
+                    </div>
+
+                    <div>
+                        <button class='basic-button' style="cursor:pointer;" onclick="logout()">입장</button>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 
