@@ -66327,3 +66327,69 @@ Not Found: /apple-touch-icon.png
 [27/Dec/2020 01:17:03] "GET /info/?n=10000006 HTTP/1.0" 200 6794
 [27/Dec/2020 01:22:48] "GET /setting HTTP/1.0" 301 0
 [27/Dec/2020 01:53:35] "GET / HTTP/1.0" 200 8788
+[27/Dec/2020 02:08:08] "GET /setting/ HTTP/1.0" 200 5795
+[27/Dec/2020 02:08:08] "GET /media/websrc/home_icon.jpg HTTP/1.1" 304 0
+[27/Dec/2020 02:08:08] "GET /media/websrc/star_icon.jpg HTTP/1.1" 304 0
+[27/Dec/2020 02:08:08] "GET /media/websrc/saved_icon.jpg HTTP/1.1" 304 0
+[27/Dec/2020 02:08:08] "GET /media/websrc/search_icon.jpg HTTP/1.1" 304 0
+[27/Dec/2020 02:08:14] "GET /payment/ HTTP/1.0" 200 3342
+[27/Dec/2020 02:08:17] "GET /change_password/ HTTP/1.0" 200 5433
+[27/Dec/2020 02:08:19] "GET /pref/ HTTP/1.0" 200 6638
+[27/Dec/2020 02:12:06] "GET /pref/ HTTP/1.0" 200 6638
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 26, 2020 - 19:58:45
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+[27/Dec/2020 02:52:20] "GET /redirect?to=saveprf&v=0011000000 HTTP/1.0" 301 0
+[27/Dec/2020 02:52:20] "GET /redirect/?to=saveprf&v=0011000000 HTTP/1.0" 302 0
+[27/Dec/2020 02:52:20] "GET / HTTP/1.0" 200 8793
+[27/Dec/2020 02:52:20] "GET /static/css/home_mobile.css HTTP/1.0" 304 0
+[27/Dec/2020 02:52:20] "GET /media/websrc/comlogo.jpg HTTP/1.1" 304 0
+[27/Dec/2020 02:54:00] "GET / HTTP/1.0" 200 8793
+[27/Dec/2020 02:54:03] "GET /setting/ HTTP/1.0" 200 5795
+[27/Dec/2020 02:54:04] "GET /pref/ HTTP/1.0" 200 9233
+[27/Dec/2020 02:54:04] "GET /static/css/css/basic.css HTTP/1.0" 404 1679
+[27/Dec/2020 02:54:39] "GET /pref/ HTTP/1.0" 200 9229
+[27/Dec/2020 02:54:39] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[27/Dec/2020 02:55:30] "GET / HTTP/1.0" 200 8793
+[27/Dec/2020 02:55:33] "GET /setting/ HTTP/1.0" 200 5795
+[27/Dec/2020 02:55:34] "GET /pref/ HTTP/1.0" 200 9246
+[27/Dec/2020 02:55:35] "GET /pref/ HTTP/1.0" 200 9246
+[27/Dec/2020 02:55:35] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[27/Dec/2020 02:55:53] "GET /pref/ HTTP/1.0" 200 9229
+[27/Dec/2020 02:55:54] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[27/Dec/2020 02:56:09] "GET /redirect?to=saveprf&v=0101000001 HTTP/1.0" 301 0
+[27/Dec/2020 02:56:09] "GET /redirect/?to=saveprf&v=0101000001 HTTP/1.0" 302 0
+[27/Dec/2020 02:56:09] "GET / HTTP/1.0" 200 8793
+[27/Dec/2020 02:56:11] "GET /admin/ HTTP/1.1" 200 7831
+[27/Dec/2020 02:56:12] "GET /admin/ HTTP/1.1" 200 7831
+[27/Dec/2020 02:56:14] "GET /admin/account/user/ HTTP/1.1" 200 5207
+[27/Dec/2020 02:56:14] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[27/Dec/2020 02:56:15] "GET /admin/account/user/test_40test.com/change/ HTTP/1.1" 200 9014
+[27/Dec/2020 02:56:15] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[27/Dec/2020 02:56:20] "GET /saved/ HTTP/1.0" 200 5162
