@@ -57,22 +57,70 @@
                 .top-space{
                     height:60px;
                 }
+                .container{
+                    padding-top:20px;
+                    width:100%;
+		    margin-left:40px;
+                }
+                .semi-title{
+                    color:black;
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-size: 24px;
+                }
+		.divd{
+		    margin-bottom:10px;
+		}
+                .little-title{
+                    color:#2b9fec;
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-size: 18px;
+                }
+                .black-button{
+                    width:300px;
+                    text-align: left;
+                    height:30px;
+                    background-color: white;
+                    color:black;
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-size: 20px;
+                    margin-bottom:8px;
+                    border-width: 0px;
+                }
+                .gray-button{
+                    width:300px;
+                    text-align: left;
+                    height:30px;
+                    background-color: white;
+                    color:#252525;
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-size: 20px;
+                    margin-bottom:8px;
+                    border-width: 0px;
+                }
             </style>
 
-            <article>
-                <section>
+            <div>
+                <div>
                     <p class='top-space'></p>
-                </section>
+                </div>
 
-                <section>
-		    <p>{{ user_bp.userName }}님 ({{ user_bp.userEmail }})</p>
-                    <p>{{ paid }}</p>
-                    <p><a href="http://softcon.ga/pref/">관심 분야 수정</a></p>
-                    <p><a href="http://softcon.ga/change_password/">비밀번호 변경</a></p>
-                    <p><a href="http://softcon.ga/payment/">구독 결제 관리</a></p>
-                    <p><a href="http://softcon.ga/redirect?to=logout">로그아웃</a></p>
-                </section>
-            </article>  
+                <div class='container'>
+                    <div class='divd'>
+                        <p>
+                            <a class='semi-title'>{{ user_bp.userName }}님 ({{ user_bp.userEmail }})</a><br>
+                            <a class='little-title'>{{ paid }}</a>
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class='divd'><button class='black-button' style="cursor:pointer;" onclick="location.href='http://softcon.ga/pref/'">- 관심 분야 수정</button></div>
+                        <div class='divd'><button class='black-button' style="cursor:pointer;" onclick="location.href='http://softcon.ga/change_password/'">- 비밀번호 변경</button></div>
+                        <div class='divd'><button class='black-button' style="cursor:pointer;" onclick="location.href='http://softcon.ga/payment/'">- 구독 결제 관리</button></div>
+                        <div class='divd'><button class='gray-button' style="cursor:pointer;" onclick="location.href='http://softcon.ga/redirect?to=logout'">- 로그아웃</button></div>
+                    </div>
+
+                </div>
+            </div>
 
         </div>
 
