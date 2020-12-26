@@ -65888,3 +65888,34 @@ Not Found: /login/login_mobile.css
 [26/Dec/2020 18:03:04] "GET /login/ HTTP/1.0" 200 5820
 [26/Dec/2020 18:03:04] "GET /static/css/login.css HTTP/1.0" 404 1667
 [26/Dec/2020 18:03:04] "GET /static/css/login_mobile.css HTTP/1.0" 404 1688
+----------------------------------------
+Exception happened during processing of request from ('74.120.14.38', 49434)
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/socketserver.py", line 650, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.8/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.8/socketserver.py", line 720, in __init__
+    self.handle()
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/servers/basehttp.py", line 139, in handle
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.8/socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[26/Dec/2020 20:16:37] "GET / HTTP/1.1" 200 8788
+[26/Dec/2020 20:16:37] "GET / HTTP/1.1" 200 8788
+[26/Dec/2020 20:54:43] "GET / HTTP/1.0" 200 8788
+[26/Dec/2020 21:32:49] "GET / HTTP/1.0" 200 8788
+[26/Dec/2020 21:35:04] "GET / HTTP/1.0" 200 8793
+[26/Dec/2020 21:39:31] "GET /setting/ HTTP/1.0" 200 3810
+[26/Dec/2020 21:39:33] "GET /change_password/ HTTP/1.0" 200 5404
+[26/Dec/2020 21:40:06] "GET /change_password/ HTTP/1.0" 200 5404
+[26/Dec/2020 21:40:06] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[26/Dec/2020 21:41:05] "GET /change_password/ HTTP/1.0" 200 5428
+[26/Dec/2020 21:41:05] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[26/Dec/2020 21:41:11] "GET /login/ HTTP/1.0" 302 0
+[26/Dec/2020 21:41:11] "GET / HTTP/1.0" 200 8793
+[26/Dec/2020 21:41:26] "GET /login/ HTTP/1.0" 302 0
+[26/Dec/2020 21:41:26] "GET / HTTP/1.0" 200 8793
+[26/Dec/2020 21:41:28] "GET /setting/ HTTP/1.0" 200 3810
