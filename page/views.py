@@ -131,8 +131,12 @@ def search(request):
 ''' login page  '''
 @csrf_exempt
 def login(request):
-    return render(request, '/home/palette/page/templates/page/login.html', {})
+    email = request.COOKIES.get('userEmail')
 
+    if email is None:
+        return render(request, '/home/palette/page/templates/page/login.html', {})
+    else:
+        return redirect('home')
 
 ''' 404 '''
 @csrf_exempt
@@ -318,16 +322,20 @@ def change_password_process(request):
 @csrf_exempt
 def setting(request):
     username = request.COOKIES.get('userEmail')
-    userpaid = getPaid(username)
-    
-    user_bp = User.objects.get(userEmail=username)
 
-    if userpaid == False:
-        userpaidStr = "구독 결제 전"
+    if username is None:
+        return redirect('home')
     else:
-        userpaidStr = "구독 결제 중"
+        userpaid = getPaid(username)
+    
+        user_bp = User.objects.get(userEmail=username)
 
-    return render(request, '/home/palette/page/templates/page/setting.html', {'user_bp':user_bp, 'paid':userpaidStr})
+        if userpaid == False:
+            userpaidStr = "구독 결제 전"
+        else:
+            userpaidStr = "구독 결제 중"
+
+        return render(request, '/home/palette/page/templates/page/setting.html', {'user_bp':user_bp, 'paid':userpaidStr})
 
 
 ''' check paid '''

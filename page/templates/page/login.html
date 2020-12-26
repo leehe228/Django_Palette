@@ -58,22 +58,66 @@
                 .top-space{
                     height:60px;
                 }
+                .container{
+                    padding-top:80px;
+                    width:100%;
+                    display:flex;
+                    flex-direction: column;
+                    text-align:center;
+                }
+                .basic-label{
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-size: 16px;
+                    margin-bottom:5px;
+                }
+                .inputbox{
+                    font-family: 'Noto Sans KR', sans-serif;
+                    width:300px;
+                    height:30px;
+                    font-size: 15px;
+                    margin-bottom:10px;
+                }
+                .basic-button{
+                    font-family: 'Noto Sans KR', sans-serif;
+                    width:300px;
+                    height:40px;
+                    background-color: #2e2e2e;
+                    border-width: 0px;
+                    font-size:16px;
+                    margin-bottom:10px;
+                    color:white;
+                }
             </style>
 
-            <article>
-                <section>
+            <div>
+                <div>
                     <p class='top-space'></p>
-                </section>
+                </div>
 
-                <section>
-                    <input onkeyup="enterkey();" type="text" id="email" name="email_field">
-                    <input onkeyup="enterkey();" type="password" id="password" name="password_field">
-                    <button class='ff_button' onclick="input()">로그인</button>
-		    <button class='ff_button' onclick="location.href='http://softcon.ga/register/'">회원가입</button>
-                </section>
-            </article>  
+                <div class='container'>
+                    <div class='basic-label'><a>이메일</a></div>
+                    <div>
+                        <input class='inputbox' onkeyup="enterkey();" type="text" id="email" name="email_field">
+                    </div>
+                    
+                    <div class='basic-label'><a>비밀번호</a></div>
+                    <div> 
+                        <input class='inputbox' onkeyup="enterkey();" type="password" id="password" name="password_field">
+                    </div>
+
+                    <div>
+                        <button class='basic-button' style="cursor:pointer;" onclick="input()">로그인</button>
+                    </div>
+                    
+                    <div>
+                        <button class='basic-button' style="cursor:pointer;" onclick="location.href='http://softcon.ga/register/'">회원가입</button>
+                    </div>
+		    
+                </div>
+            </div>  
 
         </div>
+
 
         <script type="text/javascript">
             var userEmail;
