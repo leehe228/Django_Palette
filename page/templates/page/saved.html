@@ -79,25 +79,41 @@
                 height: 60px;
             }
 	    .square_view{
-                width:100px;
-                height:100px;
+                width:200px;
+                height:200px;
                 object-fit:cover;
                 border-radius: 10px;
             }
+            .box-container{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top:20px;
+                margin-bottom:10px;
+                align-content: flex-start;
+            }
+            .box{
+                margin-left:10px;
+                margin-right:10px;
+                margin-bottom:10px;
+            }
         </style>
 
-        <article>
-            <section>
-                <p class='top-space'></p>
-            </section>
+        <div>
+            <div><p class='top-space'></p></div>
 
-            <section>
+            <div class="box-container">
                 {% for data in datas %}
-                <img onclick="location.href='http://softcon.ga/info?n={{ data.galleryCode }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data.galleryCode }}/1.jpg" style="cursor:pointer;">
-                <p>전시회 제목 : {{ data.galleryTitle }}, 전시회 작가 : {{ data.galleryCreator }}, 전시회 코드 : {{ data.galleryCode }}</p>
+                <div class='box'>
+                    <img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data.galleryCode }}/1.jpg" style="cursor:pointer;">
+                    <div>
+                        <a>{{ data.galleryTitle }}</a><br><a>{{ data.galleryCreator }}</a>
+                    </div>    
+                </div>
                 {% endfor %}
-            </section>
-        </article>
+            </div>
+        </div>
 
     </div>
 </body>

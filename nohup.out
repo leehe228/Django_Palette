@@ -66393,3 +66393,67 @@ test@test.com
 [27/Dec/2020 02:56:15] "GET /admin/account/user/test_40test.com/change/ HTTP/1.1" 200 9014
 [27/Dec/2020 02:56:15] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
 [27/Dec/2020 02:56:20] "GET /saved/ HTTP/1.0" 200 5162
+[27/Dec/2020 02:59:11] "GET /info?n={{%20data%20}} HTTP/1.0" 301 0
+Internal Server Error: /info/
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/palette/page/views.py", line 163, in info
+    code = int(request.GET['n'])
+ValueError: invalid literal for int() with base 10: '{{ data }}'
+[27/Dec/2020 02:59:11] "GET /info/?n=%7B%7B%20data%20%7D%7D HTTP/1.0" 500 68804
+Internal Server Error: /info/
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/palette/page/views.py", line 163, in info
+    code = int(request.GET['n'])
+ValueError: invalid literal for int() with base 10: '{{ data }}'
+[27/Dec/2020 02:59:16] "GET /info/?n=%7B%7B%20data%20%7D%7D HTTP/1.0" 500 68804
+Not Found: /media/database/{{ data.galleryCode }}/1.jpg
+[27/Dec/2020 03:07:30] "GET /media/database/%7B%7B%20data.galleryCode%20%7D%7D/1.jpg HTTP/1.1" 404 1884
+Not Found: /media/database/{{ data.galleryCode }}/1.jpg
+[27/Dec/2020 03:09:17] "GET /media/database/%7B%7B%20data.galleryCode%20%7D%7D/1.jpg HTTP/1.1" 404 1884
+Not Found: /media/database/{{ data.galleryCode }}/1.jpg
+[27/Dec/2020 03:09:27] "GET /media/database/%7B%7B%20data.galleryCode%20%7D%7D/1.jpg HTTP/1.1" 404 1884
+Not Found: /media/database/{{ data.galleryCode }}/1.jpg
+[27/Dec/2020 03:09:36] "GET /media/database/%7B%7B%20data.galleryCode%20%7D%7D/1.jpg HTTP/1.1" 404 1884
+Not Found: /media/database/{{ data.galleryCode }}/1.jpg
+[27/Dec/2020 03:09:46] "GET /media/database/%7B%7B%20data.galleryCode%20%7D%7D/1.jpg HTTP/1.1" 404 1884
+[27/Dec/2020 03:12:28] "GET / HTTP/1.0" 200 8793
+[27/Dec/2020 03:12:39] "GET /saved/ HTTP/1.0" 200 5632
+Not Found: /media/database/{{ data.galleryCode }}/1.jpg
+[27/Dec/2020 03:14:11] "GET /media/database/%7B%7B%20data.galleryCode%20%7D%7D/1.jpg HTTP/1.1" 404 1884
+Not Found: /media/database/{{ data.galleryCode }}/1.jpg
+[27/Dec/2020 03:14:47] "GET /media/database/%7B%7B%20data.galleryCode%20%7D%7D/1.jpg HTTP/1.1" 404 1884
+[27/Dec/2020 03:14:49] "GET /saved/ HTTP/1.0" 200 5835
+[27/Dec/2020 03:14:49] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[27/Dec/2020 03:15:27] "GET /saved/ HTTP/1.0" 200 5835
+[27/Dec/2020 03:15:28] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[27/Dec/2020 03:15:50] "GET /search?key= HTTP/1.0" 301 0
+[27/Dec/2020 03:15:51] "GET /search/?key= HTTP/1.0" 200 5580
+[27/Dec/2020 03:15:55] "GET /search?key=%EB%8F%84%EC%98%81 HTTP/1.0" 301 0
+[27/Dec/2020 03:15:55] "GET /search/?key=%EB%8F%84%EC%98%81 HTTP/1.0" 200 5984
+[27/Dec/2020 03:16:05] "GET /search/?key= HTTP/1.0" 200 5580
+[27/Dec/2020 03:16:08] "GET /search/?key= HTTP/1.0" 200 5580
+[27/Dec/2020 03:16:10] "GET /search/?key= HTTP/1.0" 200 5580
+[27/Dec/2020 03:16:11] "GET /search/?key= HTTP/1.0" 200 5580
+[27/Dec/2020 03:16:12] "GET /search/?key= HTTP/1.0" 200 5580
+[27/Dec/2020 03:16:12] "GET /search/?key= HTTP/1.0" 200 5580
+[27/Dec/2020 03:16:13] "GET /search/?key= HTTP/1.0" 200 5580
+[27/Dec/2020 03:16:22] "GET /setting/ HTTP/1.0" 200 5795
+[27/Dec/2020 03:16:23] "GET / HTTP/1.0" 200 8793
+[27/Dec/2020 03:16:24] "GET /search/?key= HTTP/1.0" 200 5580
+[27/Dec/2020 03:16:39] "GET / HTTP/1.0" 200 8793

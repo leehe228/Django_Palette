@@ -78,30 +78,68 @@
                 height: 60px;
             }
             .square_view{
-                width:100px;
-                height:100px;
+                width:200px;
+                height:200px;
                 object-fit:cover;
                 border-radius: 10px;
             }
+            .box-container{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top:20px;
+                margin-bottom:10px;
+                align-content: flex-start;
+            }
+            .box{
+                margin-left:10px;
+                margin-right:10px;
+                margin-bottom:10px;
+            }
+            .cont{
+                text-align:center;
+            }
+            .inputbox{
+                font-family: 'Noto Sans KR', sans-serif;
+                width:400px;
+                height:40px;
+                font-size: 15px;
+                margin-bottom:10px;
+            }
+            .basic-button{
+                font-family: 'Noto Sans KR', sans-serif;
+                width:50px;
+                height:40px;
+                background-color: #2e2e2e;
+                border-width: 0px;
+                font-size:16px;
+                margin-bottom:10px;
+                color:white;
+            }
         </style>
 
-        <article>
-            <section>
+        <div>
+            <div>
                 <p class='top-space'></p>
-            </section>
+            </div>
 
-            <section>
-		    <input onkeyup="enterkey();" type="text" id="search_field" value="{{keyword}}">
-                <button class='ff_button' onclick="search()">검색</button>
-            </section>
+            <div class='cont'>
+		    <input onkeyup="enterkey();" class='inputbox' type="text" id="search_field" value="{{keyword}}">
+                <button class='basic-button' onclick="search()">검색</button>
+            </div>
 
-            <section>
+            <div class="box-container">
                 {% for data in datas %}
-                <img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data.galleryCode }}/1.jpg" style="cursor:pointer;">
-                <p>전시회 제목 : {{ data.galleryTitle }}, 전시회 작가 : {{ data.galleryCreator }}, 전시회 코드 : {{ data.galleryCode }}</p>
+                <div class='box'>
+                    <img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data.galleryCode }}/1.jpg" style="cursor:pointer;">
+                    <div>
+                        <a>{{ data.galleryTitle }}</a><br><a>{{ data.galleryCreator }}</a>
+                    </div>    
+                </div>
                 {% endfor %}
-            </section>
-        </article>
+            </div>
+        </div>
 
         <script type="text/javascript">
             var keyword
