@@ -51,7 +51,7 @@
             <nav>
                 <ul>
                     <li><button type="button" class="header_button"
-                            onclick="location.href='http://softcon.ga/home/'"><img class="header_buttonimg"
+                            onclick="location.href='http://softcon.ga/'"><img class="header_buttonimg"
                                 src="http://141.164.40.63:8000/media/websrc/home_icon.jpg"
                                 style="cursor:pointer;"></button></li>
                     <li><button type="button" class="header_button"
@@ -98,6 +98,14 @@
                 margin-right:10px;
                 margin-bottom:10px;
             }
+	    .title{
+                font-family: 'Noto Sans KR', sans-serif;
+                font-size:16px;
+            }
+            .content{
+                font-family: 'Noto Sans KR', sans-serif;
+                font-size:14px;
+            }
         </style>
 
         <div>
@@ -108,7 +116,7 @@
                 <div class='box'>
                     <img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data.galleryCode }}/1.jpg" style="cursor:pointer;">
                     <div>
-                        <a>{{ data.galleryTitle }}</a><br><a>{{ data.galleryCreator }}</a>
+                        <a class='title'>{{ data.galleryTitle }}</a><br><a class='content'>{{ data.galleryCreator }}</a>
                     </div>    
                 </div>
                 {% endfor %}

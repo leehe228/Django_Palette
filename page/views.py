@@ -278,7 +278,7 @@ def signup_process(request):
         PREP = PREP + "W"
     
     #객체 인스턴스화
-    newUser = User(userEmail=email, userPassword=passwd, userName=name, userAge=Age, userCode=PREP + CODE, userSex=gender)
+    newUser = User(userEmail=email, userPassword=passwd, userName=name, userAge=Age, userCode=PREP + CODE, userSex=gender, userPaid=1)
     try :
         newUser.save(force_insert=True)
 
@@ -529,4 +529,6 @@ def close(request):
 
 
 
-###
+@csrf_exempt
+def private_privacy(request):
+    return render(request, '/home/palette/page/templates/page/private_privacy.html', {})

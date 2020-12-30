@@ -86,7 +86,7 @@ nav li a{
     color:black;
     left:50%;
     transform: translate(-50%, 0%);
-    opacity:0.8;
+    opacity:0.9;
     bottom:170px;
     border-radius: 20px;
 }

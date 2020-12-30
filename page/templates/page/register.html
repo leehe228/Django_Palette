@@ -69,6 +69,12 @@
                     font-size: 16px;
                     margin-bottom:5px;
                 }
+		.small-label{
+                    font-family: 'Noto Sans KR', sans-serif;
+                    font-size: 12px;
+                    margin-bottom:5px;
+		    color:gray;
+                }
                 .inputbox{
                     font-family: 'Noto Sans KR', sans-serif;
                     width:300px;
@@ -109,6 +115,7 @@
                     </div>
 
                     <div class='basic-label'><a>비밀번호</a></div>
+		    <div class='small-label'><a>특수문자 !, @ 및 영문 대소문자, 숫자를 조합해 8자리 이상</a></div>
                     <div>
                         <input class='inputbox' type="password" id="password" name="password_field">
                     </div>
@@ -137,9 +144,10 @@
 		    <div>
 			<p class='alert'>{{ alert }}</p>
 		    </div>
-
+		    <div class='small-label'><a onclick="openPrivacy();" style="cursor:pointer;">개인정보 처리방침</a></div>
+		    <div class='small-label'><a onclick="openPrivacy();" style="cursor:pointer;">이용 약관 자세히 보기</a></div>
                     <div>
-                        <button class='basic-button' onclick="input()" style="cursor:pointer;">회원가입</button>
+                        <button class='basic-button' onclick="input()" style="cursor:pointer;">약관 동의 및 회원가입</button>
                     </div>
 
                 </div>
@@ -154,6 +162,10 @@
             var age;
 	    var genderButton;
 	    var gender;
+
+	    function openPrivacy(){
+	        window.open("http://softcon.ga/private_privacy/");
+	    }
 
 	    function CheckEmail(str) {                                                 
                 var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;

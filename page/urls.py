@@ -20,4 +20,5 @@ urlpatterns = [
     path('pref/', views.pref, name='pref'),
     path('login_e/', views.login_e, name='login_e'),
     path('register_e/', views.register_e, name='register_e'),
+    path('private_privacy/', views.private_privacy, name='private_privacy'),
 ]
