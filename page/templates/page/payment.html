@@ -5,9 +5,9 @@
         <meta charset="UTF-8">
         <title>palette</title>
         <!-- mobile -->
-        <link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
+        <link rel="stylesheet" href="{% static 'css/home_mobile.css' %}" media="(max-width:1200px)">
         <!-- web -->
-        <link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}" media="(min-width:1200px)">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
@@ -79,7 +79,8 @@
                     margin-top:10px;
                     margin-bottom:10px;
                     text-align:center;
-		    left:50%;
+		    margin-left:50%;
+		    transform:translate(-50%, 0);
                 }
                 .basic-button1{
                     font-family: 'Noto Sans KR', sans-serif;
@@ -110,16 +111,17 @@
 		.ct{
 		    width:100%;
 		    text-align:center;
+		    position:relative;
 		}
 		textarea{
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size:13px;
-            color:#313131;
+           	    font-family: 'Noto Sans KR', sans-serif;
+            	    font-size:13px;
+                    color:#313131;
 		    resize: none;
 		    overflow-y: scroll;
-            min-width:500px;
-            width:40%;
-            height:200px;
+                    min-width:500px;
+                    width:40%;
+                    height:200px;
 		}		
             </style>
 
@@ -130,7 +132,7 @@
                 <div class='content'>
                     <p>{{ user.userName }}님은 {{ paid }}</p>
                 </div>
-
+		
                 <div class='ticket'>
                     <div><input type="radio" name="payment" value="INF" checked="checked"></div>
                     <div><a>정기 구독권</a></div>
@@ -148,7 +150,7 @@
                     <div><a>12개월 구독권</a></div>
                     <div><a>46,800원</a></div>
                 </div>
-
+		
                 <div>
                     <p><a class='content'>구독 결제 약관 및 교환, 환불 관련 안내</a></p>
 
@@ -406,11 +408,15 @@
                 <div>
                     <button class='basic-button2' onclick="location.href='http://softcon.ga/redirect?to=cancelPay'" style="cursor:pointer;">구독 취소하기</button>
                 </div>
+		
+		<div><p class='top-space'></p></div>
 
             </div>
 
             <script type="text/javascript">
+
                 function pay(){
+		    var ch = document.getElementsByName("agreement");
                     var paybuttons = document.getElementsByName("payment");
 
                     var p = "1";
@@ -424,11 +430,38 @@
                     if(paybuttons[2].checked == true){
                         p = "3";
                     }
-		    window.location.href = "http://softcon.ga/redirect?to=pay&v=" + p;
 
+		    if (ch[0].checked == true){
+		        window.location.href = "http://softcon.ga/redirect?to=pay&v=" + p;
+		    }
+		    else{
+		        alert("이용약관에 동의하셔야 결제가 가능합니다.");
+		    }
                 }
 
             </script>
+
+	    <footer id="footer">
+                <body>
+                    <img src="http://141.164.40.63:8000/media/websrc/comlogo.jpg">
+                    <section>
+                        <a>SOFTCON 소프트콘 | 사업자 등록번호 631-48-00688 (정보통신업)</a>
+                        <a>대표 이호은 | 공동대표 박민석 박하민</a>
+                    </section>
+                    <section>
+                        <a>고객 문의 및 투자 문의 : </a>
+                        <a>대표자 전화번호 +82)10-2539-5107 이메일 paletteservice20@gmail.com</a>
+                    </section>
+                    <section>
+                        <a>사업자 등록 주소지 : </a>
+                        <a>충청남도 아산시 배방읍 연화로 36, 807동 304호</a>
+                    </section>
+                    <section>
+                        <a>palette ⓒ 2020. All Right Reserved.</a>
+                    </section>
+
+                </body>
+            </footer>
 
         </div>
     </body>
