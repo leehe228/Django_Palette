@@ -198,10 +198,42 @@ def d_redirect(request):
 
     elif t == 'saveprf':
         return save_pref(request)
+    
+    elif t == 'cancelPay':
+        return cancelPayment(request)
+
+    elif t == 'pay':
+        return pay_process(request)
 
     # redirect page not found
     else:
         return HttpResponse("404 Page Not Found")
+
+
+@csrf_exempt
+def pay_process(request):
+    email = request.COOKIES.get('userEmail')
+    v = request.GET['v']
+
+    user_bp = User.objects.get(userEmail=email)
+    user_bp.userPaid = int(v)
+    user_bp.save()
+
+    return redirect('setting')
+
+
+@csrf_exempt
+def cancelPayment(request):
+    email = request.COOKIES.get('userEmail')
+
+    if email is None:
+        return redirect('login')
+    else:
+        user_bp = User.objects.get(userEmail=email)
+        user_bp.userPaid = 0
+        user_bp.save()
+
+        return redirect('setting')
 
 
 @csrf_exempt
@@ -369,10 +401,14 @@ def setting(request):
     
         user_bp = User.objects.get(userEmail=username)
 
-        if userpaid == False:
-            userpaidStr = "구독 결제 전"
+        if userpaid == '-1' or userpaid == '0':
+            userpaidStr = "구독 전"
+        elif userpaid == '1':
+            userpaidStr = "정기 구독 중"
+        elif userpaid == '2' or userpaid == '3':
+            userpaidStr = "구독 중"
         else:
-            userpaidStr = "구독 결제 중"
+            userpaidStr = ""
 
         return render(request, '/home/palette/page/templates/page/setting.html', {'user_bp':user_bp, 'paid':userpaidStr})
 
@@ -384,14 +420,11 @@ def getPaid(userEmailString):
         user_bp = User.objects.get(userEmail=userEmailString)
         result = str(user_bp.userPaid)
 
-        if result == '0':
-            return False
-        else:
-            return True
+        return result
     
     except Exception as e:
         print(e)
-        return False
+        return -1
 
 
 ''' gallery page  '''
@@ -446,12 +479,18 @@ def payment(request):
     if email is None:
         return redirect('login')
     else:
-        if getPaid(email):
-            paid = "구독 결제중입니다."
-        else:
-            paid = "구독 결제 전입니다."
+        user_bp = User.objects.get(userEmail=email)
 
-        return render(request, '/home/palette/page/templates/page/payment.html', {'paid':paid})
+        p = user_bp.userPaid
+
+        if p == 0:
+            paid = "구독이 필요합니다."
+        elif p == 1:
+            paid = "정기 구독 중입니다."
+        elif p == 2 or p == 3:
+            paid = "구독 중입니다."
+
+        return render(request, '/home/palette/page/templates/page/payment.html', {'user':user_bp, 'paid':paid})
 
 
 ''' add like '''
@@ -526,7 +565,6 @@ def func(request):
 @csrf_exempt
 def close(request):
     return render(request, '/home/palette/page/templates/page/close.html', {})
-
 
 
 @csrf_exempt

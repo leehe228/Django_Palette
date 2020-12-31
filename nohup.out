@@ -69778,3 +69778,136 @@ Not Found: /config/getuser
 [31/Dec/2020 15:18:19] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
 [31/Dec/2020 15:25:44] "GET /payment/ HTTP/1.0" 200 33507
 [31/Dec/2020 15:25:45] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[31/Dec/2020 15:36:48] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03ÊÐ¯.ÜZì3\x18º\x88\x9b¸Ü\x0e-wiU´GÚÒbe>K\x92£kKç\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[31/Dec/2020 15:36:48] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 30, 2020 - 00:14:18
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+UNIQUE constraint failed: account_user.userEmail
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+invalid literal for int() with base 10: ''
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+ms010805@naver.com
+sanguk456@gmail.com
+sanguk456@gmail.com
+sanguk456@gmail.com
+sanguk456@gmail.com
+sanguk456@gmail.com
+test@test.com
+test@test.com
+test@test.com
+test@test.com
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 31, 2020 - 15:52:05
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 31, 2020 - 15:52:58
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+Internal Server Error: /setting/
+Traceback (most recent call last):
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/palette/venv/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/palette/page/views.py", line 409, in setting
+    return render(request, '/home/palette/page/templates/page/setting.html', {'user_bp':user_bp, 'paid':userpaidStr})
+UnboundLocalError: local variable 'userpaidStr' referenced before assignment
+[31/Dec/2020 16:14:51] "GET /setting/ HTTP/1.0" 500 68793
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 31, 2020 - 16:14:48
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+[31/Dec/2020 16:15:41] "GET /setting/ HTTP/1.0" 200 5778
+[31/Dec/2020 16:15:42] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[31/Dec/2020 16:15:42] "GET /payment/ HTTP/1.0" 200 33807
+[31/Dec/2020 16:15:45] "GET /payment/ HTTP/1.0" 200 33807
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 31, 2020 - 16:15:40
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+[31/Dec/2020 16:16:18] "GET /setting/ HTTP/1.0" 200 5795
+[31/Dec/2020 16:16:18] "GET /media/websrc/favicon.ico HTTP/1.1" 200 787
+[31/Dec/2020 16:16:19] "GET /payment/ HTTP/1.0" 200 33807
+[31/Dec/2020 16:16:23] "GET /redirect?to=pay&v=2 HTTP/1.0" 301 0
+[31/Dec/2020 16:16:23] "GET /redirect/?to=pay&v=2 HTTP/1.0" 302 0
+[31/Dec/2020 16:16:24] "GET /setting/ HTTP/1.0" 200 5795
+[31/Dec/2020 16:16:30] "GET /admin/ HTTP/1.1" 200 7848
+Not Found: /favicon.ico
+[31/Dec/2020 16:16:31] "GET /favicon.ico HTTP/1.1" 404 5560
+[31/Dec/2020 16:16:32] "GET /admin/account/user/ HTTP/1.1" 200 5295
+[31/Dec/2020 16:16:32] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[31/Dec/2020 16:16:34] "GET /admin/account/user/test_40test.com/change/ HTTP/1.1" 200 9551
+[31/Dec/2020 16:16:34] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[31/Dec/2020 16:16:35] "GET /admin/account/user/ HTTP/1.1" 200 5295
+[31/Dec/2020 16:16:37] "GET /admin/account/user/sanguk456_40gmail.com/change/ HTTP/1.1" 200 9512
+[31/Dec/2020 16:16:37] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[31/Dec/2020 16:16:42] "GET /admin/account/user/ HTTP/1.1" 200 5295
+[31/Dec/2020 16:16:45] "GET /admin/account/user/test_40test.com/change/ HTTP/1.1" 200 9551
+[31/Dec/2020 16:16:45] "GET /admin/jsi18n/ HTTP/1.1" 200 8292
+[31/Dec/2020 16:16:53] "GET /admin/account/user/ HTTP/1.1" 200 5295
+Performing system checks...
+
+System check identified no issues (0 silenced).
+December 31, 2020 - 16:16:17
+Django version 2.0.13, using settings 'project.settings'
+Starting development server at http://141.164.40.63:8000/
+Quit the server with CONTROL-C.
+2
+[31/Dec/2020 16:18:29] "GET /payment/ HTTP/1.0" 200 33807
