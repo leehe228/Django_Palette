@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMessage
 import os
 import random
-
+from django.utils.safestring import mark_safe
 from django.shortcuts import redirect
 
 import sys
@@ -171,7 +171,7 @@ def info(request):
     
     E = Exhibition.objects.get(galleryCode=code)
 
-    return render(request, '/home/palette/page/templates/page/info.html', {'code':code, 'exhibition':E, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG})
+    return render(request, '/home/palette/page/templates/page/info.html', {'code':code, 'exhibition':E, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG, 'info':mark_safe(E.galleryInfo)})
 
 
 ''' redirect to '''
@@ -467,7 +467,7 @@ def gallery(request):
             likeIMG = "http://141.164.40.63:8000/media/websrc/r_plus_icon.jpg"
             likeURL = "http://softcon.ga/gallery?to=s&n=" + code + "&p=" + page
 
-        return render(request, '/home/palette/page/templates/page/gallery.html', {'code':code, 'page':page, 'max_page':max_page, 't':t, 'c':c, 'likeIMG':likeIMG, 'likeURL':likeURL})
+        return render(request, '/home/palette/page/templates/page/gallery.html', {'code':code, 'page':page, 'max_page':max_page, 't':t, 'c':mark_safe(c), 'likeIMG':likeIMG, 'likeURL':likeURL})
 
 
 ''' payment page '''

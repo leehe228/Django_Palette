@@ -101,7 +101,7 @@ def register(request):
     j = open(FILE_PATH + "database.json", encoding="utf-8-sig")
     newList = {}
     newList["DATA"] = []
-
+    """
     try:
         json_data = json.loads(j.read())
         print(json_data["DATA"])
@@ -115,23 +115,23 @@ def register(request):
                 newList["DATA"].append(json_data["DATA"][i])
     except Exception as e:
 	    print(e)
-
+    """
     dictToAdd = {"CODE":CODE, "TITLE":GalleryTitle, "CREATOR":GalleryCreator, "INFO":GalleryInfo, "AMOUNT":"0", "ARTTITLES":"", "ARTCONTENTS":"", "DUEDATE":str(DueDate), "CATEGORY":Category}
 
     newList["DATA"].append(dictToAdd)
     j.close()
    
     print(newList)
-
+    """
     with open(FILE_PATH + 'database.json', 'w', encoding='UTF-8-sig') as f:
         f.write(json.dumps(newList, ensure_ascii=False, indent=4))
-
+    """
     newExhibition = Exhibition(galleryCode=CODE, galleryTitle=GalleryTitle, galleryCreator=GalleryCreator, galleryInfo=GalleryInfo, galleryAmount="0", titles="", contents="", dueDate=DueDate, category=Category)
 
     try :
         newExhibition.save(force_insert=True)
-        update()
-        return HttpResponse('1')
+        # update()
+        return HttpResponse(CODE)
     except Exception as e:
         print(e)
         return HttpResponse('-1')
