@@ -1,156 +1,101 @@
 {% load static %}
 
 <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <title>palette</title>
-        <!-- mobile -->
-	<link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
-        <!-- web -->
-	<link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
 
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>palette</title>
+    <!-- mobile -->
+    <link rel="stylesheet" href="{% static 'css/login_m.css' %}" media="(max-width:1200px)">
+    <!-- web -->
+    <link rel="stylesheet" href="login.css" media="(min-width:1200px)">
 
-	    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap"
+        rel="stylesheet">
 
-        <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
-    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
-    <body oncontextmenu='return false' onselectstart='return false' ondragstart='return false' style="overflow-x:hidden; overflow-y:auto;">
-        <div id="page">
-            <header>
-                <div id="logo">
-                    <body>
-                        <a href="http://softcon.ga/">palette</a>
-                    </body>
-                </div>
-            </header>
+    <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
+</head>
 
-            <style>
-                .header_buttonimg{
-                    width:20px;
-                    height:20px;
-                    object-fit:contain;
-                }
-                .header_button{
-                    border:0;
-                    outline:0;
-                    box-shadow:none;
-                    background-color:white;
-                }
-            </style>
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'
+    style="overflow-x:hidden; overflow-y:auto;">
+    <div id="page">
+        <header>
+            <div id="logo">
 
-            <div id="tab">
-                <nav>
-                    <ul>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_icon.jpg" style="cursor:pointer;"></button></li>
-			            <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/login/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/user_icon.jpg" style="cursor:pointer;"></button></li>
-                    </ul>
-                </nav>
+                <body>
+                    <a href="http://softcon.ga/">palette</a>
+                </body>
             </div>
-            
-            <style>
-                .top-space{
-                    height:60px;
-                }
-                .container{
-                    padding-top:80px;
-                    width:100%;
-                    display:flex;
-                    flex-direction: column;
-                    text-align:center;
-                }
-                .basic-label{
-                    font-family: 'Noto Sans KR', sans-serif;
-                    font-size: 16px;
-                    margin-bottom:5px;
-                }
-                .inputbox{
-                    font-family: 'Noto Sans KR', sans-serif;
-                    width:300px;
-                    height:30px;
-                    font-size: 15px;
-                    margin-bottom:10px;
-                }
-                .basic-button{
-                    font-family: 'Noto Sans KR', sans-serif;
-                    width:300px;
-                    height:40px;
-                    background-color: #2e2e2e;
-                    border-width: 0px;
-                    font-size:16px;
-                    margin-bottom:10px;
-                    color:white;
-                }
-		.alert{
-		    font-family: 'Noto Sans KR', sans-serif;
-		    font-size: 16px;
-		    color: red;
-		    margin-bottom:10px;
-		}
-            </style>
+        </header>
 
-            <div>
-                <div>
-                    <p class='top-space'></p>
-                </div>
-
-                <div class='container'>
-                    <div class='basic-label'><a>이메일</a></div>
-                    <div>
-                        <input class='inputbox' onkeyup="enterkey();" type="text" id="email" name="email_field">
-                    </div>
-                    
-                    <div class='basic-label'><a>비밀번호</a></div>
-                    <div> 
-                        <input class='inputbox' onkeyup="enterkey();" type="password" id="password" name="password_field">
-                    </div>
-
-		    <div>
-			<p class='alert'>{{ alert }}</p>
-		    </div>
-
-                    <div>
-                        <button class='basic-button' style="cursor:pointer;" onclick="input()">로그인</button>
-                    </div>
-                    
-                    <div>
-                        <button class='basic-button' style="cursor:pointer;" onclick="location.href='http://softcon.ga/register/'">회원가입</button>
-                    </div>
-		    
-                </div>
-            </div>  
-
+        <div id="tab">
+            <nav>
+                <ul>
+                    <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img
+                                class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/star_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/search_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/login/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/user_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                </ul>
+            </nav>
         </div>
 
+        <div>
+            <div>
+                <p class='top-space'></p>
+            </div>
+            
+            <div class='container'>
+                <div class='title'><a>로그인</a></div>
+         
+                <div class='basic-label'><a>이메일</a></div>
+                <div>
+                    <input class='inputbox' onkeyup="enterkey();" type="text" id="email" name="email_field">
+                </div>
 
-        <script type="text/javascript">
-            var userEmail;
-            var userPassword;
-    
-            function input(){
-                userEmail = document.getElementById("email").value;
-                userPassword = document.getElementById("password").value;
-    		
-		if (userEmail == '' ||  userPassword == ''){
-		    alert('이메일과 비밀번호를 입력해주세요.');
-		}
-		else{
-                    window.location.href = 'http://softcon.ga/redirect?to=login&email='+userEmail+'&password='+userPassword;
-		}
-            }
+                <div class='basic-label'><a>비밀번호</a></div>
+                <div>
+                    <input class='inputbox' onkeyup="enterkey();" type="password" id="password" name="password_field">
+                </div>
+      
+                <div>
+                    <p class='alert'>{{ alert }}</p>
+                </div>
 
-	    function enterkey(){
-	    	if (window.event.keyCode == 13){
-		    input();
-		}
-	    }
-        </script>
+                <div>
+                    <button class='basic-button' style="cursor:pointer;" onclick="input()">로그인</button>
+                </div>
 
-    </body>
+                <div>
+                    <button class='basic-button' style="cursor:pointer;"
+                        onclick="location.href='http://softcon.ga/register/'">회원가입</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
+
+</body>
+
 </html>
