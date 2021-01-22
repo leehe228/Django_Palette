@@ -6,14 +6,13 @@
     <meta charset="UTF-8">
     <title>palette</title>
     <!-- mobile -->
-    <link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
+    <link rel="stylesheet" href="{% static 'css/search_m.css' %}" media="(max-width:1200px)">
     <!-- web -->
-    <link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
+    <link rel="stylesheet" href="{% static 'css/search.css' %}" media="(min-width:1200px)">
 
+    <!-- font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Quicksand&display=swap" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
@@ -31,21 +30,6 @@
                 </body>
             </div>
         </header>
-
-        <style>
-            .header_buttonimg {
-                width: 20px;
-                height: 20px;
-                object-fit: contain;
-            }
-
-            .header_button {
-                border: 0;
-                outline: 0;
-                box-shadow: none;
-                background-color: white;
-            }
-        </style>
 
         <div id="tab">
             <nav>
@@ -73,60 +57,6 @@
             </nav>
         </div>
 
-        <style>
-            .top-space {
-                height: 60px;
-            }
-            .square_view{
-                width:200px;
-                height:200px;
-                object-fit:cover;
-                border-radius: 10px;
-            }
-            .box-container{
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                margin-top:20px;
-                margin-bottom:10px;
-                align-content: flex-start;
-            }
-            .box{
-                margin-left:10px;
-                margin-right:10px;
-                margin-bottom:10px;
-            }
-            .cont{
-                text-align:center;
-            }
-            .inputbox{
-                font-family: 'Noto Sans KR', sans-serif;
-                width:400px;
-                height:40px;
-                font-size: 15px;
-                margin-bottom:10px;
-            }
-            .basic-button{
-                font-family: 'Noto Sans KR', sans-serif;
-                width:50px;
-                height:40px;
-                background-color: #2e2e2e;
-                border-width: 0px;
-                font-size:16px;
-                margin-bottom:10px;
-                color:white;
-            }
-	    .title{
-	   	font-family: 'Noto Sans KR', sans-serif; 
-		font-size:16px;
-	    }
-	    .content{
-	    	font-family: 'Noto Sans KR', sans-serif;
-		font-size:14px;
-	    }
-        </style>
-
         <div>
             <div>
                 <p class='top-space'></p>
@@ -134,14 +64,17 @@
 
             <div class='cont'>
 		    <input onkeyup="enterkey();" class='inputbox' type="text" id="search_field" value="{{keyword}}">
-                <button class='basic-button' onclick="search()">검색</button>
+                <button class='basic-button' onclick="search()" style="cursor:pointer;">검색</button>
             </div>
 
             <div class="box-container">
+                <div>
+                    <p class='alert'>{{ alert }}</p>
+                </div>
                 {% for data in datas %}
                 <div class='box'>
                     <img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data.galleryCode }}/1.jpg" style="cursor:pointer;">
-                    <div>
+                    <div class='info-container'>
                         <a class='title'>{{ data.galleryTitle }}</a><br><a class='content'>{{ data.galleryCreator }}</a>
                     </div>    
                 </div>
@@ -149,20 +82,7 @@
             </div>
         </div>
 
-        <script type="text/javascript">
-            var keyword
-            function search() {
-                keyword = document.getElementById("search_field").value;
-                window.location.href = "http://softcon.ga/search?key=" + keyword;
-            }
-
-            function enterkey() {
-                if (window.event.keyCode == 13) {
-                    keyword = document.getElementById("search_field").value;
-                    window.location.href = "http://softcon.ga/search?key=" + keyword;
-                }
-            }
-        </script>
+        <script type="text/javascript" src="{% static 'js/search.js' %}"></script>
 
 </body>
 

@@ -3,21 +3,20 @@
 <!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
-        <title>palette</title>
-        <!-- mobile -->
-	<link rel="stylesheet" href="{% static 'css/home_mobile.css' %}" media="(max-width:1200px)">
-        <!-- web -->
-	<link rel="stylesheet" href="{% static 'css/home.css' %}" media="(min-width:1200px)">
+            <title>palette</title>
+            <!-- mobile -->
+            <link rel="stylesheet" href="{% static 'css/home_m.css' %}" media="(max-width:1200px)">
+            <!-- web -->
+            <link rel="stylesheet" href="{% static 'css/home.css' %}" media="(min-width:1200px)">
 
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+            <!-- font -->
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Quicksand&display=swap" rel="stylesheet">
 
-	<meta name="viewport" content="width=device-width, initial-scale=0.8">
+	    <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
         <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
 	
-
     </head>
 
     <body oncontextmenu='return false' onselectstart='return false' ondragstart='return false' style="overflow-x:hidden; overflow-y:auto;">
@@ -31,20 +30,6 @@
                 </div>
             </header>
 
-            <style>
-                .header_buttonimg{
-                    width:20px;
-                    height:20px;
-                    object-fit:contain;
-                }
-                .header_button{
-                    border:0;
-                    outline:0;
-                    box-shadow:none;
-                    background-color:white;
-                }
-            </style>
-
             <div id="tab">
                 <nav>
                     <ul>
@@ -52,53 +37,22 @@
                         <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_icon.jpg" style="cursor:pointer;"></button></li>
                         <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg" style="cursor:pointer;"></button></li>
                         <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_icon.jpg" style="cursor:pointer;"></button></li>
-			<li><button type="button" class="header_button" onclick="location.href='{{ loginedURL }}'"><img class="header_buttonimg" src={{ loginedIMG }} style="cursor:pointer;"></button></li>
+			            <li><button type="button" class="header_button" onclick="location.href='{{ loginedURL }}'"><img class="header_buttonimg" src={{ loginedIMG }} style="cursor:pointer;"></button></li>
                     </ul>
                 </nav>
             </div>
             
-            <style>
-                .top-space{
-                    height:60px;
-                }
-                .banner{
-                    width:100%;
-                    min-height:400px;
-                    object-fit:cover;
-                }
-                .square_view{
-                    width:180px;
-                    height:180px;
-                    object-fit:cover;
-                    border-radius: 10px;
-                }
-                .box-container{
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    margin-top:20px;
-		    margin-bottom:10px;
-                    align-content: flex-start;
-                }
-                .box{
-                    margin-left:10px;
-                    margin-right:10px;
-                    margin-bottom:10px;
-                }
-            </style>
-
             <article>
                 <p class='top-space'></p>
 
                 <section>
-                    <img class='banner' src="http://141.164.40.63:8000/media/websrc/home/banner1.jpg">
+                    <img class='banner' src="http://141.164.40.63:8000/media/websrc/home/banner.jpg">
                 </section>
 
                 <div class="box-container">
-			{% for data in datas %}
-			<div class="box"><img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data }}/1.jpg" style="cursor:pointer;"></div>
-			{% endfor %}
+                    {% for data in datas %}
+                    <div class="box"><img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data }}/1.jpg" style="cursor:pointer;"></div>
+                    {% endfor %}
                 </div>
             </article>
 

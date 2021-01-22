@@ -5,9 +5,9 @@
         <meta charset="UTF-8">
         <title>palette</title>
         <!-- mobile -->
-        <link rel="stylesheet" href="{% static 'css/home_mobile.css' %}" media="(max-width:1200px)">
+        <link rel="stylesheet" href="{% static 'css/star_m.css' %}" media="(max-width:1200px)">
         <!-- web -->
-        <link rel="stylesheet" href="{% static 'css/home.css' %}" media="(min-width:1200px)">
+        <link rel="stylesheet" href="{% static 'css/star.css' %}" media="(min-width:1200px)">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
@@ -28,20 +28,6 @@
                 </div>
             </header>
 
-            <style>
-                .header_buttonimg{
-                    width:20px;
-                    height:20px;
-                    object-fit:contain;
-                }
-                .header_button{
-                    border:0;
-                    outline:0;
-                    box-shadow:none;
-                    background-color:white;
-                }
-            </style>
-
             <div id="tab">
                 <nav>
                     <ul>
@@ -54,38 +40,13 @@
                 </nav>
             </div>
 
-            <style>
-                .top-space{
-                    height:60px;
-                }
-                .square_view{
-                    width:360px;
-                    height:360px;
-                    object-fit:cover;
-                    border-radius: 10px;
-                }
-                .box-container{
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    margin:20px;
-                    align-content: flex-start;
-                }
-                .box{
-                    margin-left:10px;
-                    margin-right:10px;
-                    margin-bottom:10px;
-                }
-            </style>
-
             <article>
                 <p class='top-space'></p>
 
                 <div class="box-container">
-                        {% for data in datas %}
-                        <div class="box"><img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data }}/1.jpg" style="cursor:pointer;"></div>
-                        {% endfor %}
+                    {% for data in datas %}
+                    <div class="box"><img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data }}/1.jpg" style="cursor:pointer;"></div>
+                    {% endfor %}
                 </div>
             </article>
 
@@ -113,4 +74,3 @@
         </div>
     </body>
 </html>
-

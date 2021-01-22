@@ -24,6 +24,47 @@ header{
     color: black;
 }
 
+.top-space{
+    height:60px;
+}
+.banner{
+    width:100%;
+    min-height:400px;
+    object-fit:cover;
+}
+.square_view{
+    width:280px;
+    height:280px;
+    object-fit:cover;
+    border-radius: 10px;
+}
+.box-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top:20px;
+    margin-bottom:10px;
+    align-content: flex-start;
+}
+.box{
+    margin-left:10px;
+    margin-right:10px;
+    margin-bottom:10px;
+}
+
+.header_buttonimg{
+    width:20px;
+    height:20px;
+    object-fit:contain;
+}
+.header_button{
+    border:0;
+    outline:0;
+    box-shadow:none;
+    background-color:white;
+}
+
 nav{
     position:fixed;
     top:20px;
@@ -41,7 +82,7 @@ nav li{
 #footer {
     padding-top:30px;
     padding-left:30px; 
-    height: 160px;
+    height: 150px;
     text-align: left;
     background-color: #f5f5f7;
 }
@@ -54,6 +95,7 @@ nav li{
     font-size: 14px;
     color: #939296;
     margin-bottom: 10px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 #page{

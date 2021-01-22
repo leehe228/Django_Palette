@@ -27,18 +27,24 @@ def home(request):
         loginedURL = "http://softcon.ga/setting/"
     
     l = Exhibition.objects.all()
-    dic={}
+    datas = list()
+
+    for i in l:
+        datas.append(str(i.galleryCode))
+
+    random.shuffle(datas)
+    datas = datas[:30]
+
+    """dic={}
     for i in l:
         popularity = i.galleryLikes
         gCode = i.galleryCode
         dic[gCode]=popularity
-
+    
     listTuple = sorted(dic.items(), reverse=True, key=lambda item: item[1])
     
-    datas = list()
-    for j in listTuple:
-        #datas.append("http://141.164.40.63:8000/media/database/" + str(j[0]) + "/" + str(random.randrange(1, 4)) + ".jpg")
-        datas.append(j[0])
+    datas = list()"""
+    
     return render(request, '/home/palette/page/templates/page/home.html', {'datas': datas, 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
 
 
@@ -65,7 +71,8 @@ def star(request):
     datas = list()
     for j in listTuple:
         datas.append(j[0])
-    return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas, 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
+
+    return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas[:20], 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
 
 
 ''' business page '''
@@ -79,6 +86,8 @@ def business(request):
 def saved(request):
     email = request.COOKIES.get('userEmail')
     
+    alertString = "저장된 전시회가 없습니다. 마음에 드는 전시회를 저장한 후 한 곳에서 모아보세요!"
+
     if email is None:
         return redirect('login')
     else:
@@ -94,12 +103,14 @@ def saved(request):
                 for i in userLikeList:
                     j = Exhibition.objects.get(galleryCode=i)
                     datas.append(j)
+                if len(datas) != 0:
+                    alertString = ""
 
-            return render(request, '/home/palette/page/templates/page/saved.html', {'datas':datas})
+            return render(request, '/home/palette/page/templates/page/saved.html', {'datas':datas, 'alert':alertString})
 
         except Exception as e:
             print(e)
-            return render(request, '/home/palette/page/templates/page/saved.html', {'datas':datas})
+            return render(request, '/home/palette/page/templates/page/saved.html', {'datas':datas, 'alert':alertString})
 
 
 ''' /search?key= '''
@@ -108,6 +119,8 @@ def search(request):
 
     loginedURL = "http://softcon.ga/login/"
     loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
+
+    alertString = "검색하신 전시회를 찾을 수 없습니다."
 
     if request.COOKIES.get('userEmail') != None:
         loginedURL = "http://softcon.ga/setting/"
@@ -122,10 +135,31 @@ def search(request):
 
         # galleryTitle, galleryCreator
         for i in l:
-            if i.galleryTitle.strip() in keyword or keyword in i.galleryTitle.strip() or i.galleryCreator.strip() in keyword or keyword in i.galleryCreator.strip():
+            if CheckSim(i.galleryTitle.strip(), keyword) or CheckSim(i.galleryCreator.strip(), keyword):
                 datas.append(i)
 
-    return render(request, '/home/palette/page/templates/page/search.html', {'datas':datas, 'keyword':keyword, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG})
+        if len(datas) != 0:
+            alertString = ""
+
+    if keyword == '':
+        alertString = "검색어를 입력하세요."
+
+    return render(request, '/home/palette/page/templates/page/search.html', {'datas':datas, 'alert':alertString, 'keyword':keyword, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG})
+
+
+@csrf_exempt
+def CheckSim(s1, s2):
+    count = 0
+
+    for i in s1:
+        for j in s2:
+            if i == j:
+                count += 1
+
+    if count > 0:
+        return True
+    else:
+        return False
 
 
 ''' login page  '''
