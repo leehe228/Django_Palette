@@ -9,9 +9,9 @@
         <!-- web -->
         <link rel="stylesheet" href="{% static 'css/star.css' %}" media="(min-width:1200px)">
 
+        <!-- font -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Quicksand&display=swap" rel="stylesheet">
 
         <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
@@ -45,7 +45,15 @@
 
                 <div class="box-container">
                     {% for data in datas %}
-                    <div class="box"><img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data }}/1.jpg" style="cursor:pointer;"></div>
+                    <div class="box">
+                        <div><img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data }}/1.jpg" style="cursor:pointer;"></div>
+                        <div class='c-text'>
+                            <p>
+                                {{ forloop.counter }}
+                            </p>
+                        </div>
+                        
+                    </div>
                     {% endfor %}
                 </div>
             </article>

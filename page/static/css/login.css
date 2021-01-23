@@ -11,6 +11,10 @@ header{
     opacity:1.0;
 }
 
+body{
+    background-image: url(http://141.164.40.63:8000/media/websrc/login-back.jpg);
+}
+
 #logo{
     position: absolute;
     top: 6px;
@@ -22,6 +26,12 @@ header{
 
 #logo a{
     color: black;
+}
+
+.back{
+    width:100%;
+    height:100%;
+    object-fit: contain;
 }
 
 .header_buttonimg {
@@ -47,11 +57,12 @@ header{
     height:60px;
 }
 .container{
-    padding-top:50px;
+    margin-top: 10%;
     width:100%;
     display:flex;
     flex-direction: column;
     text-align:center;
+    position:relative;
 }
 .basic-label{
     font-family: 'Noto Sans KR', sans-serif;

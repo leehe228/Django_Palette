@@ -57,6 +57,16 @@ header{
     margin-left:10px;
     margin-right:10px;
     margin-bottom:10px;
+    position: relative;
+}
+.c-text{
+    position:absolute;
+    transform: translate(0, -100%);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 80px;
+    color: white;
+    text-shadow: 2px 2px 2px gray;
+    margin-left: 10px;
 }
 
 nav{

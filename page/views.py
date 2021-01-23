@@ -71,7 +71,8 @@ def star(request):
     for j in listTuple:
         datas.append(j[0])
 
-    return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas[:20], 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
+    count = 1
+    return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas[:20], 'count':count, 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
 
 
 ''' business page '''
