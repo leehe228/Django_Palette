@@ -106,6 +106,10 @@ def saved(request):
                 if len(datas) != 0:
                     alertString = ""
 
+                for i in datas:
+                    if i.galleryCreator == 'None' or i.galleryCreator == 'none':
+                        i.galleryCreator = ''
+
             return render(request, '/home/palette/page/templates/page/saved.html', {'datas':datas, 'alert':alertString})
 
         except Exception as e:
@@ -143,6 +147,10 @@ def search(request):
 
     if keyword == '':
         alertString = "검색어를 입력하세요."
+
+    for i in datas:
+        if i.galleryCreator == 'None' or i.galleryCreator == 'none':
+            i.galleryCreator = ''
 
     return render(request, '/home/palette/page/templates/page/search.html', {'datas':datas, 'alert':alertString, 'keyword':keyword, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG})
 
