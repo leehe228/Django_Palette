@@ -49,46 +49,44 @@
                             onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg"
                                 src="http://141.164.40.63:8000/media/websrc/search_icon.jpg"
                                 style="cursor:pointer;"></button></li>
-                    <li><button type="button" class="header_button"
-                            onclick="location.href='http://softcon.ga/login/'"><img class="header_buttonimg"
-                                src="http://141.164.40.63:8000/media/websrc/user_icon.jpg"
-                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button" onclick="location.href='{{ loginedURL }}'"><img
+                                class="header_buttonimg" src="{{ loginedIMG }}" style="cursor:pointer;"></button></li>
                 </ul>
             </nav>
         </div>
 
-        <div>
+        <div class='gradient-back'></div>
+        <img class='back-image' src="http://141.164.40.63:8000/media/websrc/login-back.jpg">
+
+        <div class='info-container'>
+
+            <div class='basic-title'>
+                <a>로그인</a>
+            </div>
+
+            <div class='basic-label'><a>이메일</a></div>
             <div>
-                <p class='top-space'></p>
+                <input class='inputbox' onkeyup="enterkey();" type="text" id="email" name="email_field">
             </div>
-            
-            <div class='container'>
-                <div class='title'><a>로그인</a></div>
-         
-                <div class='basic-label'><a>이메일</a></div>
-                <div>
-                    <input class='inputbox' onkeyup="enterkey();" type="text" id="email" name="email_field">
-                </div>
 
-                <div class='basic-label'><a>비밀번호</a></div>
-                <div>
-                    <input class='inputbox' onkeyup="enterkey();" type="password" id="password" name="password_field">
-                </div>
-      
-                <div>
-                    <p class='alert'>{{ alert }}</p>
-                </div>
-
-                <div>
-                    <button class='basic-button' style="cursor:pointer;" onclick="input()">로그인</button>
-                </div>
-
-                <div>
-                    <button class='basic-button' style="cursor:pointer;"
-                        onclick="location.href='http://softcon.ga/register/'">회원가입</button>
-                </div>
-
+            <div class='basic-label'><a>비밀번호</a></div>
+            <div>
+                <input class='inputbox' onkeyup="enterkey();" type="password" id="password" name="password_field">
             </div>
+
+            <div>
+                <p class='alert'>{{ alert }}</p>
+            </div>
+
+        </div>
+
+        <div>
+            <button class='basic-button2' style="cursor:pointer;" onclick="input()">로그인</button>
+        </div>
+
+        <div>
+            <button class='basic-button' style="cursor:pointer;"
+                onclick="location.href='http://softcon.ga/register/'">회원가입</button>
         </div>
 
     </div>
