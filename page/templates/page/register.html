@@ -1,216 +1,117 @@
 {% load static %}
 
 <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <title>palette</title>
-        <!-- mobile -->
-	    <link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
-        <!-- web -->
-	    <link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
 
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>palette</title>
+    <!-- mobile -->
+    <link rel="stylesheet" href="{% static 'css/register_m.css' %}" media="(max-width:1200px)">
+    <!-- web -->
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" media="(min-width:1200px)">
 
-	    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Quicksand&display=swap" rel="stylesheet">
 
-        <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
-    </head>
-    <body oncontextmenu='return false' onselectstart='return false' ondragstart='return false' style="overflow-x:hidden; overflow-y:auto;">
-        <div id="page">
-            <header>
-                <div id="logo">
-                    <body>
-                        <a href="http://softcon.ga/">palette</a>
-                    </body>
-                </div>
-            </header>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
-            <style>
-                .header_buttonimg{
-                    width:20px;
-                    height:20px;
-                    object-fit:contain;
-                }
-                .header_button{
-                    border:0;
-                    outline:0;
-                    box-shadow:none;
-                    background-color:white;
-                }
-            </style>
+    <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
+</head>
 
-            <div id="tab">
-                <nav>
-                    <ul>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_icon.jpg" style="cursor:pointer;"></button></li>
-			            <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/login/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/user_icon.jpg" style="cursor:pointer;"></button></li>
-                    </ul>
-                </nav>
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'
+    style="overflow-x:hidden; overflow-y:auto;">
+    <div id="page">
+        <header>
+            <div id="logo">
+
+                <body>
+                    <a href="http://softcon.ga/">palette</a>
+                </body>
             </div>
-            
-            <style>
-                .top-space{
-                    height:60px;
-                }
-                .container{
-                    padding-top:80px;
-                    width:100%;
-                    display:flex;
-                    flex-direction: column;
-                    text-align:center;
-                }
-                .basic-label{
-                    font-family: 'Noto Sans KR', sans-serif;
-                    font-size: 16px;
-                    margin-bottom:5px;
-                }
-		.small-label{
-                    font-family: 'Noto Sans KR', sans-serif;
-                    font-size: 12px;
-                    margin-bottom:5px;
-		    color:gray;
-                }
-                .inputbox{
-                    font-family: 'Noto Sans KR', sans-serif;
-                    width:300px;
-                    height:30px;
-                    font-size: 15px;
-                    margin-bottom:10px;
-                }
-                .basic-button{
-                    font-family: 'Noto Sans KR', sans-serif;
-                    width:300px;
-                    height:40px;
-                    background-color: #2e2e2e;
-                    border-width: 0px;
-                    font-size:16px;
-                    margin-bottom:10px;
-                    margin-top:10px;
-                    color:white;
-                }
-		.alert{
-		    font-family: 'Noto Sans KR', sans-serif;
-		    font-size: 16px;
-		    color: red;
-		    margin-top:10px;
-		    margin-bottom:10px;
-		}
-            </style>
-            
-            <div>
-                <div>
-                    <p class='top-space'></p>
+        </header>
 
-                </div>
-
-                <div class='container'>
-                    <div class='basic-label'><a>이메일</a></div>
-                    <div>
-                        <input class='inputbox' type="text" id="email" name="email_field">
-                    </div>
-
-                    <div class='basic-label'><a>비밀번호</a></div>
-		    <div class='small-label'><a>특수문자 !, @ 및 영문 대소문자, 숫자를 조합해 8자리 이상</a></div>
-                    <div>
-                        <input class='inputbox' type="password" id="password" name="password_field">
-                    </div>
-
-                    <div class='basic-label'><a>비밀번호 재입력</a></div>
-                    <div>
-                        <input class='inputbox' type="password" id="password2" name="password_field">
-                    </div>
-
-                    <div class='basic-label'><a>이름</a></div>
-                    <div>
-                        <input class='inputbox' type="text" id="name" name="name_field">
-                    </div>
-
-                    <div class='basic-label'><a>나이</a></div>
-                    <div>
-                        <input class='inputbox' type="number" id="age" name="age_field">
-                    </div>
-
-                    <div class='basic-label'><a>성별</a></div>
-                    <div>
-                        <input type="radio" name="gender" value="M" checked="checked">남
-                        <input type="radio" name="gender" value="W">여
-                    </div>
-		    
-		    <div>
-			<p class='alert'>{{ alert }}</p>
-		    </div>
-		    <div class='small-label'><a onclick="openPrivacy();" style="cursor:pointer;">개인정보 처리방침</a></div>
-		    <div class='small-label'><a onclick="openPrivacy();" style="cursor:pointer;">이용 약관 자세히 보기</a></div>
-                    <div>
-                        <button class='basic-button' onclick="input()" style="cursor:pointer;">약관 동의 및 회원가입</button>
-                    </div>
-
-                </div>
-            </div>
-            
+        <div id="tab">
+            <nav>
+                <ul>
+                    <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img
+                                class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/star_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/search_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/login/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/user_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                </ul>
+            </nav>
         </div>
 
-        <script type="text/javascript">
-            var userEmail;
-            var userPassword;
-	    var name;
-            var age;
-	    var genderButton;
-	    var gender;
+        <div>
+            <div>
+                <p class='top-space'></p>
+                <img class='banner' src="http://141.164.40.63:8000/media/websrc/register-back.jpg">
+            </div>
 
-	    function openPrivacy(){
-	        window.open("http://softcon.ga/private_privacy/");
-	    }
+            <div class='container'>
+                <div class='basic-label'><a>이메일</a></div>
+                <div>
+                    <input class='inputbox' type="text" id="email" name="email_field">
+                </div>
 
-	    function CheckEmail(str) {                                                 
-                var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+                <div class='basic-label'><a>비밀번호</a></div>
+                <div class='small-label'><a>특수문자 !, @ 및 영문 대소문자, 숫자를 조합해 8자리 이상</a></div>
+                <div>
+                    <input class='inputbox' type="password" id="password" name="password_field">
+                </div>
 
-                if(!reg_email.test(str)) {      
-                    return false;
-                }
-                else {
-                    return true;
-                }
-            }
-		
-            function input(){
-                userEmail = document.getElementById("email").value;
-                userPassword = document.getElementById("password").value;
-		userPassword2 = document.getElementById("password2").value;
-    		name = document.getElementById("name").value;
-		age = document.getElementById("age").value;
-		genderButton = document.getElementsByName("gender");
-		
-		if(genderButton[0].checked == true){
-		    gender = "M"
-		}
-		else{
-		    gender = "W"
-		}
+                <div class='basic-label'><a>비밀번호 재입력</a></div>
+                <div>
+                    <input class='inputbox' type="password" id="password2" name="password_field">
+                </div>
 
-                if (userEmail == '' || userPassword == '' || userPassword2 == '' || name == '' || age == ''){
-		    alert("모든 정보를 입력해주세요.");
-		}
-		else{
-		    if(!CheckEmail(userEmail)){
-		        alert("올바른 이메일을 입력해주십시오.")
-		    }
-		    else{
-			if(userPassword != userPassword2){
-                            alert("비밀번호가 일치하지 않습니다.");
-                        }else{
-                            window.location.href = 'http://softcon.ga/redirect?to=signup&email='+userEmail+'&password='+userPassword+'&name='+name+'&age='+age+'&gender='+gender;
-                        }
-		    }
-		}
-            }
+                <div class='basic-label'><a>이름</a></div>
+                <div>
+                    <input class='inputbox' type="text" id="name" name="name_field">
+                </div>
 
-        </script>
+                <div class='basic-label'><a>나이</a></div>
+                <div>
+                    <input class='inputbox' type="number" id="age" name="age_field">
+                </div>
 
-    </body>
+                <div class='basic-label'><a>성별</a></div>
+                <div>
+                    <input type="radio" name="gender" value="M" checked="checked">남
+                    <input type="radio" name="gender" value="W">여
+                </div>
+
+                <div>
+                    <p class='alert'>{{ alert }}</p>
+                </div>
+                <div class='small-label'><a onclick="openPrivacy();" style="cursor:pointer;">개인정보 처리방침</a></div>
+                <div class='small-label'><a onclick="openPrivacy();" style="cursor:pointer;">이용 약관 자세히 보기</a></div>
+                <div>
+                    <button class='basic-button' onclick="input()" style="cursor:pointer;">약관 동의 및 회원가입</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/register.js' %}"></script>
+
+</body>
+
 </html>
