@@ -62,9 +62,8 @@ def star(request):
     l = Exhibition.objects.all()
     dic={}
     for i in l:
-        popularity = i.galleryLikes
         gCode = i.galleryCode
-        dic[gCode]=popularity
+        dic[gCode]=i.galleryViews
 
     listTuple = sorted(dic.items(), reverse=True, key=lambda item: item[1])
 
