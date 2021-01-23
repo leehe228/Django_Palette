@@ -204,6 +204,9 @@ def info(request):
         loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
     
     E = Exhibition.objects.get(galleryCode=code)
+    
+    if E.galleryCreator == 'None' or E.galleryCreator == 'none':
+        E.galleryCreator = ''
 
     return render(request, '/home/palette/page/templates/page/info.html', {'code':code, 'exhibition':E, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG, 'info':mark_safe(E.galleryInfo)})
 
@@ -493,6 +496,8 @@ def gallery(request):
         
         t = E.titles.split('-')[int(page) - 1]
         c = E.contents.split('-')[int(page) - 1]
+        if c == 'None' or c == 'none':
+            c = ''
 
         if checkLike(userEmail, code):
             likeIMG = "http://141.164.40.63:8000/media/websrc/r_check_icon.jpg"

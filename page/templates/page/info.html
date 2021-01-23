@@ -1,170 +1,93 @@
 {% load static %}
 
 <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <title>palette</title>
-        <!-- mobile -->
-	<link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
-        <!-- web -->
-	<link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
 
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>palette</title>
+    <!-- mobile -->
+    <link rel="stylesheet" href="{% static 'css/info_m.css' %}" media="(max-width:1200px)">
+    <!-- web -->
+    <link rel="stylesheet" href="{% static 'css/info.css' %}" media="(min-width:1200px)">
 
-	    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Quicksand&display=swap" rel="stylesheet">
 
-        <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
-    </head>
-    <body oncontextmenu='return false' onselectstart='return false' ondragstart='return false' style="overflow-x:hidden; overflow-y:auto;">
-        <div id="page">
-            <header>
-                <div id="logo">
-                    <body>
-                        <a href="http://softcon.ga/">palette</a>
-                    </body>
-                </div>
-            </header>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
-            <style>
-                .header_buttonimg{
-                    width:20px;
-                    height:20px;
-                    object-fit:contain;
-                }
-                .header_button{
-                    border:0;
-                    outline:0;
-                    box-shadow:none;
-                    background-color:white;
-                }
-            </style>
+    <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
+</head>
 
-            <div id="tab">
-                <nav>
-                    <ul>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_icon.jpg" style="cursor:pointer;"></button></li>
-			<li><button type="button" class="header_button" onclick="location.href='{{ loginedURL }}'"><img class="header_buttonimg" src="{{ loginedIMG }}" style="cursor:pointer;"></button></li>
-                    </ul>
-                </nav>
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'
+    style="overflow-x:hidden; overflow-y:auto;">
+    <div id="page">
+        <header>
+            <div id="logo">
+
+                <body>
+                    <a href="http://softcon.ga/">palette</a>
+                </body>
             </div>
-            
-            <style>
-                .top-space{
-                    height:60px;
-                }
-                .back-image{
-                    width:100%;
-                    height:100%;
-                    position: fixed; 
-                    top: 0; 
-                    left: 0; 
-                    right: 0; 
-                    bottom: 0; 
-                    background-size: cover; 
-                    -webkit-filter: blur(50px); 
-                    -moz-filter: blur(50px); 
-                    -o-filter: blur(50px); 
-                    -ms-filter: blur(50px); 
-                    filter: blur(50px); 
-                    transform: scale(1.5); 
-                    z-index: -1; 
-                    content: "";
-                    overflow:hidden;
-                }
-                .top-image{
-                    width:240px;
-                    height:240px;
-                    z-index:1;
-                    object-fit:cover;
-                    margin-bottom:20px;
-		    border-radius: 10px;
-                }
-                .basic-title{
-                    font-family: 'Noto Sans KR', sans-serif;
-                    font-size: 24px;
-                    color:black;
-		    font-style: bold;
-                }
-                .basic-info{
-                    max-width:300px;
-                    font-family: 'Noto Sans KR', sans-serif;
-                    font-size: 14px;
-                    color:black;
-                }
-                .info-container{
-                    width:100%;
-                    margin-top:20px;
-                    padding:20px;
-                    background-color: #ffffff20;
-                }
-                .basic-button{
-                    font-family: 'Noto Sans KR', sans-serif;
-                    width:200px;
-                    height:40px;
-                    background-color:black;
-                    opacity:0.3;
-                    border-width: 0px;
-                    font-size:16px;
-                    margin-bottom:10px;
-                    color:white;
-                }
-                .info-cont{
-                    margin-bottom:20px;
-                    max-width:600px;
-                }
-                .divd1{
-                    margin-bottom:20px;
-                }
-                .divd2{
-                    margin-bottom:4px;
-                }
-            </style>
+        </header>
 
-            <div>
-                <div>
-                    <p class='top-space'></p>
-                </div>
+        <div id="tab">
+            <nav>
+                <ul>
+                    <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img
+                                class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/star_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/search_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button" onclick="location.href='{{ loginedURL }}'"><img
+                                class="header_buttonimg" src="{{ loginedIMG }}" style="cursor:pointer;"></button></li>
+                </ul>
+            </nav>
+        </div>
 
-                <div class='info-container'>
-                    <div>
-                        <img class='back-image' src="http://141.164.40.63:8000/media/database/{{ code }}/1.jpg">
-                    </div>
-    
-                    <div>
-                        <img class='top-image' src="http://141.164.40.63:8000/media/database/{{ code }}/1.jpg">
-                    </div>
+        <div class='gradient-back'></div>
+        <img class='back-image' src="http://141.164.40.63:8000/media/database/{{ code }}/1.jpg">
 
-                    <div class='divd2'>
-                        <a class='basic-title'>{{ exhibition.galleryTitle }}</a>
-                    </div>
+        <div class='info-container'>
+        
+            <div class='divd1'>
+                <a class='basic-title'>{{ exhibition.galleryTitle }}</a>
+            </div>
 
-                    <div class='divd1'>
-                        <a class='basic-info'>by {{ exhibition.galleryCreator }}</a>
-                    </div>
+            <div class='divd2'>
+                <a class='basic-info'>{{ exhibition.galleryCreator }}</a>
+            </div>
 
-                    <div class='info-cont'>
-			    <a class='basic-info'><p>{{ info|safe }}</p></a>
-                    </div>
-
-                    <div>
-                        <button class='basic-button' style="cursor:pointer;" onclick="logout()">입장</button>
-                    </div>
-                </div>
-
+            <div class='info-cont'>
+                <a class='basic-info'>
+                    <p>{{ info|safe }}</p>
+                </a>
             </div>
 
         </div>
 
-        <script type="text/javascript">
-            function logout(){
-		window.location.href = "http://softcon.ga/redirect?to=gallery&n={{ code }}&p=1";
-            }
-        </script>
+        <div>
+            <button class='basic-button' style="cursor:pointer;" onclick="logout()">입장</button>
+        </div>
 
-    </body>
+    </div>
+
+    <script type="text/javascript">
+        function logout() {
+            window.location.href = "http://softcon.ga/redirect?to=gallery&n={{ code }}&p=1";
+        }
+    </script>
+
+</body>
+
 </html>
