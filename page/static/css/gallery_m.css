@@ -141,6 +141,13 @@ nav li a{
     color: black;
 }
 
+.info{
+    margin-top: 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 10px;
+    color: #303030;
+}
+
 #page{
     margin:0px auto;
 }
