@@ -24,6 +24,34 @@ header{
     color: white;
 }
 
+.header_buttonimg {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.header_button {
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    background-color: black;
+}
+
+.rem_button_img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.rem_button {
+    border: 0;
+    outline: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: none;
+    background-color: #2E2E2E;
+}
+
 .main-image{
     object-fit:contain;
     z-index: -1;
@@ -62,6 +90,28 @@ header{
     bottom:100px;
     border-radius: 20px;
     max-width:600px;
+}
+
+.top-space {
+    height: 60px;
+}
+
+.container {
+    height: 80%;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    color: black;
+    font-style: bold;
+}
+
+.content {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    color: black;
 }
 
 nav{

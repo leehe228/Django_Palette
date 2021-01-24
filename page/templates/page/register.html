@@ -49,63 +49,62 @@
                             onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg"
                                 src="http://141.164.40.63:8000/media/websrc/search_icon.jpg"
                                 style="cursor:pointer;"></button></li>
-                    <li><button type="button" class="header_button"
-                            onclick="location.href='http://softcon.ga/login/'"><img class="header_buttonimg"
-                                src="http://141.164.40.63:8000/media/websrc/user_icon.jpg"
-                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button" onclick="location.href='{{ loginedURL }}'"><img
+                                class="header_buttonimg" src="{{ loginedIMG }}" style="cursor:pointer;"></button></li>
                 </ul>
             </nav>
         </div>
 
-        <div>
+        <div class='gradient-back'></div>
+        <img class='back-image' src="http://141.164.40.63:8000/media/websrc/register-back.jpg">
+
+        <div class='info-container'>
+
+            <div class='basic-title'>
+                <a>회원가입</a>
+            </div>
+
+            <div class='basic-label'><a>이메일</a></div>
             <div>
-                <p class='top-space'></p>
-                <img class='banner' src="http://141.164.40.63:8000/media/websrc/register-back.jpg">
+                <input class='inputbox' type="text" id="email" name="email_field">
             </div>
 
-            <div class='container'>
-                <div class='basic-label'><a>이메일</a></div>
-                <div>
-                    <input class='inputbox' type="text" id="email" name="email_field">
-                </div>
-
-                <div class='basic-label'><a>비밀번호</a></div>
-                <div class='small-label'><a>특수문자 !, @ 및 영문 대소문자, 숫자를 조합해 8자리 이상</a></div>
-                <div>
-                    <input class='inputbox' type="password" id="password" name="password_field">
-                </div>
-
-                <div class='basic-label'><a>비밀번호 재입력</a></div>
-                <div>
-                    <input class='inputbox' type="password" id="password2" name="password_field">
-                </div>
-
-                <div class='basic-label'><a>이름</a></div>
-                <div>
-                    <input class='inputbox' type="text" id="name" name="name_field">
-                </div>
-
-                <div class='basic-label'><a>나이</a></div>
-                <div>
-                    <input class='inputbox' type="number" id="age" name="age_field">
-                </div>
-
-                <div class='basic-label'><a>성별</a></div>
-                <div>
-                    <input type="radio" name="gender" value="M" checked="checked">남
-                    <input type="radio" name="gender" value="W">여
-                </div>
-
-                <div>
-                    <p class='alert'>{{ alert }}</p>
-                </div>
-                <div class='small-label'><a onclick="openPrivacy();" style="cursor:pointer;">개인정보 처리방침</a></div>
-                <div class='small-label'><a onclick="openPrivacy();" style="cursor:pointer;">이용 약관 자세히 보기</a></div>
-                <div>
-                    <button class='basic-button' onclick="input()" style="cursor:pointer;">약관 동의 및 회원가입</button>
-                </div>
-
+            <div class='basic-label'><a>비밀번호</a></div>
+            <div class='small-label'><a>특수문자 !, @ 및 영문 대소문자, 숫자를 조합해 8자리 이상</a></div>
+            <div>
+                <input class='inputbox' type="password" id="password" name="password_field">
             </div>
+
+            <div class='basic-label'><a>비밀번호 재입력</a></div>
+            <div>
+                <input class='inputbox' type="password" id="password2" name="password_field">
+            </div>
+
+            <div class='basic-label'><a>이름</a></div>
+            <div>
+                <input class='inputbox' type="text" id="name" name="name_field">
+            </div>
+
+            <div class='basic-label'><a>나이</a></div>
+            <div>
+                <input class='inputbox' type="number" id="age" name="age_field">
+            </div>
+
+            <div class='basic-label'><a>성별</a></div>
+            <div>
+                <input type="radio" name="gender" value="M" checked="checked">남
+                <input type="radio" name="gender" value="W">여
+            </div>
+
+            <div>
+                <p class='alert'>{{ alert }}</p>
+            </div>
+            <div class='small-label'><a onclick="openPrivacy();" style="cursor:pointer;">개인정보 처리방침</a></div>
+
+        </div>
+
+        <div>
+            <button class='basic-button' onclick="input()" style="cursor:pointer;">약관 동의 및 회원가입</button>
         </div>
 
     </div>

@@ -46,6 +46,17 @@ function input() {
             if (userPassword != userPassword2) {
                 alert("비밀번호가 일치하지 않습니다.");
             } else {
+		if (userPassword == ''){
+		    alert("비밀번호를 입력해주세요.");
+		}
+		else{
+		    if (userPassword.length < 8){
+		    
+		    }
+		    else{
+		        
+		    }
+		}
                 window.location.href = 'http://softcon.ga/redirect?to=signup&email=' + userEmail + '&password=' + userPassword + '&name=' + name + '&age=' + age + '&gender=' + gender;
             }
         }

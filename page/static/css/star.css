@@ -9,6 +9,7 @@ header{
     background-color: white;
     position: fixed;
     opacity:1.0;
+    z-index: 1;
 }
 
 #logo{
@@ -54,13 +55,13 @@ header{
     align-content: flex-start;
 }
 .box{
-    z-index: -1;
     margin-left:10px;
     margin-right:10px;
     margin-bottom:10px;
     position: relative;
 }
 .c-text{
+    pointer-events: none;
     position:absolute;
     transform: translate(0, -100%);
     font-family: 'Noto Sans KR', sans-serif;

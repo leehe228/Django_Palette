@@ -1,0 +1,146 @@
+*{margin: 0px; padding: 0px}
+ul{list-style: none;}
+a{text-decoration: none;}
+p{text-decoration: none;}
+
+header{
+    width: 100%;
+    height: 60px;
+    background-color:black;
+    position: fixed;
+    opacity:1.0;
+}
+
+#logo{
+    position: absolute;
+    width: 100%;
+    top: 6px;
+    text-align: center;
+    font-family: Quicksand;
+    color:white; 
+    font-size: 36px;
+}
+
+#logo a{
+    color: white;
+}
+
+nav{
+    height:80px;
+    background-color: black;
+    position:fixed;
+    width: 100%;
+    text-align: center;
+    bottom:0px;
+    color:white;
+    font-size:16px;
+    font-family: Arial;
+}
+
+nav ul{
+    margin-top:20px;
+}
+
+nav li{
+    display: inline;
+    margin-left:30px;
+    margin-right:30px;
+}
+
+nav li a{
+    color:white;
+}
+
+.header_buttonimg {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.header_button {
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    background-color: black;
+}
+
+.rem_button_img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.rem_button {
+    border: 0;
+    outline: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: none;
+    background-color: #2E2E2E;
+}
+
+.main-image{
+    object-fit:contain;
+    z-index: -1;
+    position:absolute;
+    height:85%;
+    width:100%;
+    transform: translate(-50%, 0%);
+}
+
+.black-back{
+    background-color: black;
+}
+
+.remote-controller{
+    position:fixed;
+    width:fit-content;
+    height:fit-content;
+    background-color: #2E2E2E;
+    border-radius: 50px;
+    left:50%;
+    transform: translate(-50%, 0%);
+    padding:10px;
+    bottom: 90px;
+}
+
+.information{
+    position:absolute;
+    width:80%;
+    max-width:400px;
+    height:fit-content;
+    padding:20px;
+    background-color:white;
+    color:black;
+    left:50%;
+    transform: translate(-50%, 0%);
+    opacity:0.9;
+    bottom:170px;
+    border-radius: 20px;
+}
+
+.top-space {
+    height: 60px;
+}
+
+.container {
+    height: 80%;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    color: black;
+    font-style: bold;
+}
+
+.content {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    color: black;
+}
+
+#page{
+    margin:0px auto;
+}

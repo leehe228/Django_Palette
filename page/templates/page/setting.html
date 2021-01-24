@@ -1,128 +1,138 @@
 {% load static %}
 
 <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <title>palette</title>
-        <!-- mobile -->
-	<link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
-        <!-- web -->
-	<link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
 
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>palette</title>
+    <!-- mobile -->
+    <link rel="stylesheet" href="{% static 'css/setting_m.css' %}" media="(max-width:1200px)">
+    <!-- web -->
+    <link rel="stylesheet" href="{% static 'css/setting.css' %}" media="(min-width:1200px)">
 
-	    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Quicksand&display=swap" rel="stylesheet">
 
-        <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
-    </head>
-    <body oncontextmenu='return false' onselectstart='return false' ondragstart='return false' style="overflow-x:hidden; overflow-y:auto;">
-        <div id="page">
-            <header>
-                <div id="logo">
-                    <body>
-                        <a href="http://softcon.ga/">palette</a>
-                    </body>
-                </div>
-            </header>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
-            <style>
-                .header_buttonimg{
-                    width:20px;
-                    height:20px;
-                    object-fit:contain;
-                }
-                .header_button{
-                    border:0;
-                    outline:0;
-                    box-shadow:none;
-                    background-color:white;
-                }
-            </style>
+    <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
+</head>
 
-            <div id="tab">
-                <nav>
-                    <ul>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_icon.jpg" style="cursor:pointer;"></button></li>
-			            <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/setting/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/setting_icon.jpg" style="cursor:pointer;"></button></li>
-                    </ul>
-                </nav>
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'
+    style="overflow-x:hidden; overflow-y:auto;">
+    <div id="page">
+        <header>
+            <div id="logo">
+
+                <body>
+                    <a href="http://softcon.ga/">palette</a>
+                </body>
             </div>
-            
-            <style>
-                .top-space{
-                    height:60px;
-                }
-                .container{
-                    padding-top:20px;
-                    width:100%;
-		    margin-left:40px;
-                }
-                .semi-title{
-                    color:black;
-                    font-family: 'Noto Sans KR', sans-serif;
-                    font-size: 24px;
-                }
-		.divd{
-		    margin-bottom:10px;
-		}
-                .little-title{
-                    color:#2b9fec;
-                    font-family: 'Noto Sans KR', sans-serif;
-                    font-size: 18px;
-                }
-                .black-button{
-                    width:300px;
-                    text-align: left;
-                    height:30px;
-                    background-color: white;
-                    color:black;
-                    font-family: 'Noto Sans KR', sans-serif;
-                    font-size: 20px;
-                    margin-bottom:8px;
-                    border-width: 0px;
-                }
-                .gray-button{
-                    width:300px;
-                    text-align: left;
-                    height:30px;
-                    background-color: white;
-                    color:#252525;
-                    font-family: 'Noto Sans KR', sans-serif;
-                    font-size: 20px;
-                    margin-bottom:8px;
-                    border-width: 0px;
-                }
-            </style>
+        </header>
 
-            <div>
-                <div>
-                    <p class='top-space'></p>
-                </div>
-
-                <div class='container'>
-                    <div class='divd'>
-                        <p>
-                            <a class='semi-title'>{{ user_bp.userName }}님 ({{ user_bp.userEmail }})</a><br>
-                            <a class='little-title'>{{ paid }}</a>
-                        </p>
-                    </div>
-
-                    <div>
-                        <div class='divd'><button class='black-button' style="cursor:pointer;" onclick="location.href='http://softcon.ga/pref/'">- 관심 분야 수정</button></div>
-                        <div class='divd'><button class='black-button' style="cursor:pointer;" onclick="location.href='http://softcon.ga/change_password/'">- 비밀번호 변경</button></div>
-                        <div class='divd'><button class='black-button' style="cursor:pointer;" onclick="location.href='http://softcon.ga/payment/'">- 구독 결제 관리</button></div>
-                        <div class='divd'><button class='gray-button' style="cursor:pointer;" onclick="location.href='http://softcon.ga/redirect?to=logout'">- 로그아웃</button></div>
-                    </div>
-
-                </div>
-            </div>
-
+        <div id="tab">
+            <nav>
+                <ul>
+                    <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img
+                                class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/star_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button"
+                            onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg"
+                                src="http://141.164.40.63:8000/media/websrc/search_icon.jpg"
+                                style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button" onclick="location.href='{{ loginedURL }}'"><img
+                                class="header_buttonimg" src="{{ loginedIMG }}" style="cursor:pointer;"></button></li>
+                </ul>
+            </nav>
         </div>
 
-    </body>
+        <div class='gradient-back'></div>
+        <img class='back-image' src="http://141.164.40.63:8000/media/websrc/setting-back.jpg">
+
+        <div class='info-container'>
+
+            <div class='basic-title'>
+                <a>설정</a>
+            </div>
+
+            <div class='basic-label'><a>관심 분야</a></div>
+
+            <div>
+                <button class='basic-button' style="cursor:pointer;"
+                    onclick="location.href='http://softcon.ga/pref/'">수정</button>
+            </div>
+
+            <div class='basic-label'><a>비밀번호 변경</a></div>
+
+            <div class='basic-label2'><a>새 비밀번호</a></div>
+            <div>
+                <input class='inputbox' type="password" id="password" name="password_field">
+            </div>
+
+            <div class='basic-label2'><a>비밀번호 재입력</a></div>
+            <div>
+                <input class='inputbox' type="password" id="password2" name="password_field">
+            </div>
+
+            <div>
+                <button class='basic-button2' style="cursor:pointer;" onclick="ch();">변경</button>
+            </div>
+
+            <div class='basic-label'><a>이용권</a></div>
+            <div class='basic-info'><a>이용권 없음</a></div>
+            <div>
+                <button class='basic-button' style="cursor:pointer;"
+                    onclick="location.href='http://softcon.ga/payment/'">이용권 구매 및 변경</button>
+            </div>
+
+            <div class='basic-label'><a>계정 관리</a></div>
+            <div>
+                <button class='basic-button' style="cursor:pointer;"
+                    onclick="location.href='http://softcon.ga/redirect?to=logout'">로그아웃</button>
+            </div>
+
+            <div>
+                <button class='basic-button3' style="cursor:pointer;"
+                    onclick="location.href='http://softcon.ga/redirect?to=logout'">회원탈퇴</button>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        var userEmail;
+        var userPassword;
+
+        function ch(){
+            passwd1 = document.getElementById("password").value;
+            passwd2 = document.getElementById("password2").value;
+
+            if (passwd1 == passwd2){
+                if (passwd1 == ''){
+                    alert("비밀번호를 입력하세요.");
+                }
+                else{
+		    alert("비밀번호 변경이 완료되었습니다.");
+                    window.location.href = 'http://softcon.ga/redirect?to=changepw&password='+passwd1;
+                }
+            }
+            else{
+                alert("비밀번호가 일치하지 않습니다.");
+            }
+        }
+
+    </script>
+
+</body>
+
 </html>
