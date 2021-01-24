@@ -1,215 +1,137 @@
 {% load static %}
 
 <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <title>palette</title>
-        <!-- mobile -->
-        <link rel="stylesheet" href="{% static 'css/basic_mobile.css' %}" media="(max-width:1200px)">
-        <!-- web -->
-        <link rel="stylesheet" href="{% static 'css/basic.css' %}" media="(min-width:1200px)">
 
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Quicksand&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>palette</title>
+    <!-- mobile -->
+    <link rel="stylesheet" href="{% static 'css/pref_m.css' %}" media="(max-width:1200px)">
+    <!-- web -->
+    <link rel="stylesheet" href="{% static 'css/pref.css' %}" media="(min-width:1200px)">
 
-        <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Quicksand&display=swap" rel="stylesheet">
 
-        <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
-    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
-    <body oncontextmenu='return false' onselectstart='return false' ondragstart='return false' style="overflow-x:hidden; overflow-y:auto;">
-        <div id="page">
-            <header>
-                <div id="logo">
-                    <body>
-                        <a href="http://softcon.ga/">palette</a>
-                    </body>
-                </div>
-            </header>
+    <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
+</head>
 
-            <style>
-                .header_buttonimg{
-                    width:20px;
-                    height:20px;
-                    object-fit:contain;
-                }
-                .header_button{
-                    border:0;
-                    outline:0;
-                    box-shadow:none;
-                    background-color:white;
-                }
-            </style>
+<body oncontextmenu='return false' onselectstart='return false' ondragstart='return false'
+    style="overflow-x:hidden; overflow-y:auto;">
+    <div id="page">
+        <header>
+            <div id="logo">
+
+                <body>
+                    <a href="http://softcon.ga/">palette</a>
+                </body>
+            </div>
 
             <div id="tab">
                 <nav>
                     <ul>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/setting/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/setting_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button"
+                                onclick="location.href='http://softcon.ga/'"><img class="header_buttonimg"
+                                    src="http://141.164.40.63:8000/media/websrc/home_icon.jpg"
+                                    style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button"
+                                onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg"
+                                    src="http://141.164.40.63:8000/media/websrc/star_icon.jpg"
+                                    style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button"
+                                onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg"
+                                    src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg"
+                                    style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button"
+                                onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg"
+                                    src="http://141.164.40.63:8000/media/websrc/search_icon.jpg"
+                                    style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button"
+                                onclick="location.href='http://softcon.ga/setting/'"><img class="header_buttonimg"
+                                    src="http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
+                                    style="cursor:pointer;"></button></li>
                     </ul>
                 </nav>
             </div>
+        </header>
 
-            <style>
-                .top-space{
-                    height:60px;
-                }
-                .box-container{
-                    display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
-                    justify-content: center;
-                    margin:20px;
-                    align-content: flex-start;
-                }
-                .box_red{
-                    margin-left:10px;
-                    margin-right:10px;
-                    margin-bottom:10px;
-                    width:200px;
-                    height:200px;
-                    border-radius: 100px;
-                    background-color: #ffb6b6;
-                    text-align:center;
-                }
-                .box_yellow{
-                    margin-left:10px;
-                    margin-right:10px;
-                    margin-bottom:10px;
-                    width:200px;
-                    height:200px;
-                    border-radius: 100px;
-                    background-color: #fffeb6;
-                    text-align:center;
-                }
-                .box_green{
-                    margin-left:10px;
-                    margin-right:10px;
-                    margin-bottom:10px;
-                    width:200px;
-                    height:200px;
-                    border-radius: 100px;
-                    background-color: #b6ffbc;
-                    text-align:center;
-                }
-                .box_blue{
-                    margin-left:10px;
-                    margin-right:10px;
-                    margin-bottom:10px;
-                    width:200px;
-                    height:200px;
-                    border-radius: 100px;
-                    background-color: #b6d6ff;
-                    text-align:center;
-                }
-                .box_mag{
-                    margin-left:10px;
-                    margin-right:10px;
-                    margin-bottom:10px;
-                    width:200px;
-                    height:200px;
-                    border-radius: 100px;
-                    background-color: #f6b6ff;
-                    text-align:center;
-                    position:relative;
-                }
-                .t{
-                    font-family: 'Noto Sans KR', sans-serif;
-                    font-size: 20px;
-                    color:black;
-                }
-                .basic-button{
-                    font-family: 'Noto Sans KR', sans-serif;
-                    width:300px;
-                    height:40px;
-                    background-color: #2e2e2e;
-                    border-width: 0px;
-                    font-size:16px;
-                    margin-bottom:10px;
-                    color:white;
-                    position:absolute;
-                    bottom:20px;
-                    left:50%;
-                    transform:translate(-50%, 0);
-                }
-            </style>
-
-            <div>
-                <p class='top-space'></p>
-
-                <div class="box-container">
-                        <div class="box_red"><input type="checkbox" name="cb" value="0"><br><br><a class='t'>일러스트</a></div>
-                        <div class="box_mag"><input type="checkbox" name="cb" value="0"><br><br><a class='t'>사진</a></div>
-                        <div class="box_yellow"><input type="checkbox" name="cb" value="0"><br><br><a class='t'>회화</a></div>
-                        <div class="box_blue"><input type="checkbox" name="cb" value="0"><br><br><a class='t'>디자인</a></div>
-                        <div class="box_green"><input type="checkbox" name="cb" value="0"><br><br><a class='t'>패션</a></div>
-                        <div class="box_yellow"><input type="checkbox" name="cb" value="0"><br><br><a class='t'>제품 디자인</a></div>
-                        <div class="box_blue"><input type="checkbox" name="cb" value="0"><br><br><a class='t'>졸업작품</a></div>
-                        <div class="box_red"><input type="checkbox" name="cb" value="0"><br><br><a class='t'>인물</a></div>
-                        <div class="box_green"><input type="checkbox" name="cb" value="0"><br><br><a class='t'>풍경</a></div>
-                        <div class="box_mag"><input type="checkbox" name="cb" value="0"><br><br><a class='t'>캐릭터</a></div>
+        <div id="wrapper">
+            <div id="frame">
+                <div class="img-wrapper">
+                    <img onclick="add1()" src="http://141.164.40.63:8000/media/websrc/category/1.jpg" />
+                    <div onclick="add1()" id="d1" class="darkness"></div>
+                    <div class="title">일러스트</div>
                 </div>
 
-                <div><button class='basic-button' style="cursor:pointer;" onclick="save();">저장</button></div>
+                <div class="img-wrapper">
+                    <img onclick="add2()" src="http://141.164.40.63:8000/media/websrc/category/2.jpg" />
+                    <div onclick="add2()" id="d2" class="darkness"></div>
+                    <div class="title">사진</div>
+                </div>
+
+                <div class="img-wrapper">
+                    <img onclick="add3()" src="http://141.164.40.63:8000/media/websrc/category/3.jpg" />
+                    <div onclick="add3()" id="d3" class="darkness"></div>
+                    <div class="title">회화</div>
+                </div>
+
+                <div class="img-wrapper">
+                    <img onclick="add4()" src="http://141.164.40.63:8000/media/websrc/category/4.jpg" />
+                    <div onclick="add4()" id="d4" class="darkness"></div>
+                    <div class="title">디자인</div>
+                </div>
+
+                <div class="img-wrapper">
+                    <img onclick="add5()" src="http://141.164.40.63:8000/media/websrc/category/5.jpg" />
+                    <div onclick="add5()" id="d5" class="darkness"></div>
+                    <div class="title">패션</div>
+                </div>
+
+                <div class="img-wrapper">
+                    <img onclick="add6()" src="http://141.164.40.63:8000/media/websrc/category/6.jpg" />
+                    <div onclick="add6()" id="d6" class="darkness"></div>
+                    <div class="title">제품</div>
+                </div>
+
+                <div class="img-wrapper">
+                    <img onclick="add7()" src="http://141.164.40.63:8000/media/websrc/category/7.jpg" />
+                    <div onclick="add7()" id="d7" class="darkness"></div>
+                    <div class="title">졸업</div>
+                </div>
+
+                <div class="img-wrapper">
+                    <img onclick="add8()" src="http://141.164.40.63:8000/media/websrc/category/8.jpg" />
+                    <div onclick="add8()" id="d8" class="darkness"></div>
+                    <div class="title">인물</div>
+                </div>
+
+                <div class="img-wrapper">
+                    <img onclick="add9()" src="http://141.164.40.63:8000/media/websrc/category/9.jpg" />
+                    <div onclick="add9()" id="d9" class="darkness"></div>
+                    <div class="title">풍경</div>
+                </div>
+
+                <div class="img-wrapper">
+                    <img onclick="add10()" src="http://141.164.40.63:8000/media/websrc/category/10.jpg" />
+                    <div onclick="add10()" id="d10" class="darkness"></div>
+                    <div class="title">캐릭터</div>
+                </div>
             </div>
-
-            <script type="text/javascript">
-                var v0 = "0";
-                var v1 = "0";
-                var v2 = "0";
-                var v3 = "0";
-                var v4 = "0";
-                var v5 = "0";
-                var v6 = "0";
-                var v7 = "0";
-                var v8 = "0";
-                var v9 = "0";
-
-                function save(){
-                    var ch = document.getElementsByName("cb")
-
-                    if (ch[0].checked == true){
-                        v0 = "1";
-                    }
-                    if (ch[1].checked == true){
-                        v1 = "1";
-                    }
-                    if (ch[2].checked == true){
-                        v2 = "1";
-                    }
-                    if (ch[3].checked == true){
-                        v3 = "1";
-                    }
-                    if (ch[4].checked == true){
-                        v4 = "1";
-                    }
-
-                    if (ch[5].checked == true){
-                        v5 = "1";
-                    }
-                    if (ch[6].checked == true){
-                        v6 = "1";
-                    }
-                    if (ch[7].checked == true){
-                        v7 = "1";
-                    }
-                    if (ch[8].checked == true){
-                        v8 = "1";
-                    }
-                    if (ch[9].checked == true){
-                        v9 = "1";
-                    }
-
-                    var v = v0 + v1 + v2 + v3 + v4 + v5 + v6 + v7 + v8 + v9; 
-
-                    location.href = 'http://softcon.ga/redirect?to=saveprf&v=' + v;
-                }
-            </script>
-
         </div>
-    </body>
+
+        <div>
+            <button class='basic-button' style="cursor:pointer;"
+                onclick="save()">저장</button>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/pref.js' %}"></script>
+
+    </div>
+</body>
+
 </html>

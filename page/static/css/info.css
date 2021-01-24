@@ -105,6 +105,15 @@ html, body{
     color: white;
 }
 
+.hashtag{
+    position: absolute;
+    bottom:120px;
+    left:50px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    color:rgb(175, 175, 175);
+}
+
 nav{
     position:fixed;
     top:20px;

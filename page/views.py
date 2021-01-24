@@ -215,7 +215,22 @@ def info(request):
     if E.galleryCreator == 'None' or E.galleryCreator == 'none':
         E.galleryCreator = ''
 
-    return render(request, '/home/palette/page/templates/page/info.html', {'code':code, 'exhibition':E, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG, 'info':mark_safe(E.galleryInfo)})
+    tag = prefToString(str(E.category))
+
+    return render(request, '/home/palette/page/templates/page/info.html', {'code':code, 'tag':tag, 'exhibition':E, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG, 'info':mark_safe(E.galleryInfo)})
+
+
+@csrf_exempt
+def prefToString(b):
+    l = list(b)
+    res = ""
+    s = ["일러스트", "사진", "회화", "디자인", "패션", "제품", "졸업", "인물", "풍경", "캐릭터"]
+    
+    for i in range(10):
+        if l[i] == '1':
+            res = res + '#' + s[i] + '  '
+    
+    return res
 
 
 ''' redirect to '''
@@ -357,7 +372,7 @@ def signup_process(request):
         PREP = PREP + "W"
     
     #객체 인스턴스화
-    newUser = User(userEmail=email, userPassword=passwd, userName=name, userAge=Age, userCode=PREP + CODE, userSex=gender, userPaid=200)
+    newUser = User(userEmail=email, userPassword=passwd, userName=name, userAge=Age, userCode=PREP + CODE, userInterest="0000000000", userSex=gender, userPaid=200)
     try :
         newUser.save(force_insert=True)
 
