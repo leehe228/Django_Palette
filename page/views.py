@@ -31,19 +31,18 @@ def home(request):
 
     for i in l:
         datas.append(str(i.galleryCode))
-
-    random.shuffle(datas)
-    datas = datas[:30]
-
-    """dic={}
+    
+    """
+    dic={}
     for i in l:
         popularity = i.galleryLikes
         gCode = i.galleryCode
         dic[gCode]=popularity
     
-    listTuple = sorted(dic.items(), reverse=True, key=lambda item: item[1])
+    listTuple = sorted(dic.items(), reverse=True, key=lambda item: item[1])"""
     
-    datas = list()"""
+    random.shuffle(datas)
+    #datas = datas[:30]
     
     return render(request, '/home/palette/page/templates/page/home.html', {'datas': datas, 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
 
@@ -317,8 +316,8 @@ def register(request):
 @csrf_exempt
 def register_e(request):
     email = request.COOKIES.get('userEmail')
-    
-    error = "이미 가입된 계정입니다."
+
+    error = "가입된 계정이거나 생성할 수 없는 비밀번호입니다."
 
     if email is None:
         return render(request, '/home/palette/page/templates/page/register.html', {'alert':error})
@@ -329,11 +328,14 @@ def register_e(request):
 ''' signup processing '''
 @csrf_exempt
 def signup_process(request):
-    email = request.GET['email']
-    passwd = request.GET['password']
-    name = request.GET['name']
-    Age = int(request.GET['age'])
-    gender = request.GET['gender']
+    try:
+        email = request.GET['email']
+        passwd = request.GET['password']
+        name = request.GET['name']
+        Age = int(request.GET['age'])
+        gender = request.GET['gender']
+    except Exception as e:
+        return redirect('register_e')
 
     if gender == 'M':
         genderValue = 0
@@ -355,7 +357,7 @@ def signup_process(request):
         PREP = PREP + "W"
     
     #객체 인스턴스화
-    newUser = User(userEmail=email, userPassword=passwd, userName=name, userAge=Age, userCode=PREP + CODE, userSex=gender, userPaid=0)
+    newUser = User(userEmail=email, userPassword=passwd, userName=name, userAge=Age, userCode=PREP + CODE, userSex=gender, userPaid=200)
     try :
         newUser.save(force_insert=True)
 
@@ -448,6 +450,9 @@ def setting(request):
 
         if userpaid == '-1' or userpaid == '0':
             userpaidStr = "이용권 없음"
+        elif userpaid == '200':
+            userpaidStr = "무료 프로모션 혜택 적용중!"
+
         else:
             userpaidStr = "구독권 이용 중"
 
@@ -486,8 +491,8 @@ def gallery(request):
     if userEmail == None:
         return redirect('login')
 
-    elif userEmail != None and getPaid(userEmail) == False:
-        return redirect('payment')
+    #elif userEmail != None and getPaid(userEmail) == False:
+        #return redirect('payment')
     
     else:
         code = request.GET['n']

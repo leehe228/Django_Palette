@@ -19,8 +19,8 @@
     <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
 </head>
 
-<body class='black-back' onkeydown="keypressed()" oncontextmenu='return false' onselectstart='return false' ondragstart='return false'
-    style="overflow-x:hidden; overflow-y:auto;">
+<body class='black-back' onkeydown="keypressed()" oncontextmenu='return false' onselectstart='return false'
+    ondragstart='return false' style="overflow-x:hidden; overflow-y:auto;">
     <div id="page">
         <header>
             <div id="logo">
@@ -87,7 +87,7 @@
             <div id="information" class="information" style="display:none">
                 <p class='title'>{{ t }}</p>
                 <p class='content'>{{ c|safe }}</p>
-		<p class='info'>단축키 안내<br>이전 작품 (←) / 전시회 저장 (s) / 작품 정보 (i) / 닫기 (x) / 다음 작품 (→)</p>
+                <p class='info'>단축키 안내<br>이전 작품 (←) / 전시회 저장 (s) / 작품 정보 (i) / 닫기 (x) / 다음 작품 (→) 혹은 (Space)</p>
             </div>
             </p>
 
@@ -130,20 +130,20 @@
         function infoView() {
             if (!infoState) {
                 document.getElementById("information").style.display = "block";
-		infoState = true;
+                infoState = true;
             }
             else {
                 document.getElementById("information").style.display = "none";
-		infoState = false;
+                infoState = false;
             }
-            
+
         }
 
         function keypressed() {
             document.addEventListener('keydown', function (e) {
                 const keyCode = e.keyCode;
 
-                if (keyCode == 73) {
+                if (keyCode == 73 || keyCode == 105) {
                     if (!infoState) {
                         document.getElementById("information").style.display = "block";
                         infoState = true;
@@ -152,19 +152,19 @@
                         document.getElementById("information").style.display = "none";
                         infoState = false;
                     }
-                } 
+                }
                 else if (keyCode == 37) {
                     left();
                 }
-                else if (keyCode == 39){
+                else if (keyCode == 39 || keyCode == 32) {
                     right();
                 }
-		else if (keyCode == 83){
-		    add_like();
-		}
-		else if (keyCode == 88){
-		    close_page();
-		}
+                else if (keyCode == 115 || keyCode == 83) {
+                    add_like();
+                }
+                else if (keyCode == 120 || keyCode == 88) {
+                    close_page();
+                }
             })
         }
     </script>
