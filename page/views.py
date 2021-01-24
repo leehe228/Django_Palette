@@ -355,7 +355,7 @@ def signup_process(request):
         PREP = PREP + "W"
     
     #객체 인스턴스화
-    newUser = User(userEmail=email, userPassword=passwd, userName=name, userAge=Age, userCode=PREP + CODE, userSex=gender, userPaid=1)
+    newUser = User(userEmail=email, userPassword=passwd, userName=name, userAge=Age, userCode=PREP + CODE, userSex=gender, userPaid=0)
     try :
         newUser.save(force_insert=True)
 
@@ -447,13 +447,9 @@ def setting(request):
         user_bp = User.objects.get(userEmail=username)
 
         if userpaid == '-1' or userpaid == '0':
-            userpaidStr = "구독 전"
-        elif userpaid == '1':
-            userpaidStr = "정기 구독 중"
-        elif userpaid == '2' or userpaid == '3':
-            userpaidStr = "구독 중"
+            userpaidStr = "이용권 없음"
         else:
-            userpaidStr = ""
+            userpaidStr = "구독권 이용 중"
 
         return render(request, '/home/palette/page/templates/page/setting.html', {'user_bp':user_bp, 'paid':userpaidStr})
 

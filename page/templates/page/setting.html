@@ -49,8 +49,8 @@
                             onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg"
                                 src="http://141.164.40.63:8000/media/websrc/search_icon.jpg"
                                 style="cursor:pointer;"></button></li>
-                    <li><button type="button" class="header_button" onclick="location.href='{{ loginedURL }}'"><img
-                                class="header_buttonimg" src="{{ loginedIMG }}" style="cursor:pointer;"></button></li>
+                    <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/setting/'"><img
+                                class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/setting_icon.jpg" style="cursor:pointer;"></button></li>
                 </ul>
             </nav>
         </div>
@@ -88,7 +88,7 @@
             </div>
 
             <div class='basic-label'><a>이용권</a></div>
-            <div class='basic-info'><a>이용권 없음</a></div>
+	    <div class='basic-info'><a>{{ paid }}</a></div>
             <div>
                 <button class='basic-button' style="cursor:pointer;"
                     onclick="location.href='http://softcon.ga/payment/'">이용권 구매 및 변경</button>
@@ -104,34 +104,12 @@
                 <button class='basic-button3' style="cursor:pointer;"
                     onclick="location.href='http://softcon.ga/redirect?to=logout'">회원탈퇴</button>
             </div>
-            
+
         </div>
 
     </div>
 
-    <script type="text/javascript">
-        var userEmail;
-        var userPassword;
-
-        function ch(){
-            passwd1 = document.getElementById("password").value;
-            passwd2 = document.getElementById("password2").value;
-
-            if (passwd1 == passwd2){
-                if (passwd1 == ''){
-                    alert("비밀번호를 입력하세요.");
-                }
-                else{
-		    alert("비밀번호 변경이 완료되었습니다.");
-                    window.location.href = 'http://softcon.ga/redirect?to=changepw&password='+passwd1;
-                }
-            }
-            else{
-                alert("비밀번호가 일치하지 않습니다.");
-            }
-        }
-
-    </script>
+    <script type="text/javascript" src="{% static 'js/setting.js' %}"></script>
 
 </body>
 
