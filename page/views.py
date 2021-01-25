@@ -15,6 +15,20 @@ from gallery.models import Exhibition
 
 FILE_PATH = "/home/palette/media/test/"
 
+@csrf_exempt
+def clearViews(request):
+	l = Exhibition.objects.all()
+
+	c = 0
+	for i in l:
+		c += 1
+		i.galleryViews = 0
+		i.galleryLikes = 0
+		i.save()
+		print(str(c) + "/" + str(len(l)))
+	print("Done.")
+	return redirect("home")
+
 ''' home page '''
 @csrf_exempt
 def home(request): 
@@ -237,7 +251,7 @@ def prefToString(b):
 @csrf_exempt
 def d_redirect(request):
     t = request.GET['to']
-    
+        
     # redirect to login
     if t == 'login':
         return login_process(request)
@@ -250,6 +264,12 @@ def d_redirect(request):
         return logout_process(request)
 
     elif t == 'gallery':
+        # 조회수 업 
+        code = request.GET['n']
+        o = Exhibition.objects.get(galleryCode=code)
+        o.galleryViews += 1
+        o.save()
+        
         return gallery(request)
 
     elif t == 'changepw':
@@ -529,6 +549,11 @@ def gallery(request):
         else:
             likeIMG = "http://141.164.40.63:8000/media/websrc/r_plus_icon.jpg"
             likeURL = "http://softcon.ga/gallery?to=s&n=" + code + "&p=" + page
+		
+            # 조회수 업
+            #bp = Exhibition.objects.get(galleryCode=code)
+            #bp.galleryViews += 1
+            #bp.save()
 
         return render(request, '/home/palette/page/templates/page/gallery.html', {'code':code, 'page':page, 'max_page':max_page, 't':t, 'c':mark_safe(c), 'likeIMG':likeIMG, 'likeURL':likeURL})
 
