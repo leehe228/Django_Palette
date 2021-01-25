@@ -15,7 +15,7 @@ header{
 #logo{
     position: absolute;
     top: 6px;
-    left: 360px;
+    left: 15%;
     font-family: Quicksand;
     color:black;
     font-size: 36px;
@@ -63,8 +63,8 @@ header{
 .c-text{
     pointer-events: none;
     position:absolute;
-    transform: translate(0, -100%);
-    font-family: 'Noto Sans KR', sans-serif;
+    transform: translate(10%, -100%);
+    font-family: Quicksand;
     font-size: 80px;
     color: white;
     text-shadow: 2px 2px 2px gray;
@@ -74,7 +74,7 @@ header{
 nav{
     position:fixed;
     top:20px;
-    right:360px;
+    right:15%;
     color:black;
     font-size:16px;
     font-family: Arial;

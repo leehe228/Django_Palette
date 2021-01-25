@@ -17,7 +17,7 @@ FILE_PATH = "/home/palette/media/test/"
 
 ''' home page '''
 @csrf_exempt
-def home(request):
+def home(request): 
     loginedURL = "http://softcon.ga/login/"
     loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
 
@@ -31,7 +31,7 @@ def home(request):
 
     for i in l:
         datas.append(str(i.galleryCode))
-    
+   
     """
     dic={}
     for i in l:
@@ -39,10 +39,10 @@ def home(request):
         gCode = i.galleryCode
         dic[gCode]=popularity
     
-    listTuple = sorted(dic.items(), reverse=True, key=lambda item: item[1])"""
-    
+    listTuple = sorted(dic.items(), reverse=True, key=lambda item: item[1])
+    """
     random.shuffle(datas)
-    #datas = datas[:30]
+    datas = datas[:60]
     
     return render(request, '/home/palette/page/templates/page/home.html', {'datas': datas, 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
 

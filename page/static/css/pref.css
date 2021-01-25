@@ -19,7 +19,7 @@ html, body{
 #logo{
     position: absolute;
     top: 6px;
-    left: 360px;
+    left: 15px;
     font-family: Quicksand;
     color:black; 
     font-size: 36px;
@@ -75,7 +75,7 @@ html, body{
 nav{
     position:fixed;
     top:20px;
-    right:360px;
+    right:15%;
     color:black;
     font-size:16px;
     font-family: Arial;
