@@ -452,17 +452,6 @@ def logout_process(request):
 
     return response
 
-
-@csrf_exempt
-def change_password(request):
-    email = request.COOKIES.get('userEmail')
-
-    if email is None:
-        return redirect('login')
-    else:
-        return render(request, '/home/palette/page/templates/page/change_password.html', {})
-
-
 @csrf_exempt
 def change_password_process(request):
     email = request.COOKIES.get('userEmail')

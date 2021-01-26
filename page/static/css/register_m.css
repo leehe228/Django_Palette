@@ -9,6 +9,7 @@ header{
     background-color:white;
     position: fixed;
     opacity:1.0;
+    z-index:1;
 }
 
 html, body{
@@ -19,25 +20,15 @@ html, body{
 #logo{
     position: absolute;
     width: 100%;
-    top: 6px;
+    top: 8px;
     text-align: center;
     font-family: Quicksand;
     color:black; 
-    font-size: 36px;
+    font-size: 30px;
 }
 
 #logo a{
     color: black;
-}
-
-
-.back-image{
-    width:100%;
-    height:100%;
-    z-index: -1;
-    object-fit:cover;
-    position: absolute;
-    transform: translateY(-100%);
 }
 
 .header_buttonimg {
@@ -60,15 +51,25 @@ html, body{
     color: gray;
 }
 
+.back-image{
+    width:100%;
+    height:40%;
+    top:60px;
+    z-index:-1;
+    object-fit:cover;
+    position: absolute;
+
+}
+
 .gradient-back{
     width:100%;
     height:60%;
-    background: linear-gradient( to bottom, #ffffff00, #ffffff75, #ffffff, #ffffff);
+    background: linear-gradient( to bottom, #ffffff00, #ffffff00, #ffffff, #ffffff);
 }
 
 .info-container{
     position: absolute;
-    top: 360px;
+    top: 180px;
     left: 30px;
 }
 
@@ -105,9 +106,9 @@ html, body{
 .basic-button{
     width:300px;
     left:30px;
-    bottom: 100px;
+    margin-bottom: 100px;
     height:50px;
-    position: absolute;
+    margin-top:40px;
     background-color: #222222;
     border-radius: 10px;
     border: 0px;

@@ -19,7 +19,7 @@ html, body{
 #logo{
     position: absolute;
     top: 6px;
-    left: 15px;
+    left: 15%;
     font-family: Quicksand;
     color:black; 
     font-size: 36px;
@@ -30,7 +30,7 @@ html, body{
 }
 
 .top-space{
-    height:60px;
+    display: none;
 }
 
 .header_buttonimg{
@@ -43,18 +43,6 @@ html, body{
     outline:0;
     box-shadow:none;
     background-color:white;
-}
-
-.grid_item {
-    width: 10%;
-    height: 100%;
-    float: left;
-    object-fit:cover;
-}
-
-.big-check{
-    width:20px;
-    height:20px;
 }
 
 .basic-button{
@@ -136,10 +124,11 @@ nav li{
     transition:all .6s linear;
     float: left;
     transform: translateY(-100%);
+    margin:0px;
+    padding:0px;
 }
 
 /* 추가된 부분 */
 .img-wrapper:hover .darkness{
     opacity:0.0;
 }
-

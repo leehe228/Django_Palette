@@ -12,14 +12,19 @@ header{
     z-index: 1;
 }
 
+html, body{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 #logo{
     position: absolute;
     width: 100%;
-    top: 6px;
+    top: 8px;
     text-align: center;
     font-family: Quicksand;
     color:black;
-    font-size: 36px;
+    font-size: 30px;
 }
 
 #logo a{
@@ -42,8 +47,8 @@ header{
     height:60px;
 }
 .square_view{
-    width:240px;
-    height:240px;
+    width:180px;
+    height:180px;
     object-fit:cover;
     border-radius: 10px;
 }

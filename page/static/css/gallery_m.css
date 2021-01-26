@@ -14,11 +14,11 @@ header{
 #logo{
     position: absolute;
     width: 100%;
-    top: 6px;
+    top: 8px;
     text-align: center;
     font-family: Quicksand;
     color:white; 
-    font-size: 36px;
+    font-size: 30px;
 }
 
 #logo a{
@@ -142,10 +142,7 @@ nav li a{
 }
 
 .info{
-    margin-top: 12px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-size: 10px;
-    color: #303030;
+    display:none;
 }
 
 #page{

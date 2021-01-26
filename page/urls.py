@@ -16,7 +16,6 @@ urlpatterns = [
     path('f/', views.func, name='func'),
     path('close/', views.close, name='close'),
     path('register/', views.register, name='register'),
-    path('change_password/', views.change_password, name='change_password'),
     path('pref/', views.pref, name='pref'),
     path('login_e/', views.login_e, name='login_e'),
     path('register_e/', views.register_e, name='register_e'),

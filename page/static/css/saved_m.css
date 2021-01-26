@@ -14,11 +14,11 @@ header{
 #logo{
     position: absolute;
     width: 100%;
-    top: 6px;
+    top: 8px;
     text-align: center;
     font-family: Quicksand;
     color:black; 
-    font-size: 36px;
+    font-size: 30px;
 }
 
 #logo a{
@@ -42,8 +42,8 @@ header{
     height: 60px;
 }
 .square_view{
-    width:150px;
-    height:150px;
+    width:130px;
+    height:130px;
     object-fit:cover;
     border-radius: 10px;
 }
