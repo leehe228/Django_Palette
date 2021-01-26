@@ -17,17 +17,17 @@ FILE_PATH = "/home/palette/media/test/"
 
 @csrf_exempt
 def clearViews(request):
-	l = Exhibition.objects.all()
+    """l = Exhibition.objects.all()
 
-	c = 0
-	for i in l:
-		c += 1
-		i.galleryViews = 0
-		i.galleryLikes = 0
-		i.save()
-		print(str(c) + "/" + str(len(l)))
-	print("Done.")
-	return redirect("home")
+    c = 0
+    for i in l:
+        c += 1
+        i.galleryViews = 0
+        i.galleryLikes = 0
+        i.save()
+        print(str(c) + "/" + str(len(l)))
+    print("Done.")"""
+    return redirect("home")
 
 ''' home page '''
 @csrf_exempt
@@ -84,8 +84,7 @@ def star(request):
     for j in listTuple:
         datas.append(j[0])
 
-    count = 1
-    return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas[:20], 'count':count, 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
+    return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas[:20], 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
 
 
 ''' business page '''
@@ -150,10 +149,18 @@ def search(request):
     if keyword != '':
         l = Exhibition.objects.all()
 
-        # galleryTitle, galleryCreator
+        dic={}
         for i in l:
-            if CheckSim(i.galleryTitle.strip(), keyword) or CheckSim(i.galleryCreator.strip(), keyword):
-                datas.append(i)
+            if keyword == str(i.galleryCode):
+                dic[i.galleryCode] = 100
+            else:
+                dic[i.galleryCode] = max(CheckSim(i.galleryTitle.strip(), keyword), CheckSim(i.galleryCreator.strip(), keyword))
+
+        listTuple = sorted(dic.items(), reverse=True, key=lambda item: item[1])
+
+        for j in listTuple:
+            if j[1] == 0: break
+            datas.append(Exhibition.objects.get(galleryCode=j[0]))
 
         if len(datas) != 0:
             alertString = ""
@@ -177,10 +184,7 @@ def CheckSim(s1, s2):
             if i == j:
                 count += 1
 
-    if count > 0:
-        return True
-    else:
-        return False
+    return count
 
 
 ''' login page  '''
