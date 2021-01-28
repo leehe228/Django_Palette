@@ -32,6 +32,7 @@ def clearViews(request):
 ''' home page '''
 @csrf_exempt
 def home(request): 
+
     loginedURL = "http://softcon.ga/login/"
     loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
 
@@ -85,12 +86,6 @@ def star(request):
         datas.append(j[0])
 
     return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas[:20], 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
-
-
-''' business page '''
-@csrf_exempt
-def business(request):
-    return render(request, '/home/palette/page/templates/page/main.html', {})
 
 
 ''' saved page  '''
@@ -191,6 +186,7 @@ def CheckSim(s1, s2):
 @csrf_exempt
 def login(request):
     email = request.COOKIES.get('userEmail')
+    #print(AESCipher().encrypt(email))
     error = ""
     
     if email is None:
@@ -369,6 +365,7 @@ def register_e(request):
 def signup_process(request):
     try:
         email = request.GET['email']
+        
         passwd = request.GET['password']
         name = request.GET['name']
         Age = int(request.GET['age'])
