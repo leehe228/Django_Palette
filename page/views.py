@@ -1,3 +1,5 @@
+from gallery.models import Exhibition
+from account.models import User
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -7,18 +9,17 @@ import random
 from django.utils.safestring import mark_safe
 from django.shortcuts import redirect
 
+import bcrypt
+
 import sys
 sys.path.append("..")
 
-from account.models import User
-from gallery.models import Exhibition
-
 FILE_PATH = "/home/palette/media/test/"
+
 
 @csrf_exempt
 def clearViews(request):
     """l = Exhibition.objects.all()
-
     c = 0
     for i in l:
         c += 1
@@ -29,55 +30,45 @@ def clearViews(request):
     print("Done.")"""
     return redirect("home")
 
-''' home page '''
+
 @csrf_exempt
-def home(request): 
+def home(request):
 
     loginedURL = "http://softcon.ga/login/"
     loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
 
-    if request.COOKIES.get('userEmail') != None:
-        print(request.COOKIES.get('userEmail'))
+    if request.COOKIES.get('token') != None:
+        print(request.COOKIES.get('token'))
         loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
         loginedURL = "http://softcon.ga/setting/"
-    
+
     l = Exhibition.objects.all()
     datas = list()
 
     for i in l:
         datas.append(str(i.galleryCode))
-   
-    """
-    dic={}
-    for i in l:
-        popularity = i.galleryLikes
-        gCode = i.galleryCode
-        dic[gCode]=popularity
-    
-    listTuple = sorted(dic.items(), reverse=True, key=lambda item: item[1])
-    """
+
     random.shuffle(datas)
     datas = datas[:60]
-    
-    return render(request, '/home/palette/page/templates/page/home.html', {'datas': datas, 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
+
+    return render(request, '/home/palette/page/templates/page/home.html', {'datas': datas, 'loginedIMG': loginedIMG, 'loginedURL': loginedURL})
 
 
-''' hot page '''
 @csrf_exempt
 def star(request):
     loginedURL = "http://softcon.ga/login/"
     loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
 
-    if request.COOKIES.get('userEmail') != None:
-        print(request.COOKIES.get('userEmail'))
+    if request.COOKIES.get('token') != None:
+        print(request.COOKIES.get('token'))
         loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
         loginedURL = "http://softcon.ga/setting/"
 
     l = Exhibition.objects.all()
-    dic={}
+    dic = {}
     for i in l:
         gCode = i.galleryCode
-        dic[gCode]=i.galleryViews
+        dic[gCode] = i.galleryViews
 
     listTuple = sorted(dic.items(), reverse=True, key=lambda item: item[1])
 
@@ -85,25 +76,24 @@ def star(request):
     for j in listTuple:
         datas.append(j[0])
 
-    return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas[:20], 'loginedIMG':loginedIMG, 'loginedURL':loginedURL})
+    return render(request, '/home/palette/page/templates/page/star.html', {'datas': datas[:20], 'loginedIMG': loginedIMG, 'loginedURL': loginedURL})
 
 
-''' saved page  '''
 @csrf_exempt
 def saved(request):
-    email = request.COOKIES.get('userEmail')
-    
+    email = request.COOKIES.get('token')
+
     alertString = "저장된 전시회가 없습니다. 마음에 드는 전시회를 저장한 후 한 곳에서 모아보세요!"
 
     if email is None:
         return redirect('login')
     else:
-        
+
         userLikeList = list()
         datas = list()
         try:
             user_bp = User.objects.get(userEmail=email)
-        
+
             if user_bp.userLike != None:
                 userLikeList = user_bp.userLike.split('-')
 
@@ -117,14 +107,13 @@ def saved(request):
                     if i.galleryCreator == 'None' or i.galleryCreator == 'none':
                         i.galleryCreator = ''
 
-            return render(request, '/home/palette/page/templates/page/saved.html', {'datas':datas, 'alert':alertString})
+            return render(request, '/home/palette/page/templates/page/saved.html', {'datas': datas, 'alert': alertString})
 
         except Exception as e:
             print(e)
-            return render(request, '/home/palette/page/templates/page/saved.html', {'datas':datas, 'alert':alertString})
+            return render(request, '/home/palette/page/templates/page/saved.html', {'datas': datas, 'alert': alertString})
 
 
-''' /search?key= '''
 @csrf_exempt
 def search(request):
 
@@ -133,7 +122,7 @@ def search(request):
 
     alertString = "검색하신 전시회를 찾을 수 없습니다."
 
-    if request.COOKIES.get('userEmail') != None:
+    if request.COOKIES.get('token') != None:
         loginedURL = "http://softcon.ga/setting/"
         loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
 
@@ -144,17 +133,19 @@ def search(request):
     if keyword != '':
         l = Exhibition.objects.all()
 
-        dic={}
+        dic = {}
         for i in l:
             if keyword == str(i.galleryCode):
                 dic[i.galleryCode] = 100
             else:
-                dic[i.galleryCode] = max(CheckSim(i.galleryTitle.strip(), keyword), CheckSim(i.galleryCreator.strip(), keyword))
+                dic[i.galleryCode] = max(CheckSim(i.galleryTitle.strip(), keyword), CheckSim(
+                    i.galleryCreator.strip(), keyword))
 
         listTuple = sorted(dic.items(), reverse=True, key=lambda item: item[1])
 
         for j in listTuple:
-            if j[1] == 0: break
+            if j[1] == 0:
+                break
             datas.append(Exhibition.objects.get(galleryCode=j[0]))
 
         if len(datas) != 0:
@@ -167,7 +158,7 @@ def search(request):
         if i.galleryCreator == 'None' or i.galleryCreator == 'none':
             i.galleryCreator = ''
 
-    return render(request, '/home/palette/page/templates/page/search.html', {'datas':datas, 'alert':alertString, 'keyword':keyword, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG})
+    return render(request, '/home/palette/page/templates/page/search.html', {'datas': datas, 'alert': alertString, 'keyword': keyword, 'loginedURL': loginedURL, 'loginedIMG': loginedIMG})
 
 
 @csrf_exempt
@@ -182,37 +173,29 @@ def CheckSim(s1, s2):
     return count
 
 
-''' login page  '''
 @csrf_exempt
 def login(request):
-    email = request.COOKIES.get('userEmail')
-    #print(AESCipher().encrypt(email))
+    email = request.COOKIES.get('token')
     error = ""
-    
+
     if email is None:
-        return render(request, '/home/palette/page/templates/page/login.html', {'alert':error})
+        return render(request, '/home/palette/page/templates/page/login.html', {'alert': error})
     else:
         return redirect('home')
 
+
 @csrf_exempt
 def login_e(request):
-    email = request.COOKIES.get('userEmail')
+    email = request.COOKIES.get('token')
 
     error = "가입되지 않은 계정이거나 비밀번호가 올바르지 않습니다."
 
     if email is None:
-        return render(request, '/home/palette/page/templates/page/login.html', {'alert':error})
+        return render(request, '/home/palette/page/templates/page/login.html', {'alert': error})
     else:
         return redirect('home')
 
 
-''' 404 '''
-@csrf_exempt
-def no_page(request):
-    return render(request, '', {})
-
-
-''' gallery info page '''
 @csrf_exempt
 def info(request):
     code = int(request.GET['n'])
@@ -220,18 +203,18 @@ def info(request):
     loginedURL = "http://softcon.ga/login/"
     loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
 
-    if request.COOKIES.get('userEmail') != None:
+    if request.COOKIES.get('token') != None:
         loginedURL = "http://softcon.ga/setting/"
         loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
-    
+
     E = Exhibition.objects.get(galleryCode=code)
-    
+
     if E.galleryCreator == 'None' or E.galleryCreator == 'none':
         E.galleryCreator = ''
 
     tag = prefToString(str(E.category))
 
-    return render(request, '/home/palette/page/templates/page/info.html', {'code':code, 'tag':tag, 'exhibition':E, 'loginedURL':loginedURL, 'loginedIMG':loginedIMG, 'info':mark_safe(E.galleryInfo)})
+    return render(request, '/home/palette/page/templates/page/info.html', {'code': code, 'tag': tag, 'exhibition': E, 'loginedURL': loginedURL, 'loginedIMG': loginedIMG, 'info': mark_safe(E.galleryInfo)})
 
 
 @csrf_exempt
@@ -239,19 +222,18 @@ def prefToString(b):
     l = list(b)
     res = ""
     s = ["일러스트", "사진", "회화", "디자인", "패션", "제품", "졸업", "인물", "풍경", "캐릭터"]
-    
+
     for i in range(10):
         if l[i] == '1':
             res = res + '#' + s[i] + '  '
-    
+
     return res
 
 
-''' redirect to '''
 @csrf_exempt
 def d_redirect(request):
     t = request.GET['to']
-        
+
     # redirect to login
     if t == 'login':
         return login_process(request)
@@ -264,12 +246,12 @@ def d_redirect(request):
         return logout_process(request)
 
     elif t == 'gallery':
-        # 조회수 업 
+        # 조회수 업
         code = request.GET['n']
         o = Exhibition.objects.get(galleryCode=code)
         o.galleryViews += 1
         o.save()
-        
+
         return gallery(request)
 
     elif t == 'changepw':
@@ -277,7 +259,7 @@ def d_redirect(request):
 
     elif t == 'saveprf':
         return save_pref(request)
-    
+
     elif t == 'cancelPay':
         return cancelPayment(request)
 
@@ -291,7 +273,7 @@ def d_redirect(request):
 
 @csrf_exempt
 def pay_process(request):
-    email = request.COOKIES.get('userEmail')
+    email = request.COOKIES.get('token')
     v = request.GET['v']
 
     user_bp = User.objects.get(userEmail=email)
@@ -303,7 +285,7 @@ def pay_process(request):
 
 @csrf_exempt
 def cancelPayment(request):
-    email = request.COOKIES.get('userEmail')
+    email = request.COOKIES.get('token')
 
     if email is None:
         return redirect('login')
@@ -317,7 +299,7 @@ def cancelPayment(request):
 
 @csrf_exempt
 def pref(request):
-    email = request.COOKIES.get('userEmail')
+    email = request.COOKIES.get('token')
 
     if email is None:
         return redirect('login')
@@ -327,9 +309,9 @@ def pref(request):
 
 @csrf_exempt
 def save_pref(request):
-    email = request.COOKIES.get('userEmail')
+    email = request.COOKIES.get('token')
     v = request.GET['v']
-    
+
     user_bp = User.objects.get(userEmail=email)
     user_bp.userInterest = v
     user_bp.save()
@@ -337,10 +319,9 @@ def save_pref(request):
     return redirect('home')
 
 
-''' signup page '''
 @csrf_exempt
 def register(request):
-    email = request.COOKIES.get('userEmail')
+    email = request.COOKIES.get('token')
 
     if email is None:
         return render(request, '/home/palette/page/templates/page/register.html', {})
@@ -350,51 +331,51 @@ def register(request):
 
 @csrf_exempt
 def register_e(request):
-    email = request.COOKIES.get('userEmail')
+    email = request.COOKIES.get('token')
 
     error = "가입된 계정이거나 생성할 수 없는 비밀번호입니다."
 
     if email is None:
-        return render(request, '/home/palette/page/templates/page/register.html', {'alert':error})
+        return render(request, '/home/palette/page/templates/page/register.html', {'alert': error})
     else:
         redirect('home')
 
 
-''' signup processing '''
 @csrf_exempt
 def signup_process(request):
     try:
-        email = request.GET['email']
-        
-        passwd = request.GET['password']
-        name = request.GET['name']
+        email = bcrypt.hashpw(str(request.GET['email']).encode('utf-8'), bcrypt.gensalt())
+        passwd = bcrypt.hashpw(str(request.GET['password']).encode('utf-8'), bcrypt.gensalt())
+        name = bcrypt.hashpw(str(request.GET['name']).encode('utf-8'), bcrypt.gensalt())
         Age = int(request.GET['age'])
-        gender = request.GET['gender']
+        g = request.GET['gender']
+    
     except Exception as e:
         return redirect('register_e')
 
-    if gender == 'M':
+    if g == 'M':
         genderValue = 0
     else:
         genderValue = 1
 
     CODE = mkUserCode()
-    l = ['A','R','T','I','S','L','O','V','E']
+    l = ['A', 'R', 'T', 'I', 'S', 'L', 'O', 'V', 'E']
 
     if (int(Age) > 89):
         Age = "89"
     PREP = l[int(Age) // 10]
 
-    if(gender == "UNKNOWN"):
+    if(g == "UNKNOWN"):
         PREP = PREP + "U"
-    elif(gender == "MAN"):
+    elif(g == "MAN"):
         PREP = PREP + "M"
-    elif(gender == "WOMAN"):
+    elif(g == "WOMAN"):
         PREP = PREP + "W"
-    
+
     #객체 인스턴스화
-    newUser = User(userEmail=email, userPassword=passwd, userName=name, userAge=Age, userCode=PREP + CODE, userInterest="0000000000", userSex=gender, userPaid=200)
-    try :
+    newUser = User(userEmail=email, userPassword=passwd, userName=name, userAge=Age,
+                   userCode=PREP + CODE, userInterest="0000000000", userSex=g, userPaid=200)
+    try:
         newUser.save(force_insert=True)
 
         response = redirect('pref')
@@ -404,13 +385,13 @@ def signup_process(request):
     except Exception as e:
         print(e)
         return redirect('register_e')
-    
+
 
 @csrf_exempt
 def mkUserCode():
     f = open(FILE_PATH + "userCode.txt", 'r')
     line = f.read()
-    if (line==''):
+    if (line == ''):
         line = '0'
     CODE = int(line) + 1
     f.close()
@@ -421,14 +402,17 @@ def mkUserCode():
     return str(CODE)
 
 
-''' login processing '''
 @csrf_exempt
 def login_process(request):
     email = request.GET['email']
     passwd = request.GET['password']
     
+    print(email, passwd)
+
     queryset = User.objects.filter(userEmail=email, userPassword=passwd)
     
+    print(queryset)
+
     if (queryset):
         # save cookie
         response = redirect('home')
@@ -439,20 +423,21 @@ def login_process(request):
         return redirect('login_e')
 
 
-''' logout processing '''
 @csrf_exempt
 def logout_process(request):
-    email = request.COOKIES.get('userEmail')
+    email = request.COOKIES.get('token')
 
-    response = redirect('home')
-    response.delete_cookie('userEmail')
-
+    if email != None:
+        response = redirect('home')
+        response.delete_cookie('userEmail')
+    
     return response
+
 
 @csrf_exempt
 def change_password_process(request):
-    email = request.COOKIES.get('userEmail')
-    newPassword = request.GET['password']
+    email = request.COOKIES.get('token')
+    newPassword = bcrypt.hashpw(str(request.GET['password']).encode('utf-8'), bcrypt.gensalt())
 
     user_bp = User.objects.get(userEmail=email)
     user_bp.userPassword = newPassword
@@ -461,16 +446,15 @@ def change_password_process(request):
     return redirect('setting')
 
 
-''' setting page '''
 @csrf_exempt
 def setting(request):
-    username = request.COOKIES.get('userEmail')
+    username = request.COOKIES.get('token')
 
     if username is None:
         return redirect('home')
     else:
         userpaid = getPaid(username)
-    
+
         user_bp = User.objects.get(userEmail=username)
 
         if userpaid == '-1' or userpaid == '0':
@@ -481,10 +465,9 @@ def setting(request):
         else:
             userpaidStr = "구독권 이용 중"
 
-        return render(request, '/home/palette/page/templates/page/setting.html', {'user_bp':user_bp, 'paid':userpaidStr})
+        return render(request, '/home/palette/page/templates/page/setting.html', {'user_bp': user_bp, 'paid': userpaidStr})
 
 
-''' check paid '''
 @csrf_exempt
 def getPaid(userEmailString):
     try:
@@ -492,17 +475,16 @@ def getPaid(userEmailString):
         result = str(user_bp.userPaid)
 
         return result
-    
+
     except Exception as e:
         print(e)
         return -1
 
 
-''' gallery page  '''
 @csrf_exempt
 def gallery(request):
-    userEmail = request.COOKIES.get('userEmail')
-    
+    userEmail = request.COOKIES.get('token')
+
     try:
         to = request.GET['to']
     except Exception as e:
@@ -518,16 +500,16 @@ def gallery(request):
 
     #elif userEmail != None and getPaid(userEmail) == False:
         #return redirect('payment')
-    
+
     else:
         code = request.GET['n']
         page = request.GET['p']
-        
+
         E = Exhibition.objects.get(galleryCode=code)
 
         min_page = 1
         max_page = E.galleryAmount
-        
+
         t = E.titles.split('-')[int(page) - 1]
         c = E.contents.split('-')[int(page) - 1]
         if c == 'None' or c == 'none':
@@ -539,21 +521,20 @@ def gallery(request):
         else:
             likeIMG = "http://141.164.40.63:8000/media/websrc/r_plus_icon.jpg"
             likeURL = "http://softcon.ga/gallery?to=s&n=" + code + "&p=" + page
-		
+
             # 조회수 업
             #bp = Exhibition.objects.get(galleryCode=code)
             #bp.galleryViews += 1
             #bp.save()
 
-        return render(request, '/home/palette/page/templates/page/gallery.html', {'code':code, 'page':page, 'max_page':max_page, 't':t, 'c':mark_safe(c), 'likeIMG':likeIMG, 'likeURL':likeURL})
+        return render(request, '/home/palette/page/templates/page/gallery.html', {'code': code, 'page': page, 'max_page': max_page, 't': t, 'c': mark_safe(c), 'likeIMG': likeIMG, 'likeURL': likeURL})
 
 
-''' payment page '''
 @csrf_exempt
 def payment(request):
-    
-    email = request.COOKIES.get('userEmail')
-    
+
+    email = request.COOKIES.get('token')
+
     if email is None:
         return redirect('login')
     else:
@@ -568,15 +549,14 @@ def payment(request):
         elif p == 2 or p == 3:
             paid = "구독 중입니다."
 
-        return render(request, '/home/palette/page/templates/page/payment.html', {'user':user_bp, 'paid':paid})
+        return render(request, '/home/palette/page/templates/page/payment.html', {'user': user_bp, 'paid': paid})
 
 
-''' add like '''
 @csrf_exempt
 def setLike(request):
-    email = request.COOKIES.get('userEmail')
+    email = request.COOKIES.get('token')
     code = request.GET['n']
-    
+
     user_bp = User.objects.get(userEmail=email)
 
     if user_bp.userLike == None or user_bp.userLike == '':
@@ -586,19 +566,18 @@ def setLike(request):
         likeList.append(code)
         likeString = '-'.join(likeList)
         user_bp.userLike = likeString
-    
+
     user_bp.save()
 
 
-''' cancel like '''
 @csrf_exempt
 def cancelLike(request):
-    email = request.COOKIES.get('userEmail')
+    email = request.COOKIES.get('token')
     code = request.GET['n']
 
     user_bp = User.objects.get(userEmail=email)
     likeList = user_bp.userLike.split('-')
-    
+
     try:
         likeList.remove(code)
     except Exception as e:
@@ -608,28 +587,26 @@ def cancelLike(request):
     user_bp.save()
 
 
-''' check like '''
 @csrf_exempt
 def checkLike(email, code):
     user_bp = User.objects.get(userEmail=email)
     likes = user_bp.userLike
-    
+
     if code in likes:
         return True
     else:
         return False
 
 
-''' /f?to= '''
 @csrf_exempt
 def func(request):
     n = request.GET['to']
-    
+
     print(n)
 
     if n == 'setLike':
         setLike(request)
-    
+
     elif n == 'cancelLike':
         cancelLike(request)
 
@@ -637,9 +614,8 @@ def func(request):
         pass
 
     return redirect('close')
-    
 
-''' close page with JS '''
+
 @csrf_exempt
 def close(request):
     return render(request, '/home/palette/page/templates/page/close.html', {})
@@ -648,3 +624,4 @@ def close(request):
 @csrf_exempt
 def private_privacy(request):
     return render(request, '/home/palette/page/templates/page/private_privacy.html', {})
+
