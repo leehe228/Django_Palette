@@ -196,5 +196,5 @@ function add10() {
 function save() {
     var v = v1 + v2 + v3 + v4 + v5 + v6 + v7 + v8 + v9 + v10; 
 
-    location.href = 'http://softcon.ga/redirect?to=saveprf&v=' + v;
+    location.href = 'http://117.16.137.17:8000/redirect?to=saveprf&v=' + v;
 }

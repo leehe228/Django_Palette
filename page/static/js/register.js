@@ -6,7 +6,7 @@ var genderButton;
 var gender;
 
 function openPrivacy() {
-    window.open("http://softcon.ga/private_privacy/");
+    window.open("http://117.16.137.17:8000/private_privacy/");
 }
 
 function CheckEmail(str) {
@@ -54,7 +54,7 @@ function input() {
                         alert("비밀번호는 8자 이상 입력해주세요.");
                     }
                     else {
-                        window.location.href = 'http://softcon.ga/redirect?to=signup&email=' + userEmail + '&password=' + userPassword + '&name=' + name + '&age=' + age + '&gender=' + gender;
+                        window.location.href = 'http://117.16.137.17:8000/redirect?to=signup&email=' + userEmail + '&password=' + userPassword + '&name=' + name + '&age=' + age + '&gender=' + gender;
                     }
                 }
 

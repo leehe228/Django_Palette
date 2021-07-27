@@ -16,6 +16,7 @@ sys.path.append("..")
 
 FILE_PATH = "/home/palette/media/test/"
 
+TOPURL = "http://117.16.137.17:8000"
 
 @csrf_exempt
 def clearViews(request):
@@ -34,13 +35,13 @@ def clearViews(request):
 @csrf_exempt
 def home(request):
 
-    loginedURL = "http://softcon.ga/login/"
-    loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
+    loginedURL = TOPURL + "/login/"
+    loginedIMG = TOPURL + "/media/websrc/user_icon.jpg"
 
     if request.COOKIES.get('token') != None:
         print(request.COOKIES.get('token'))
-        loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
-        loginedURL = "http://softcon.ga/setting/"
+        loginedIMG = TOPURL + "/media/websrc/setting_icon.jpg"
+        loginedURL = TOPURL + "/setting/"
 
     l = Exhibition.objects.all()
     datas = list()
@@ -56,13 +57,13 @@ def home(request):
 
 @csrf_exempt
 def star(request):
-    loginedURL = "http://softcon.ga/login/"
-    loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
+    loginedURL = TOPURL + "/login/"
+    loginedIMG = TOPURL + "/media/websrc/user_icon.jpg"
 
     if request.COOKIES.get('token') != None:
         print(request.COOKIES.get('token'))
-        loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
-        loginedURL = "http://softcon.ga/setting/"
+        loginedIMG = TOPURL + "/media/websrc/setting_icon.jpg"
+        loginedURL = TOPURL + "/setting/"
 
     l = Exhibition.objects.all()
     dic = {}
@@ -117,14 +118,14 @@ def saved(request):
 @csrf_exempt
 def search(request):
 
-    loginedURL = "http://softcon.ga/login/"
-    loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
+    loginedURL = TOPURL + "/login/"
+    loginedIMG = TOPURL + "/media/websrc/user_icon.jpg"
 
     alertString = "검색하신 전시회를 찾을 수 없습니다."
 
     if request.COOKIES.get('token') != None:
-        loginedURL = "http://softcon.ga/setting/"
-        loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
+        loginedURL = TOPURL + "/setting/"
+        loginedIMG = TOPURL + "/media/websrc/setting_icon.jpg"
 
     keyword = request.GET['key'].strip()
 
@@ -200,12 +201,12 @@ def login_e(request):
 def info(request):
     code = int(request.GET['n'])
 
-    loginedURL = "http://softcon.ga/login/"
-    loginedIMG = "http://141.164.40.63:8000/media/websrc/user_icon.jpg"
+    loginedURL = TOPURL + "/login/"
+    loginedIMG = TOPURL + "/media/websrc/user_icon.jpg"
 
     if request.COOKIES.get('token') != None:
-        loginedURL = "http://softcon.ga/setting/"
-        loginedIMG = "http://141.164.40.63:8000/media/websrc/setting_icon.jpg"
+        loginedURL = TOPURL + "/setting/"
+        loginedIMG = TOPURL + "/media/websrc/setting_icon.jpg"
 
     E = Exhibition.objects.get(galleryCode=code)
 
@@ -344,9 +345,12 @@ def register_e(request):
 @csrf_exempt
 def signup_process(request):
     try:
-        email = bcrypt.hashpw(str(request.GET['email']).encode('utf-8'), bcrypt.gensalt())
-        passwd = bcrypt.hashpw(str(request.GET['password']).encode('utf-8'), bcrypt.gensalt())
-        name = bcrypt.hashpw(str(request.GET['name']).encode('utf-8'), bcrypt.gensalt())
+        # email = bcrypt.hashpw(str(request.GET['email']).encode('utf-8'), bcrypt.gensalt())
+        # passwd = bcrypt.hashpw(str(request.GET['password']).encode('utf-8'), bcrypt.gensalt())
+        # name = bcrypt.hashpw(str(request.GET['name']).encode('utf-8'), bcrypt.gensalt())
+        email = request.GET['email']
+        passwd = request.GET['password']
+        name = request.GET['name']
         Age = int(request.GET['age'])
         g = request.GET['gender']
     
@@ -379,7 +383,7 @@ def signup_process(request):
         newUser.save(force_insert=True)
 
         response = redirect('pref')
-        response.set_cookie('userEmail', email)
+        response.set_cookie('token', email)
 
         return response
     except Exception as e:
@@ -416,7 +420,7 @@ def login_process(request):
     if (queryset):
         # save cookie
         response = redirect('home')
-        response.set_cookie('userEmail', email)
+        response.set_cookie('token', email)
 
         return response
     else:
@@ -429,7 +433,7 @@ def logout_process(request):
 
     if email != None:
         response = redirect('home')
-        response.delete_cookie('userEmail')
+        response.delete_cookie('token')
     
     return response
 
@@ -437,7 +441,8 @@ def logout_process(request):
 @csrf_exempt
 def change_password_process(request):
     email = request.COOKIES.get('token')
-    newPassword = bcrypt.hashpw(str(request.GET['password']).encode('utf-8'), bcrypt.gensalt())
+    # newPassword = bcrypt.hashpw(str(request.GET['password']).encode('utf-8'), bcrypt.gensalt())
+    newPassword = request.GET['password']
 
     user_bp = User.objects.get(userEmail=email)
     user_bp.userPassword = newPassword
@@ -516,11 +521,11 @@ def gallery(request):
             c = ''
 
         if checkLike(userEmail, code):
-            likeIMG = "http://141.164.40.63:8000/media/websrc/r_check_icon.jpg"
-            likeURL = "http://softcon.ga/gallery?to=c&n=" + code + "&p=" + page
+            likeIMG = TOPURL + "/media/websrc/r_check_icon.jpg"
+            likeURL = TOPURL + "/gallery?to=c&n=" + code + "&p=" + page
         else:
-            likeIMG = "http://141.164.40.63:8000/media/websrc/r_plus_icon.jpg"
-            likeURL = "http://softcon.ga/gallery?to=s&n=" + code + "&p=" + page
+            likeIMG = TOPURL + "/media/websrc/r_plus_icon.jpg"
+            likeURL = TOPURL + "/gallery?to=s&n=" + code + "&p=" + page
 
             # 조회수 업
             #bp = Exhibition.objects.get(galleryCode=code)

@@ -16,7 +16,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
-    <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://117.16.137.17:8000/media/websrc/favicon.ico" type="image/x-icon">
 </head>
 
 <body class='black-back' onkeydown="keypressed()" oncontextmenu='return false' onselectstart='return false'
@@ -26,7 +26,7 @@
             <div id="logo">
 
                 <body>
-                    <a href="http://softcon.ga/">palette</a>
+                    <a href="http://117.16.137.17:8000/">palette</a>
                 </body>
             </div>
         </header>
@@ -34,25 +34,25 @@
         <div id="tab">
             <nav>
                 <ul>
-                    <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img
+                    <li><button type="button" class="header_button" onclick="location.href='http://117.16.137.17:8000/'"><img
                                 class="header_buttonimg"
-                                src="http://141.164.40.63:8000/media/websrc/home_black_icon.jpg"
+                                src="http://117.16.137.17:8000/media/websrc/home_black_icon.jpg"
                                 style="cursor:pointer;"></button></li>
                     <li><button type="button" class="header_button"
-                            onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg"
-                                src="http://141.164.40.63:8000/media/websrc/star_black_icon.jpg"
+                            onclick="location.href='http://117.16.137.17:8000/star/'"><img class="header_buttonimg"
+                                src="http://117.16.137.17:8000/media/websrc/star_black_icon.jpg"
                                 style="cursor:pointer;"></button></li>
                     <li><button type="button" class="header_button"
-                            onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg"
-                                src="http://141.164.40.63:8000/media/websrc/saved_black_icon.jpg"
+                            onclick="location.href='http://117.16.137.17:8000/saved/'"><img class="header_buttonimg"
+                                src="http://117.16.137.17:8000/media/websrc/saved_black_icon.jpg"
                                 style="cursor:pointer;"></button></li>
                     <li><button type="button" class="header_button"
-                            onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg"
-                                src="http://141.164.40.63:8000/media/websrc/search_black_icon.jpg"
+                            onclick="location.href='http://117.16.137.17:8000/search?key='"><img class="header_buttonimg"
+                                src="http://117.16.137.17:8000/media/websrc/search_black_icon.jpg"
                                 style="cursor:pointer;"></button></li>
                     <li><button type="button" class="header_button"
-                            onclick="location.href='http://softcon.ga/setting/'"><img class="header_buttonimg"
-                                src="http://141.164.40.63:8000/media/websrc/setting_black_icon.jpg"
+                            onclick="location.href='http://117.16.137.17:8000/setting/'"><img class="header_buttonimg"
+                                src="http://117.16.137.17:8000/media/websrc/setting_black_icon.jpg"
                                 style="cursor:pointer;"></button></li>
                 </ul>
             </nav>
@@ -69,19 +69,19 @@
 
             <p class='container'>
                 <img id='main-image' class='main-image'
-                    src="http://141.164.40.63:8000/media/database/{{ code }}/{{ page }}.jpg">
+                    src="http://117.16.137.17:8000/media/database/{{ code }}/{{ page }}.jpg">
 
             <div class='remote-controller'>
                 <button type="button" class="rem_button" onclick="left();"><img class="rem_button_img"
-                        src="http://141.164.40.63:8000/media/websrc/r_left_icon.jpg" style="cursor:pointer;"></button>
+                        src="http://117.16.137.17:8000/media/websrc/r_left_icon.jpg" style="cursor:pointer;"></button>
                 <button type="button" class="rem_button" onclick="add_like();"><img class="rem_button_img"
                         src="{{ likeIMG }}" style="cursor:pointer;"></button>
                 <button type="button" class="rem_button" onclick="infoView();"><img class="rem_button_img"
-                        src="http://141.164.40.63:8000/media/websrc/r_info_icon.jpg" style="cursor:pointer;"></button>
+                        src="http://117.16.137.17:8000/media/websrc/r_info_icon.jpg" style="cursor:pointer;"></button>
                 <button type="button" class="rem_button" onclick="close_page();"><img class="rem_button_img"
-                        src="http://141.164.40.63:8000/media/websrc/r_close_icon.jpg" style="cursor:pointer;"></button>
+                        src="http://117.16.137.17:8000/media/websrc/r_close_icon.jpg" style="cursor:pointer;"></button>
                 <button type="button" class="rem_button" onclick="right();"><img class="rem_button_img"
-                        src="http://141.164.40.63:8000/media/websrc/r_right_icon.jpg" style="cursor:pointer;"></button>
+                        src="http://117.16.137.17:8000/media/websrc/r_right_icon.jpg" style="cursor:pointer;"></button>
             </div>
 
             <div id="information" class="information" style="display:none">
@@ -105,7 +105,7 @@
 
         function left() {
             if (p > min_page) {
-                window.location.href = "http://softcon.ga/gallery?n={{ code }}&p=" + String(p - 1);
+                window.location.href = "http://117.16.137.17:8000/gallery?n={{ code }}&p=" + String(p - 1);
             }
             else {
                 alert("첫 번째 작품입니다.");
@@ -113,7 +113,7 @@
         }
         function right() {
             if (p < max_page) {
-                window.location.href = "http://softcon.ga/gallery?n={{ code }}&p=" + String(p + 1);
+                window.location.href = "http://117.16.137.17:8000/gallery?n={{ code }}&p=" + String(p + 1);
             }
             else {
                 alert("마지막 작품입니다.");
@@ -124,7 +124,7 @@
         }
 
         function close_page() {
-            window.location.href = "http://softcon.ga/info?n={{ code }}";
+            window.location.href = "http://117.16.137.17:8000/info?n={{ code }}";
         }
 
         function infoView() {

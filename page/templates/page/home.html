@@ -16,7 +16,7 @@
 
 	    <meta name="viewport" content="width=device-width, initial-scale=0.8">
 
-        <link rel="shortcut icon" href="http://141.164.40.63:8000/media/websrc/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="http://117.16.137.17:8000/media/websrc/favicon.ico" type="image/x-icon">
 	
     </head>
 
@@ -26,7 +26,7 @@
             <header>
                 <div id="logo">
                     <body>
-                        <a href="http://softcon.ga/">palette</a>
+                        <a href="http://117.16.137.17:8000/">palette</a>
                     </body>
                 </div>
             </header>
@@ -34,10 +34,10 @@
             <div id="tab">
                 <nav>
                     <ul>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/home_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/star/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/star_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/saved/'"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/saved_icon.jpg" style="cursor:pointer;"></button></li>
-                        <li><button type="button" class="header_button" onclick="location.href='http://softcon.ga/search?key='"><img class="header_buttonimg" src="http://141.164.40.63:8000/media/websrc/search_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://117.16.137.17:8000/'"><img class="header_buttonimg" src="http://117.16.137.17:8000/media/websrc/home_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://117.16.137.17:8000/star/'"><img class="header_buttonimg" src="http://117.16.137.17:8000/media/websrc/star_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://117.16.137.17:8000/saved/'"><img class="header_buttonimg" src="http://117.16.137.17:8000/media/websrc/saved_icon.jpg" style="cursor:pointer;"></button></li>
+                        <li><button type="button" class="header_button" onclick="location.href='http://117.16.137.17:8000/search?key='"><img class="header_buttonimg" src="http://117.16.137.17:8000/media/websrc/search_icon.jpg" style="cursor:pointer;"></button></li>
 			            <li><button type="button" class="header_button" onclick="location.href='{{ loginedURL }}'"><img class="header_buttonimg" src={{ loginedIMG }} style="cursor:pointer;"></button></li>
                     </ul>
                 </nav>
@@ -47,12 +47,12 @@
                 <p class='top-space'></p>
 
                 <section>
-                    <img class='banner' src="http://141.164.40.63:8000/media/websrc/home/banner.jpg">
+                    <img class='banner' src="http://117.16.137.17:8000/media/websrc/home/banner.jpg">
                 </section>
 
                 <div class="box-container">
                     {% for data in datas %}
-		    <div class="box"><img onclick="location.href='http://softcon.ga/info?n={{ data }}'" class='square_view' src="http://141.164.40.63:8000/media/database/{{ data }}/{% random_int 1 4 %}.jpg" style="cursor:pointer;"></div>
+		    <div class="box"><img onclick="location.href='http://117.16.137.17:8000/info?n={{ data }}'" class='square_view' src="http://117.16.137.17:8000/media/database/{{ data }}/{% random_int 1 4 %}.jpg" style="cursor:pointer;"></div>
                     {% endfor %}
                 </div>
 
@@ -61,7 +61,7 @@
 
             <footer id="footer">
                 <body>
-                    <img src="http://141.164.40.63:8000/media/websrc/comlogo.jpg">
+                    <img src="http://117.16.137.17:8000/media/websrc/comlogo.jpg">
                     <section>
 			<a>SOFTCON 소프트콘 | 사업자 등록번호 631-48-00688 (정보통신업)<br></a>
                         <a>대표 이호은 | 공동대표 박민석 박하민</a>

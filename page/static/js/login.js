@@ -9,7 +9,7 @@ function input(){
         alert('이메일과 비밀번호를 입력해주세요.');
     }
     else{
-        window.location.href = 'http://softcon.ga/redirect?to=login&email='+userEmail+'&password='+userPassword;
+        window.location.href = 'http://117.16.137.17:8000/redirect?to=login&email='+userEmail+'&password='+userPassword;
     }
 }
 

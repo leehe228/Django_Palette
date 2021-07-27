@@ -17,7 +17,7 @@ function ch() {
             }
             else {
 		alert("비밀번호 변경이 완료되었습니다.");
-                window.location.href = 'http://softcon.ga/redirect?to=changepw&password=' + passwd1;
+                window.location.href = 'http://117.16.137.17:8000/redirect?to=changepw&password=' + passwd1;
             }
         }
 
